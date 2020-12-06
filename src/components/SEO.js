@@ -12,7 +12,7 @@ const SeoConfig = {
     site_name: 'Agallio',
     images: [
       {
-        url: 'https://agallio.vercel.app/images/aga.png',
+        url: 'https://agallio.vercel.app/images/og-aga.png',
         alt: 'Agallio Samai',
       },
     ],
