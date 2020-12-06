@@ -106,7 +106,7 @@ export default function Header() {
           zIndex="-1"
           boxShadow="0 1px 0px rgba(0, 0, 0, 0.06)"
           backgroundColor={bgColor[colorMode]}
-          style={{ backdropFilter: 'saturate(180%) blur(20px)' }}
+          css={{ backdropFilter: 'saturate(180%) blur(20px)' }}
         />
         {isExpanded ? (
           <>
@@ -205,7 +205,7 @@ export default function Header() {
           zIndex="-1"
           boxShadow="0 1px 0 rgba(0, 0, 0, 0.06)"
           backgroundColor={bgColor[colorMode]}
-          style={{ backdropFilter: 'saturate(180%) blur(20px)' }}
+          css={{ backdropFilter: 'saturate(180%) blur(20px)' }}
         />
       </Box>
     </>
