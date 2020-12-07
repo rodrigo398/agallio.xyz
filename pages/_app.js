@@ -21,6 +21,10 @@ const GlobalStyles = () => {
       styles={css`
         ${colorMode === 'light' ? prismLightTheme : prismDarkTheme}
 
+        html, body {
+          background: ${colorMode === 'light' ? 'white' : 'black'};
+        }
+
         #__next {
           display: flex;
           flex-direction: column;
@@ -36,7 +40,7 @@ const GlobalStyles = () => {
 export default function App({ Component, pageProps, router }) {
   return (
     <ChakraProvider theme={theme}>
-      <ColorModeProvider options={{ useSystemColorMode: false }}>
+      <ColorModeProvider options={{ useSystemColorMode: true }}>
         <GlobalStyles />
         <SEO />
         {router.pathname !== '/_error' ? (
