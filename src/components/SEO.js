@@ -14,6 +14,8 @@ const SeoConfig = {
       {
         url: 'https://agallio.vercel.app/images/og-aga.png',
         alt: 'Agallio Samai',
+        width: 1000,
+        height: 500,
       },
     ],
   },
