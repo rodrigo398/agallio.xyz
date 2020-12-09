@@ -3,9 +3,11 @@ import Head from 'next/head'
 import {
   Alert,
   Box,
+  Center,
   Code,
   Divider,
   Heading,
+  Image,
   Kbd,
   Link as ChakraLink,
   Text,
@@ -157,6 +159,11 @@ const MDXComponents = {
   h3: (props) => <DocsHeading as="h3" size="md" fontWeight="bold" {...props} />,
   inlineCode: (props) => (
     <Code colorScheme="yellow" fontSize="0.84em" {...props} />
+  ),
+  img: (props) => (
+    <Center>
+      <Image mb={6} {...props} />
+    </Center>
   ),
   kbd: Kbd,
   br: (props) => <Box height="24px" {...props} />,
