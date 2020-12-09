@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import { Box, Flex, Heading, Text, useColorMode } from '@chakra-ui/react'
-import dayjs from 'dayjs'
+import dayjs from '~/utils/dayjs'
 
 export default function BlogItem({ filePath, data }) {
   const { colorMode } = useColorMode()
@@ -37,7 +37,7 @@ export default function BlogItem({ filePath, data }) {
           {data.summary}
         </Text>
         <Text fontSize="sm" color={dateTextColor[colorMode]}>
-          {dayjs(data.date, 'DD-MM-YYYY').format('dddd, DD MMM YYYY')}
+          {dayjs(data.date, 'DD-MM-YYYY').format('dddd, DD MMMM YYYY')}
         </Text>
       </Box>
     </Link>

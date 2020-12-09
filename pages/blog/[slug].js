@@ -19,12 +19,12 @@ import {
   Text,
   useColorMode,
 } from '@chakra-ui/react'
-import dayjs from 'dayjs'
 
 // Components
 import components from '~/components/MDXComponents'
 
 // Utilities
+import dayjs from '~/utils/dayjs'
 import { postFilePaths, POSTS_PATH } from '~/utils/mdxUtils'
 
 export default function PostPage({ source, frontMatter }) {
