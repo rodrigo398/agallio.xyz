@@ -141,6 +141,12 @@ const prismBaseTheme = css`
       margin-top: 0;
     }
   }
+
+  @media (min-width: 320px) and (max-width: ${theme.breakpoints.md}) {
+    pre[class*='language-'] {
+      width: ${theme.sizes.xs};
+    }
+  }
 `
 
 export const prismLightTheme = css`

@@ -160,11 +160,7 @@ const MDXComponents = {
   inlineCode: (props) => (
     <Code colorScheme="yellow" fontSize="0.84em" {...props} />
   ),
-  img: (props) => (
-    <Center>
-      <Img mb={6} {...props} />
-    </Center>
-  ),
+  img: (props) => <Img mb={6} {...props} />,
   kbd: Kbd,
   br: (props) => <Box height="24px" {...props} />,
   hr: Hr,

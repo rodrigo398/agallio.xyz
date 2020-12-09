@@ -60,7 +60,13 @@ export default function PostPage({ source, frontMatter }) {
           cardType: 'summary_large_image',
         }}
       />
-      <Container px="4" py="32" maxW="xl" suppressHydrationWarning={true}>
+      <Container
+        px="4"
+        pt="32"
+        pb="4"
+        maxW="xl"
+        suppressHydrationWarning={true}
+      >
         {process.browser ? (
           <Stack
             as="article"

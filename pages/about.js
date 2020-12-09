@@ -44,7 +44,13 @@ export default function About({ source, frontMatter }) {
           cardType: 'summary_large_image',
         }}
       />
-      <Container px="4" py="32" maxW="xl" suppressHydrationWarning={true}>
+      <Container
+        px="4"
+        pt="32"
+        pb="16"
+        maxW="xl"
+        suppressHydrationWarning={true}
+      >
         {process.browser ? (
           <Stack as="article" flexDir="column">
             <Flex alignItems="center" justifyContent="center" flexDir="column">

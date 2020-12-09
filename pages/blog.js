@@ -29,7 +29,7 @@ export default function Blog({ posts }) {
       <Head>
         <title>Blog | Agallio Samai</title>
       </Head>
-      <Container px="4" py="32" maxW="xl">
+      <Container px="4" pt="32" pb="8" maxW="xl">
         <Stack
           as="main"
           m="0 auto 4rem auto"
