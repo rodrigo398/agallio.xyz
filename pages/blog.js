@@ -27,7 +27,7 @@ export default function Blog({ posts }) {
   return (
     <>
       <Head>
-        <title>Blog | agall.io</title>
+        <title>Blog | Agallio Samai</title>
       </Head>
       <Container px="4" py="32" maxW="xl">
         <Stack

@@ -19,6 +19,7 @@ import {
   Text,
   useColorMode,
 } from '@chakra-ui/react'
+import { NextSeo } from 'next-seo'
 
 // Components
 import components from '~/components/MDXComponents'
@@ -38,8 +39,27 @@ export default function PostPage({ source, frontMatter }) {
   return (
     <>
       <Head>
-        <title>{frontMatter.title} | agall.io</title>
+        <title>{frontMatter.title} | Agallio Samai</title>
       </Head>
+      <NextSeo
+        title={`${frontMatter.title} | Agallio Samai`}
+        description={frontMatter.summary}
+        openGraph={{
+          url: 'https://agallio.vercel.app/blog',
+          title: frontMatter.title,
+          description: frontMatter.summary,
+          site_name: 'Agallio Samai',
+          images: [
+            {
+              url: 'http://agallio.vercel.app/images/og-blog.png',
+              alt: 'Blog - Agallio Samai',
+            },
+          ],
+        }}
+        twitter={{
+          cardType: 'summary_large_image',
+        }}
+      />
       <Container px="4" py="32" maxW="xl" suppressHydrationWarning={true}>
         {process.browser ? (
           <Stack

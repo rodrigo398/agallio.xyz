@@ -11,7 +11,7 @@ export default function Index() {
   return (
     <>
       <Head>
-        <title>Beranda | agall.io</title>
+        <title>Beranda | Agallio Samai</title>
       </Head>
       <Container px="4" py={['28', '32']} maxW="xl">
         <Box>

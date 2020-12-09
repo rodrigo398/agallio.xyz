@@ -9,7 +9,7 @@ const SeoConfig = {
     type: 'website',
     locale: 'id_ID',
     url: 'https://agallio.vercel.app',
-    site_name: 'Agallio',
+    site_name: 'Agallio Samai',
     images: [
       {
         url: 'http://agallio.vercel.app/images/og-aga.png',

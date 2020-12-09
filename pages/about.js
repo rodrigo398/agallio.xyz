@@ -9,6 +9,7 @@ import codeTitles from 'remark-code-titles'
 import rSlug from 'rehype-slug'
 import autolinkHeadings from 'rehype-autolink-headings'
 import { Avatar, Container, Flex, Heading, Stack, Text } from '@chakra-ui/react'
+import { NextSeo } from 'next-seo'
 
 // Components
 import components from '~/components/MDXComponents'
@@ -22,8 +23,27 @@ export default function About({ source, frontMatter }) {
   return (
     <>
       <Head>
-        <title>Tentang | agall.io</title>
+        <title>Tentang | Agallio Samai</title>
       </Head>
+      <NextSeo
+        title="Tentang | Agallio Samai"
+        description="Tentang Saya"
+        openGraph={{
+          url: 'https://agallio.vercel.app/about',
+          title: 'Tentang | Agallio Samai',
+          description: 'Tentang Saya',
+          site_name: 'Agallio Samai',
+          images: [
+            {
+              url: 'http://agallio.vercel.app/images/og-about.png',
+              alt: 'Tentang - Agallio Samai',
+            },
+          ],
+        }}
+        twitter={{
+          cardType: 'summary_large_image',
+        }}
+      />
       <Container px="4" py="32" maxW="xl" suppressHydrationWarning={true}>
         {process.browser ? (
           <Stack as="article" flexDir="column">
