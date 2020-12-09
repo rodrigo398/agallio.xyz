@@ -64,7 +64,7 @@ export default function Header() {
   const { colorMode, toggleColorMode } = useColorMode()
   const bgColor = {
     light: 'rgba(255, 255, 255, 0.6)',
-    dark: 'rgba(0, 0, 0, 0.6)',
+    dark: 'rgba(23, 26, 36, 0.6)',
   }
 
   let activeRoute = ''
@@ -133,10 +133,11 @@ export default function Header() {
             py={2}
           >
             <IconButton
+              isActive
               size="sm"
               aria-label="Open Drawer"
               colorScheme="teal"
-              variant={colorMode === 'dark' ? 'solid' : 'ghost'}
+              variant="ghost"
               icon={<HamburgerIcon />}
               onClick={() => setExpanded(true)}
               ml={1}
@@ -147,10 +148,11 @@ export default function Header() {
               </a>
             </Link>
             <IconButton
+              isActive
               size="sm"
               aria-label="Toggle dark mode"
               colorScheme="teal"
-              variant={colorMode === 'dark' ? 'solid' : 'ghost'}
+              variant="ghost"
               icon={colorMode === 'dark' ? <SunIcon /> : <MoonIcon />}
               onClick={toggleColorMode}
               mr={1}

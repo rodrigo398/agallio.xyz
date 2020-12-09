@@ -22,14 +22,14 @@ const GlobalStyles = () => {
         ${colorMode === 'light' ? prismLightTheme : prismDarkTheme}
 
         html, body {
-          background: ${colorMode === 'light' ? 'white' : 'black'};
+          background: ${colorMode === 'light' ? 'white' : '#171A24'};
         }
 
         #__next {
           display: flex;
           flex-direction: column;
           min-height: 100vh;
-          background: ${colorMode === 'light' ? 'white' : 'black'};
+          background: ${colorMode === 'light' ? 'white' : '#171A24'};
           color: ${colorMode === 'light' ? 'black' : 'white'};
         }
       `}
