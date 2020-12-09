@@ -7,7 +7,7 @@ import {
   Code,
   Divider,
   Heading,
-  Image,
+  Img,
   Kbd,
   Link as ChakraLink,
   Text,
@@ -162,7 +162,7 @@ const MDXComponents = {
   ),
   img: (props) => (
     <Center>
-      <Image mb={6} {...props} />
+      <Img mb={6} {...props} />
     </Center>
   ),
   kbd: Kbd,
