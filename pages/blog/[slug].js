@@ -11,6 +11,7 @@ import rSlug from 'rehype-slug'
 import autolinkHeadings from 'rehype-autolink-headings'
 import {
   Avatar,
+  Box,
   Button,
   Container,
   Flex,
@@ -111,7 +112,7 @@ export default function PostPage({ source, frontMatter }) {
                 </Flex>
               </Flex>
             </Flex>
-            <main>{content}</main>
+            <Box w="100%">{content}</Box>
           </Stack>
         ) : (
           <div>This page only works in client-side</div>

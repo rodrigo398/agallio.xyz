@@ -1,8 +1,8 @@
 import { Icon } from '@chakra-ui/react'
 
-export default function PrivyIcon(props) {
+export default function PrivyIcon() {
   return (
-    <Icon viewBox="0 0 48 31" {...props}>
+    <Icon viewBox="0 0 48 31">
       <svg
         width={48}
         height={31}

@@ -1,6 +1,6 @@
 import { Icon } from '@chakra-ui/react'
 
-export default function Twitter() {
+export default function TwitterIcon() {
   return (
     <Icon>
       <g

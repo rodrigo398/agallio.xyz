@@ -12,9 +12,10 @@ import {
 } from '@chakra-ui/react'
 
 // Components
-import BlogItem from '~/components/BlogItem'
+import BlogItem from '~/components/Blog/BlogItem'
 
 // Utilities
+import dayjs from '~/utils/dayjs'
 import { postFilePaths, POSTS_PATH } from '~/utils/mdxUtils'
 
 export default function Blog({ posts }) {
@@ -53,7 +54,15 @@ export default function Blog({ posts }) {
 
           <Flex flexDirection="column" w="100%" mt={8}>
             {posts
-              .sort((a, b) => new Date(b.data.date) - new Date(a.data.date))
+              .sort(
+                (a, b) =>
+                  new Date(
+                    dayjs(b.data.date, 'DD-MM-YYYY').format('MM-DD-YYYY')
+                  ) -
+                  new Date(
+                    dayjs(a.data.date, 'DD-MM-YYYY').format('MM-DD-YYYY')
+                  )
+              )
               .map((item, index) => (
                 <BlogItem key={index} {...item} />
               ))}

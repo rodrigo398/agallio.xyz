@@ -10,12 +10,12 @@ const prismBaseTheme = css`
     color: ${theme.colors.gray[800]};
     background: none;
     font-family: ${theme.fonts.mono};
-    font-size: ${theme.fontSizes[2]};
+    font-size: ${theme.fontSizes.sm};
     text-align: left;
     word-spacing: normal;
     word-break: normal;
     word-wrap: normal;
-    line-height: ${theme.lineHeights[2]};
+    line-height: ${theme.lineHeights.tall};
     -moz-tab-size: 4;
     -o-tab-size: 4;
     tab-size: 4;

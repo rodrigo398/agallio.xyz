@@ -1,6 +1,6 @@
 import { Icon } from '@chakra-ui/react'
 
-export default function LinkedIn() {
+export default function LinkedInIcon() {
   return (
     <Icon>
       <g

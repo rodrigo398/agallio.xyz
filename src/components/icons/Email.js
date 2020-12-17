@@ -1,6 +1,6 @@
 import { Icon } from '@chakra-ui/react'
 
-export default function Email() {
+export default function EmailIcon() {
   return (
     <Icon>
       <g

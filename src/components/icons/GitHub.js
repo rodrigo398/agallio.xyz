@@ -1,6 +1,6 @@
 import { Icon } from '@chakra-ui/react'
 
-export default function GitHub() {
+export default function GitHubIcon() {
   return (
     <Icon>
       <g

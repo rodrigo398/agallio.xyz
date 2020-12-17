@@ -3,7 +3,6 @@ import Head from 'next/head'
 import {
   Alert,
   Box,
-  Center,
   Code,
   Divider,
   Heading,

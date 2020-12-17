@@ -16,7 +16,10 @@ export default function Index() {
       <Container px="4" py={['28', '32']} maxW="xl">
         <Box>
           <Heading textAlign={['left', 'center']} fontWeight="900" mb={4}>
-            Hai, Saya Aga! 👋🏻
+            Hai, Saya Aga!{' '}
+            <span role="img" aria-label="waving hands">
+              👋🏻
+            </span>
           </Heading>
           <Text
             fontSize="lg"

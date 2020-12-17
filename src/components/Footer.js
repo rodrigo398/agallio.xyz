@@ -1,9 +1,9 @@
 import { Flex, IconButton, Link } from '@chakra-ui/react'
 
-import Twitter from './icons/Twitter'
-import GitHub from './icons/GitHub'
-import LinkedIn from './icons/LinkedIn'
-import Email from './icons/Email'
+import Twitter from './Icons/Twitter'
+import GitHub from './Icons/GitHub'
+import LinkedIn from './Icons/LinkedIn'
+import Email from './Icons/Email'
 
 export default function Footer() {
   return (

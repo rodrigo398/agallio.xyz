@@ -20,10 +20,9 @@ const NavLinks = ({ activeRoute, isExpanded, setExpanded }) => (
         colorScheme="teal"
         variant="ghost"
         isActive={activeRoute === 'Beranda'}
-        w={isExpanded && '100%'}
+        w={isExpanded ? '100%' : '120px'}
         mr="2"
         onClick={() => setExpanded(false)}
-        minW="120px"
       >
         Beranda
       </Button>
@@ -34,10 +33,9 @@ const NavLinks = ({ activeRoute, isExpanded, setExpanded }) => (
         colorScheme="teal"
         variant="ghost"
         isActive={activeRoute === 'Tentang'}
-        w={isExpanded && '100%'}
+        w={isExpanded ? '100%' : '120px'}
         mr="2"
         onClick={() => setExpanded(false)}
-        minW="120px"
       >
         Tentang
       </Button>
@@ -48,9 +46,8 @@ const NavLinks = ({ activeRoute, isExpanded, setExpanded }) => (
         colorScheme="teal"
         variant="ghost"
         isActive={activeRoute === 'Blog'}
-        w={isExpanded && '100%'}
+        w={isExpanded ? '100%' : '120px'}
         onClick={() => setExpanded(false)}
-        minW="120px"
       >
         Blog
       </Button>
