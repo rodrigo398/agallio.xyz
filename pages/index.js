@@ -4,8 +4,8 @@ import { Box, Button, Container, Flex, Heading, Text } from '@chakra-ui/react'
 import { FaTwitter } from 'react-icons/fa'
 
 // Custom Icons
-import FreedomLifeIcon from '~/components/icons/FreedomLife'
-import PrivyIcon from '~/components/icons/Privy'
+import FreedomLifeIcon from '~/components/Icon/FreedomLife'
+import PrivyIcon from '~/components/Icon/Privy'
 
 export default function Index() {
   return (
