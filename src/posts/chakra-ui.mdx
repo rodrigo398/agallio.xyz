@@ -1,6 +1,6 @@
 ---
 title: Impresi Pertama Menggunakan Chakra UI
-summary: Impresi pertama saya menggunakan component library Chakra UI untuk membuat blog ini.
+summary: Impresi pertama saya menggunakan Chakra UI component library untuk membuat blog ini.
 author: Agallio Samai
 date: 08-12-2020
 ---
@@ -23,18 +23,18 @@ Namun, setelah saya memberi waktu untuk mencoba Chakra UI ini ternyata memberi k
 
 - **Flexibilitas tinggi!** Chakra UI ini mempunyai beberapa komponen yang sudah siap dipakai seperti `Button`, `Input`, `Radio`, `Progress`, dan lain-lain. Tapi karena Chakra UI ini berbasis TailwindCSS maka kita dapat memodifikasi komponen-komponen yang sudah tersedia sesuai dengan keinginan kita.
 
-- **Dark mode!** Berbeda dengan TailwindCSS yang baru-baru ini mengeluarkan fitur dark mode, Chakra UI sudah lebih dahulu memilikinya. Cara menggunakan nya pun sangat mudah. Sudah tersedia hooks yang dapat kita gunakan yaitu `useColorMode`. Lihat selengkapnya, [disini](https://chakra-ui.com/docs/features/color-mode#usecolormode).
+- **Dark mode!** Berbeda dengan TailwindCSS yang baru-baru ini mengeluarkan fitur dark mode, Chakra UI sudah lebih dahulu memilikinya. Cara menggunakan nya pun sangat mudah. Sudah tersedia hooks yang dapat kita gunakan yaitu `useColorMode`. Lihat selengkapnya, [di sini](https://chakra-ui.com/docs/features/color-mode#usecolormode).
 
 - **Learning curve** nya mudah dan intuitif. Karena Chakra UI mengadopsi _prop based model styling_ yang sudah digunakan oleh _component library_ yang lain di luar sana, seperti Material UI, [Ant Design](https://ant.design/), dan lain-lain.
 
-- **Array & object syntax API!** Ini gokil banget sih. Kita bisa dengan mudah melakukan _responsive styling_ pada komponen dengan memberikan _attribute_ atau _props_ yang berisi array & object. Ini membantu saya supaya tidak perlu repot-repot menulis `@media (min-width) ...` di dalam file CSS. Chakra UI sudah menyediakan 4 _responsive breakpoint_ yang bisa kita gunakan. Lihat selengkapnya, [disini](https://chakra-ui.com/docs/theming/theme#breakpoints).
+- **Array & object syntax API!** Ini gokil banget sih. Kita bisa dengan mudah melakukan _responsive styling_ pada komponen dengan memberikan _attribute_ atau _props_ yang berisi array & object. Ini membantu saya supaya tidak perlu repot-repot menulis `@media (min-width) ...` di dalam file CSS. Chakra UI sudah menyediakan 4 _responsive breakpoint_ yang bisa kita gunakan. Lihat selengkapnya, [di sini](https://chakra-ui.com/docs/theming/theme#breakpoints).
 
 ### Kelemahan
 
-- Saya sepertinya melakukan kesalahan juga dalam membangun arsitektur blog ini menggunakan Chakra UI + MDX. Karena saat saya mencoba me _render_ halaman blog, muncul sebuah _warning_ karena apa yang di _render_ dari _server-side_ berbeda dengan _client-side_ nya. Yang membuat berbeda adalah saat di _render_ di _server-side_ CSS dari Chakra UI berbentuk _class name_ saja. Tapi setelah masuk ke _client-side, class name_ tersebut berubah menjadi _inline styles_. Nah disini saya belum mencari tau apakah dari sisi Chakra UI atau dari MDX nya yang bermasalah. Saat ini saya hanya menemukan _workaround_ yang _unofficial_, yaitu dengan me _render_ halaman blog ini di _client-side_ saja.
+- Saya sepertinya melakukan kesalahan juga dalam membangun arsitektur blog ini menggunakan Chakra UI + MDX. Karena saat saya mencoba me-_render_ halaman blog, muncul sebuah _warning_ karena apa yang di-_render_ dari _server-side_ berbeda dengan _client-side_ nya. Yang membuat berbeda adalah saat di-_render_ di _server-side_ CSS dari Chakra UI berbentuk _class name_ saja. Tapi setelah masuk ke _client-side, class name_ tersebut berubah menjadi _inline styles_. Nah di sini saya belum mencari tau apakah dari sisi Chakra UI atau dari MDX nya yang bermasalah. Saat ini saya hanya menemukan _workaround_ yang _unofficial_, yaitu dengan me-_render_ halaman blog ini di _client-side_ saja.
 
 - Saya tidak biasa menulis `margin`, `padding`, `width`, `height` di _props_. Jadi terkadang saya harus berhenti, dan membaca dokumentasi untuk mencari tau seperti apa saya harus menulisnya.
 
 - Tidak adanya komponen-komponen penting dalam pembuatan _layout_, seperti `AppBar / Navbar`, `Sidebar`, dan lain-lain. Jadi kita harus membuatnya sendiri. Dan mungkin akan menjadi pekerjaan yang berat jika dihadapkan dengan _deadline_ yang sangat mepet.
 
-Ternyata Chakra UI sangat bagus, dan saya sangat senang menyediakan waktu untuk mempelajarinya. Saya puas dengan hasil yang diberikan oleh _component library_ yang satu ini. Masih banyak hal yang bisa kita bangun menggunakan Chakra UI. Saya baru bermain di permukaan nya saja. Akhir kata, saya masih perlu belajar lebih banyak lagi dalam menggunakan Chakra UI ini. Terima kasih sudah membaca, have a nice day! 😁
+Ternyata Chakra UI sangat bagus, dan saya sangat senang menyediakan waktu untuk mempelajarinya. Saya puas dengan hasil yang diberikan oleh _component library_ yang satu ini. Masih banyak hal yang bisa saya bangun menggunakan Chakra UI. Saya baru bermain di permukaan nya saja. Akhir kata, saya masih perlu belajar lebih banyak lagi dalam menggunakan Chakra UI ini. Terima kasih sudah membaca, have a nice day! 😁
