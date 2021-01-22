@@ -10,16 +10,16 @@ const RecentBlogPost = ({ locale }) => {
     return (
       <>
         <BlogPost
+          slug="switch-to-tailwind"
+          date="22-01-2021"
+          title="Beralih Ke Tailwind CSS"
+          summary="Mengapa saya akhirnya beralih ke Tailwind CSS? Apa pengaruhnya ke performa blog ini?"
+        />
+        <BlogPost
           slug="chakra-ui"
           date="08-12-2020"
           title="Impresi Pertama Menggunakan Chakra UI"
           summary="Impresi pertama saya menggunakan Chakra UI component library untuk membuat blog ini."
-        />
-        <BlogPost
-          slug="hello-world"
-          date="05-12-2020"
-          title="Hallo Dunia!"
-          summary="Ini adalah tulisan pertama saya!"
         />
       </>
     )
