@@ -171,7 +171,7 @@ const Header = ({ router }) => {
               </button>
               <button
                 aria-label="Toggle Language"
-                className="flex items-center justify-center w-8 h-8 border rounded-lg transition transform duration-300 border-green-600 hover:bg-green-100 dark:hover:bg-green-900"
+                className="flex items-center justify-center w-8 h-8 border rounded-lg transition transform duration-300 border-green-600 hover:bg-green-100 dark:hover:bg-green-900 focus:outline-none"
                 onClick={handleI18n}
               >
                 {locale === 'id' ? (
@@ -272,7 +272,7 @@ const Header = ({ router }) => {
           <div className="flex items-center">
             <button
               aria-label="Toggle Language"
-              className="flex items-center justify-center w-8 h-8 mr-4 border rounded-lg transition transform duration-300 border-green-600 hover:bg-green-100 dark:hover:bg-green-900"
+              className="flex items-center justify-center w-8 h-8 mr-4 border rounded-lg transition transform duration-300 border-green-600 hover:bg-green-100 dark:hover:bg-green-900 focus:outline-none"
               onClick={handleI18n}
             >
               {locale === 'id' ? (

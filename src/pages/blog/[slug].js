@@ -101,11 +101,11 @@ export const getStaticPaths = async () => {
     .map((slug) => ({ params: { slug }, locale: 'id' }))
   const enPaths = postFilePaths
     .map((path) => path.replace(/\.mdx?$/, ''))
-    .map((slug) => ({ params: { slug: `en-${slug}` }, locale: 'en' }))
+    .map((slug) => ({ params: { slug }, locale: 'en' }))
 
   return {
     paths: [...idPaths, ...enPaths],
-    fallback: true,
+    fallback: false,
   }
 }
 
