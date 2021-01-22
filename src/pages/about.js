@@ -61,7 +61,7 @@ export default function About() {
               href="https://privy.id"
               target="_blank"
               rel="noreferrer"
-              className="text-green-600 dark:text-green-400"
+              className="text-green-700 dark:text-green-300"
             >
               PrivyID
             </a>
@@ -70,7 +70,7 @@ export default function About() {
               href="https://freedomlife.id"
               target="_blank"
               rel="noreferrer"
-              className="text-green-600 dark:text-green-400"
+              className="text-green-700 dark:text-green-300"
             >
               FreedomLife
             </a>
@@ -83,7 +83,7 @@ export default function About() {
               href="https://instagram.com/agallio"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-green-600 dark:text-green-400"
+              className="text-green-700 dark:text-green-300"
             >
               Instagram
             </a>{' '}
@@ -92,7 +92,7 @@ export default function About() {
               href="https://www.youtube.com/channel/UCyX8oVNaFtOi0PI98t7EO6g"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-green-600 dark:text-green-400"
+              className="text-green-700 dark:text-green-300"
             >
               YouTube
             </a>

@@ -53,7 +53,7 @@ export default function IndexPage() {
           href="https://privy.id"
           target="_blank"
           rel="noreferrer"
-          className="text-green-600 dark:text-green-400"
+          className="text-green-700 dark:text-green-300"
         >
           PrivyID
         </a>
@@ -62,7 +62,7 @@ export default function IndexPage() {
           href="https://freedomlife.id"
           target="_blank"
           rel="noreferrer"
-          className="text-green-600 dark:text-green-400"
+          className="text-green-700 dark:text-green-300"
         >
           FreedomLife
         </a>
