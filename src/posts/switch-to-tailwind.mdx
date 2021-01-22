@@ -1,0 +1,82 @@
+---
+title: Beralih Ke Tailwind CSS
+summary: Mengapa saya akhirnya beralih ke Tailwind CSS? Apa pengaruhnya ke performa blog ini?
+author: Agallio Samai
+date: 22-01-2021
+---
+
+Sebelumnya, blog ini dibangun menggunakan Chakra UI sebagai UI component library nya. Namun ternyata cukup berat untuk pengguna dengan internet yang lambat. Juga seperti di tulisan saya [sebelumnya](/blog/chakra-ui), masih ada masalah dengan Chakra UI di Next.js (Chakra UI bermasalah di server-side rendering) yang menyebabkan nilai "best practices" dan juga "performance" dari [Lighthouse](https://web.dev/measure/) menjadi lebih rendah.
+
+Akhirnya, saya memutuskan untuk mencari alternatif lain selain Chakra UI yang mirip-mirip (bisa menggunakan atomic CSS), yaitu Tailwind CSS. Dan spoiler alert, ternyata sangat berpengaruh kepada performa blog ini!
+
+## Impresi Pertama
+
+[Sebelumnya](/blog/chakra-ui) saya sudah menuliskan bahwa saya tidak familiar dengan framework CSS yang atomic seperti ini. Di awal pun saya merasa tidak ingin mempelajari Tailwind CSS karena terlalu kompleks dan ribet.
+
+Kita harus membuat semuanya sendiri. Mulai dari komponen-komponen kecil seperti `Button`, `Heading`, `Text`, hingga komponen besar seperti `Card`, `Dropdown` semua harus kita buat sendiri. Tapi akhirnya saya memutuskan untuk mencoba karena saya melihat orang-orang di Twitter memamerkan seberapa powerful-nya Tailwind CSS ini.
+
+### Ide ➡️ Kode
+
+Hal pertama yang selalu orang-orang bilang saat menggunakan Tailwind CSS adalah kemudahannya untuk menuangkan ide styling yang ada di kepala. Dan setelah saya mencobanya ternyata benar namun dengan syarat. Kita harus familiar dulu dengan classnames yang Tailwind CSS berikan. Seperti contoh jika kita ingin membuat sebuah div yang memiliki flex, dengan CSS biasa kita menulisnya begini :
+
+```css
+display: flex;
+align-items: center;
+justify-content: center;
+```
+
+Namun di Tailwind CSS kita menuliskannya begini :
+
+```jsx
+<div className="flex items-center justify-center" />
+```
+
+Saat awal-awal menggunakan Tailwind CSS ini saya agak kebingungan, karena ternyata beberapa classnames cukup berbeda dengan property yang ada pada vanilla CSS. Namun ternyata, [dokumentasi](https://tailwindcss.com/docs) mereka sangat bagus dan memudahkan kita untuk mencari classnames yang kita inginkan.
+
+### Performa
+
+Hal kedua yang orang-orang selalu bilang adalah performanya. Sangat cepat dibandingkan dengan UI component library yang lain karena Tailwind CSS memiliki fitur untuk menghapus class-class yang tidak kita butuhkan. Seperti contoh jika kita hanya menggunakan class `flex items-center justify-center` seperti sebelumnya, maka class-class yang lainnya akan dibuang.
+
+Cara mengaktifkan fitur tersebut kita hanya tinggal menambahkan konfigurasi `purge` ke `tailwind.config.js`, seperti ini.
+
+```js:tailwind.config.js
+module.exports = {
+  purge: [
+    './**/*.html', // Untuk HTML murni
+    './**/*.vue', // Untuk Vue
+    './**/*.jsx', // Untuk React / Vue yang menggunakan JSX
+    './**/*.js' // Untuk React
+  ],
+  theme: {},
+  variants: {},
+  plugins: [],
+}
+```
+
+Sebelumnya saat saya menggunakan Chakra UI, nilai performa yang diberikan oleh [Lighthouse](https://web.dev/measure/) hanya di sekitar 80. Walaupun sudah cukup baik, namun di skala skor yang mereka berikan itu termasuk di skala kuning yang artinya dapat diperbaiki.
+
+Setelah saya menggunakan Tailwind CSS, skor tersebut berubah bahkan menjadi skor yang nyaris sempurna saat pertama kali pengetesan di Chrome browser menggunakan mode incognito.
+
+<Image
+  src="/images/blog/tailwindcss-performance.png"
+  width={818}
+  height={288}
+  alt="Tailwind CSS Performance"
+/>
+
+Setelah itu saya coba test lagi di website [web.dev](https://web.dev/measure/) untuk melihat apakah hasil yang diberikan mirip atau tidak. Dan ternyata hasilnya cukup mengejutkan karena cukup mirip dengan hasil sebelumnya.
+
+<Image
+  src="/images/blog/tailwindcss-webdev.png"
+  width={1952}
+  height={960}
+  alt="Tailwind CSS Performance Web.Dev"
+/>
+
+## Kesimpulan
+
+Dengan hasil tersebut, saya sangat senang sudah menyediakan waktu untuk belajar Tailwind CSS dan saya sangat menyukainya 😍.
+
+Walaupun menurut saya, Tailwind CSS hanya cocok untuk saya saat saya mengerjakan project-project yang skalanya kecil. Karena di pekerjaan saya sehari-hari, dituntut untuk bekerja dengan waktu yang singkat. Jika saya menggunakan Tailwind CSS sudah pasti saya akan ketinggalan, karena segala sesuatunya harus saya buat sendiri. Sementara saat saya bekerja, saya masih banyak bergantung pada UI component library yang siap pakai seperti Material-UI atau Ant Design karena mempunyai katalog komponen yang lebih lengkap.
+
+Sekian pengalaman dan impresi pertama saya menggunakan Tailwind CSS. Buat teman-teman yang ingin melihat in-depth bagaimana blog ini ditulis ulang dengan Tailwind CSS, teman-teman bisa kunjungi di [GitHub](https://github.com/agallio/agall.io). Terima kasih sudah membaca, stay safe dan have a nice day 😁
