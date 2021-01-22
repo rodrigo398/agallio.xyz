@@ -1,8 +1,12 @@
-const path = require('path')
-
 module.exports = {
-  webpack: (config) => {
-    config.resolve.alias['~'] = path.resolve('./src')
-    return config
+  i18n: {
+    locales: ['id', 'en'],
+    defaultLocale: 'id',
+    localeDetection: false,
+  },
+  images: {
+    domains: [
+      'i.scdn.co', // Spotify Album Art
+    ],
   },
 }
