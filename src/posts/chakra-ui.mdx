@@ -5,15 +5,21 @@ author: Agallio Samai
 date: 08-12-2020
 ---
 
-<img src="/images/blog/chakra-ui-logo.png" alt="Chakra UI Logo" />
+<a aria-label="Chakra UI Logo" href="https://chakra-ui.com/">
+  <Image
+    alt="Chakra UI Logo"
+    src="/images/blog/chakra-ui-logo.webp"
+    width={1000}
+    height={400}
+    priority
+  />
+</a>
 
-Beberapa hari lalu, saya membangun blog ini dengan 100% menggunakan [Chakra UI]() dibantu dengan framework [Next.js]() + [MDX]() untuk konten statisnya, dan di deploy ke [Vercel](). Ini adalah pengalaman pertama kali saya menggunakan Next.js dengan fitur [SSG (Static Site Generator)]() nya. Juga pengalaman pertama saya menggunakan Chakra UI & MDX.
-
-Nah, tapi kali ini saya akan berbagi pengalaman tentang bagaimana pengalaman saya saat menggunakan Chakra UI dulu. Untuk Next.js + MDX akan saya tulis di postingan yang berbeda. Stay tuned. 😄
+Beberapa hari lalu, saya membangun blog ini dengan 100% menggunakan Chakra UI dibantu dengan framework Next.js + MDX untuk konten statisnya, dan di deploy ke Vercel. Ini adalah pengalaman pertama kali saya menggunakan Chakra UI, MDX dan Next.js dengan fitur SSG (Static Site Generator) nya.
 
 ## Impresi Pertama
 
-Awalnya, saya termasuk orang yang ragu menggunakan Chakra UI atau [TailwindCSS]() yang menjadi basis dasar / fondasi si Chakra UI ini. Karena menurut saya terlalu berat untuk saya yang biasa menggunakan _component library_ yang mempunyai banyak contoh-contoh _layout_ yang bisa langsung digunakan. Seperti [Material UI]() misalnya, mereka punya banyak komponen-komponen _layout_ yang sudah jadi dan dapat langsung digunakan. Seperti `AppBar / Navbar`, `Sidebar`, `Notification`, `Toast`, dan masih banyak lagi.
+Awalnya, saya termasuk orang yang ragu menggunakan Chakra UI. Karena menurut saya terlalu berat untuk saya yang biasa menggunakan _component library_ yang mempunyai banyak contoh-contoh _layout_ yang bisa langsung digunakan. Seperti Material-UI misalnya, mereka punya banyak komponen-komponen _layout_ yang sudah jadi dan dapat langsung digunakan. Seperti `AppBar / Navbar`, `Sidebar`, `Notification`, `Toast`, dan masih banyak lagi.
 
 Namun, setelah saya memberi waktu untuk mencoba Chakra UI ini ternyata memberi kesan yang berbeda untuk saya. Saya akan jelaskan kelebihan & kekurangan nya (menurut pandangan pribadi saya) di bawah ini.
 
@@ -25,7 +31,7 @@ Namun, setelah saya memberi waktu untuk mencoba Chakra UI ini ternyata memberi k
 
 - **Dark mode!** Berbeda dengan TailwindCSS yang baru-baru ini mengeluarkan fitur dark mode, Chakra UI sudah lebih dahulu memilikinya. Cara menggunakan nya pun sangat mudah. Sudah tersedia hooks yang dapat kita gunakan yaitu `useColorMode`. Lihat selengkapnya, [di sini](https://chakra-ui.com/docs/features/color-mode#usecolormode).
 
-- **Learning curve** nya mudah dan intuitif. Karena Chakra UI mengadopsi _prop based model styling_ yang sudah digunakan oleh _component library_ yang lain di luar sana, seperti Material UI, [Ant Design](https://ant.design/), dan lain-lain.
+- **Learning curve** nya mudah dan intuitif. Karena Chakra UI mengadopsi _prop based model styling_ yang sudah digunakan oleh _component library_ yang lain di luar sana, seperti Material UI, Ant Design, dan lain-lain.
 
 - **Array & object syntax API!** Ini gokil banget sih. Kita bisa dengan mudah melakukan _responsive styling_ pada komponen dengan memberikan _attribute_ atau _props_ yang berisi array & object. Ini membantu saya supaya tidak perlu repot-repot menulis `@media (min-width) ...` di dalam file CSS. Chakra UI sudah menyediakan 4 _responsive breakpoint_ yang bisa kita gunakan. Lihat selengkapnya, [di sini](https://chakra-ui.com/docs/theming/theme#breakpoints).
 

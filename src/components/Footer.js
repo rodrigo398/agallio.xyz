@@ -1,56 +1,123 @@
-import { Flex, IconButton, Link } from '@chakra-ui/react'
+import { useRouter } from 'next/router'
+import Link from 'next/link'
+import useSWR from 'swr'
 
-import Twitter from './Icon/Twitter'
-import GitHub from './Icon/GitHub'
-import LinkedIn from './Icon/LinkedIn'
-import Email from './Icon/Email'
+import footerLocale from '@/locales/footer'
+import headerLocale from '@/locales/header'
 
-export default function Footer() {
+import fetcher from '@/utils/fetcher'
+
+const ExternalLink = ({ href, children }) => (
+  <a
+    className="text-gray-500 hover:text-gray-600 dark:text-gray-300 dark:hover:text-gray-400 transition"
+    target="_blank"
+    rel="noopener noreferrer"
+    href={href}
+  >
+    {children}
+  </a>
+)
+
+const Footer = () => {
+  const router = useRouter()
+  const { locale } = router
+  const { data } = useSWR('/api/now-playing', fetcher)
+
   return (
-    <Flex justifyContent="center" mb={4}>
-      <Link href="https://twitter.com/agalliosamai" title="Twitter" isExternal>
-        <IconButton
-          aria-label="Twitter"
-          size="lg"
-          color="gray.500"
-          icon={<Twitter />}
-          variant="ghost"
-          mr={2}
-        />
-      </Link>
-      <Link href="https://github.com/agallio" title="GitHub" isExternal>
-        <IconButton
-          aria-label="GitHub"
-          size="lg"
-          color="gray.500"
-          variant="ghost"
-          icon={<GitHub />}
-          mr={2}
-        />
-      </Link>
-      <Link
-        href="https://www.linkedin.com/in/agalliosamai"
-        title="LinkedIn"
-        isExternal
+    <footer className="flex flex-col justify-center w-full my-8">
+      <hr className="w-full border-1 border-gray-200 dark:border-gray-600 mb-8" />
+      <div
+        className={`w-full p-4 rounded-xl flex items-center justify-between ${
+          data?.isPlaying
+            ? 'cursor-pointer transition transform hover:opacity-90'
+            : 'border border-gray-200 dark:border-gray-600'
+        }`}
+        style={{
+          background:
+            data?.isPlaying &&
+            'linear-gradient(45deg, rgba(16,185,129,1) 45%, rgba(0,212,255,1) 100%)',
+        }}
       >
-        <IconButton
-          aria-label="LinkedIn"
-          size="lg"
-          color="gray.500"
-          variant="ghost"
-          icon={<LinkedIn />}
-          mr={2}
-        />
-      </Link>
-      <Link href="mailto:agalliosamai@gmail.com" title="Email" isExternal>
-        <IconButton
-          aria-label="Email"
-          size="lg"
-          color="gray.500"
-          variant="ghost"
-          icon={<Email />}
-        />
-      </Link>
-    </Flex>
+        <div
+          className={`w-4/5 truncate cursor-pointer ${
+            data?.isPlaying ? 'text-white' : ''
+          }`}
+        >
+          {data?.isPlaying ? (
+            <a
+              href={data.songUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`font-bold text-white truncate ${
+                data.title.length > 30 ? 'text-sm' : ''
+              }`}
+            >
+              {data.title}
+            </a>
+          ) : (
+            <p className="font-bold truncate dark:text-white">
+              {footerLocale.spotify_idle[locale]}{' '}
+              <span role="img" aria-label="Tidur">
+                😴
+              </span>
+            </p>
+          )}
+          <p
+            className={`text-sm ${
+              data?.isPlaying
+                ? 'text-green-100'
+                : 'text-gray-500 dark:text-gray-100'
+            }`}
+          >
+            {data?.isPlaying ? data?.artist : 'Spotify'}
+          </p>
+        </div>
+        <svg className="h-8 w-8" viewBox="0 0 168 168">
+          <path
+            fill={data?.isPlaying ? '#FFFFFF' : '#1ED760'}
+            d="M83.996.277C37.747.277.253 37.77.253 84.019c0 46.251 37.494 83.741 83.743 83.741 46.254 0 83.744-37.49 83.744-83.741 0-46.246-37.49-83.738-83.745-83.738l.001-.004zm38.404 120.78a5.217 5.217 0 01-7.18 1.73c-19.662-12.01-44.414-14.73-73.564-8.07a5.222 5.222 0 01-6.249-3.93 5.213 5.213 0 013.926-6.25c31.9-7.291 59.263-4.15 81.337 9.34 2.46 1.51 3.24 4.72 1.73 7.18zm10.25-22.805c-1.89 3.075-5.91 4.045-8.98 2.155-22.51-13.839-56.823-17.846-83.448-9.764-3.453 1.043-7.1-.903-8.148-4.35a6.538 6.538 0 014.354-8.143c30.413-9.228 68.222-4.758 94.072 11.127 3.07 1.89 4.04 5.91 2.15 8.976v-.001zm.88-23.744c-26.99-16.031-71.52-17.505-97.289-9.684-4.138 1.255-8.514-1.081-9.768-5.219a7.835 7.835 0 015.221-9.771c29.581-8.98 78.756-7.245 109.83 11.202a7.823 7.823 0 012.74 10.733c-2.2 3.722-7.02 4.949-10.73 2.739z"
+          />
+        </svg>
+      </div>
+
+      <div className="mt-8 w-full grid grid-cols-1 gap-4 sm:grid-cols-3">
+        <div className="flex flex-col space-y-3">
+          <Link href="/">
+            <a className="text-gray-500 hover:text-gray-600 dark:text-gray-300 dark:hover:text-gray-400 transition">
+              {headerLocale.home[locale]}
+            </a>
+          </Link>
+          <Link href="/about">
+            <a className="text-gray-500 hover:text-gray-600 dark:text-gray-300 dark:hover:text-gray-400 transition">
+              {headerLocale.about[locale]}
+            </a>
+          </Link>
+          <Link href="/blog">
+            <a className="text-gray-500 hover:text-gray-600 dark:text-gray-300 dark:hover:text-gray-400 transition">
+              {headerLocale.blog[locale]}
+            </a>
+          </Link>
+        </div>
+        <div className="flex flex-col space-y-3">
+          <ExternalLink href="https://twitter.com/agalliosamai">
+            Twitter
+          </ExternalLink>
+          <ExternalLink href="https://github.com/agallio">GitHub</ExternalLink>
+          <ExternalLink href="https://linkedin.com/in/agalliosamai">
+            LinkedIn
+          </ExternalLink>
+        </div>
+        <div className="flex flex-col space-y-3">
+          <ExternalLink href="https://instagram.com/agallio">
+            Instagram
+          </ExternalLink>
+          <ExternalLink href="https://www.youtube.com/channel/UCyX8oVNaFtOi0PI98t7EO6g">
+            YouTube
+          </ExternalLink>
+        </div>
+      </div>
+    </footer>
   )
 }
+
+export default Footer
