@@ -61,7 +61,7 @@ const BlogPost = ({ source, frontMatter, locale }) => {
             {frontMatter.date
               ? dayjs(frontMatter.date, 'DD-MM-YYYY')
                   .locale(locale === 'id' ? 'id' : 'en')
-                  .format('dddd, DD MMM YYYY')
+                  .format('dddd, DD MMMM YYYY')
               : '-'}
           </p>
         </div>

@@ -50,7 +50,6 @@ body {
   @apply bg-transparent dark:bg-transparent text-gray-700;
 }
 
-.token.comment,
 .token.prolog,
 .token.doctype,
 .token.cdata {
@@ -80,6 +79,7 @@ body {
   @apply text-purple-500;
 }
 
+.token.comment,
 .token.operator,
 .token.entity,
 .token.url,

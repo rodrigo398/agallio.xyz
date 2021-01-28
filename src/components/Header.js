@@ -261,7 +261,7 @@ const Header = ({ router }) => {
             WebkitBackdropFilter: 'saturate(180%) blur(20px)',
           }}
         />
-        <div className="w-full max-w-lg mx-auto flex items-center justify-between">
+        <div className="w-full max-w-xl mx-auto flex items-center justify-between">
           <div>
             <NavLinks
               activeRoute={activeRoute}

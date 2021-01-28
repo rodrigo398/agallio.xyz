@@ -1,0 +1,182 @@
+---
+title: Menggunakan Spotify API di Next.js
+summary: Belajar bagaimana cara menggunakan Spotify API untuk widget "now playing" seperti yang ada di footer blog ini.
+author: Agallio Samai
+date: 27-01-2021
+---
+
+Salah satu penyedia layanan streaming musik digital favorit saya adalah, Spotify. Selain dari tersedianya musik, lagu, podcast yang banyak serta lengkap, saya juga menyukai layanan developer yang diberikan oleh Spotify. Layanan developer ini mempunyai fitur yang membuat kita dapat mengambil lagu yang sedang diputar (now playing), top 10 lagu di akun kita, dan masih banyak lagi. Saya akan berbagi pengalaman dalam mengintegrasikan [layanan developer Spotiy](https://developer.spotify.com/documentation/web-api/) ini dengan menggunakan framework Next.js.
+
+Sebelum Anda melakukan langkah-langkah yang ada di bawah ini, Anda harus punya akun Spotify terlebih dahulu. Jika belum silakan daftar di web atau di aplikasi Spotify.
+
+## Buat Aplikasi
+
+Pertama, kita harus membuat sebuah aplikasi Spotify di developer dashboard mereka untuk mendapatkan credentials yang dapat kita gunakan untuk otentikasi dengan Spotify API.
+
+- Buka [Spotify Developer Dashboard](https://developer.spotify.com/dashboard) dan login.
+- Klik **Create An App**.
+- Isi nama dan deskripsi aplikasi lalu klik **Create**.
+- Setelah berhasil dibuat, klik **Show Client Secret**.
+- Simpan **Client ID** dan **Client Secret**.
+- Klik **Edit Settings**.
+- Tambahkan `http://localhost:3000` (atau server Next.js Anda yang sedang berjalan) sebagai redirect URL.
+
+Selesai! Kita sudah dapat mengintegrasikan Spotify API dengan aplikasi web kita.
+
+## Otentikasi
+
+Ada banyak cara untuk melakukan otentikasi dengan Spotify API, tergantung seberapa kompleks aplikasinya. Karena kita hanya menggunakannya sekali dan hanya menggunakan satu akun saja, maka kita akan melakukan otentikasi dengan menggunakan metode [Authorization Code Flow](https://developer.spotify.com/documentation/general/guides/authorization-guide/#authorization-code-flow).
+
+Pertama, kita melakukan authorization request dengan login menggunakan [scopes](https://developer.spotify.com/documentation/general/guides/authorization-guide/#list-of-scopes) yang kita butuhkan. Kalau dilihat dari kebutuhan kita di awal, maka kita hanya membutuhkan scope `user-read-currently-playing`. Anda bisa salin url dibawah ini, namun ganti terlebih dahulu `<client_id>` dengan client ID Anda.
+
+```bash
+https://accounts.spotify.com/authorize?client_id=<client_id>
+&response_type=code&redirect_uri=http%3A%2F%2Flocalhost:3000
+&scope=user-read-currently-playing
+```
+
+Lalu setelah kita mengakses url tersebut, kita akan di redirect kepada server Next.js kita yang sedang berjalan, beserta query param `code` yang diberikan oleh Spotify. Simpan `code` tersebut. Di bawah ini, adalah contoh url yang akan kita terima saat di redirect oleh Spotify.
+
+```bash
+http://localhost:3000/callback?code=NApCCg..BkWtQ
+```
+
+Kemudian, kita perlu mengambil refresh token dari Spotify API. Langkah pertama yang kita lakukan adalah, men-generate sebuah kode Base64 yang berisi client ID dan client secret yang sudah kita simpan sebelumnya. Cara membuat kode Base64-nya kita bisa menggunakan online tool yaitu, [base64encode.org](https://www.base64encode.org/) lalu isikan string yang akan di-encode dengan format `client_id:client_secret`, kemudian simpan string yang sudah di-encode.
+
+Selanjutnya kita akan menembak API endpoint token dengan dengan menggunakan cURL, seperti kode di bawah ini. Ganti **Authorization** headers-nya dengan Base64 encoded string, seperti `Authorization: Basic dDp...9342=`. Juga ganti data **code**-nya dengan menggunakan code yang sudah kita dapatkan sebelumnya dari Spotify API callback.
+
+```bash
+curl -H "Authorization: Basic <base64 encoded client_id:client_secret>" -d grant_type=authorization_code -d code=<code> -d redirect_uri=http%3A%2F%2Flocalhost:3000 https://accounts.spotify.com/api/token
+```
+
+Setelah kita hit, maka kita akan mendapatkan response berisi `refresh_token`. Simpan value tersebut. Token ini akan [valid selamanya](https://github.com/spotify/web-api/issues/374) asal kita tidak me-**revoke** aksesnya.
+
+## Integrasi Dengan Next.js
+
+Pertama, simpan semua credentials yang sudah kita dapat di atas dalam sebuah `env` file. Kita bisa buat file baru di direktori root project Next.js kita dengan nama, `.env` atau `.env.local`. Selanjutnya beri nama environment variables-nya, dan isikan valuenya. Contoh:
+
+```bash
+SPOTIFY_CLIENT_ID=eXfC...poeE
+SPOTIFY_CLIENT_SECRET=abCd...XyZ
+SPOTIFY_REFRESH_TOKEN=rrTe...ZzZ
+```
+
+**Note:** Jika Anda belum pernah menggunakan environment variables di Next.js ada baiknya untuk baca [artikel ini terlebih dahulu](https://nextjs.org/docs/basic-features/environment-variables).
+
+Sekarang kita dapat me-request access token dengan menggunakan client ID, client secret, dan refresh token yang kita miliki.
+
+```js:utils/spotify.js
+// Import library querystring untuk dapat memasukan body ke URL sebagai parameters
+import querystring from 'querystring';
+
+// Ambil semua value dari environment variables
+const {
+  SPOTIFY_CLIENT_ID: client_id,
+  SPOTIFY_CLIENT_SECRET: client_secret,
+  SPOTIFY_REFRESH_TOKEN: refresh_token
+} = process.env;
+
+// Buat Base64 basic auth
+const basic = Buffer.from(`${client_id}:${client_secret}`).toString('base64');
+const TOKEN_ENDPOINT = `https://accounts.spotify.com/api/token`;
+
+// Hit endpoint access token
+const getAccessToken = async () => {
+  const response = await fetch(TOKEN_ENDPOINT, {
+    method: 'POST',
+    headers: {
+      Authorization: `Basic ${basic}`,
+      'Content-Type': 'application/x-www-form-urlencoded'
+    },
+    body: querystring.stringify({
+      grant_type: 'refresh_token',
+      refresh_token
+    })
+  });
+
+  return response.json();
+};
+```
+
+Selanjutnya, kita gunakan `access_token` yang kita dapat untuk me-request lagu yang sedang berjalan ke "now playing" endpoint
+
+```js:utils/spotify.js
+...
+
+const TOKEN_ENDPOINT = `https://accounts.spotify.com/api/token`;
+const NOW_PLAYING_ENDPOINT = `https://api.spotify.com/v1/me/player/currently-playing`
+
+const getAccessToken = async () => {
+  ...
+}
+
+export const getNowPlaying = async () => {
+  const { access_token } = await getAccessToken()
+
+  return fetch(NOW_PLAYING_ENDPOINT, {
+    headers: {
+      Authorization: `Bearer ${access_token}`,
+    },
+  })
+}
+```
+
+## Membuat API Endpoint
+
+Selanjutnya, mari kita tes Spotify API utils yang sudah kita buat di atas dengan membuat API endpoint. Buat file baru di `pages/api` dengan nama `now-playing.js`. Lalu import `getNowPlaying()` ke dalam kode tersebut.
+
+```js:pages/api/now-playing.js
+// Import getNowPlaying() dari utils
+import { getNowPlaying } from '../../utils/spotify'
+
+export default async (_, res) => {
+  // Tunggu response dari getNowPlaying()
+  const response = await getNowPlaying()
+
+  // Jika tidak ada lagu yang sedang dimainkan, maka kita memberi response `isPlaying: false`
+  if (response.status === 204 || response.status > 400) {
+    return res.status(200).json({ isPlaying: false })
+  }
+
+  // Ambil data-data yang kita perlukan
+  const song = await response.json()
+  const isPlaying = song.is_playing
+  const title = song.item.name
+  const artist = song.item.artists.map((_artist) => _artist.name).join(', ')
+  const songUrl = song.item.external_urls.spotify
+
+  // Buat cache control agar data yang kita perlukan tersimpan sementara
+  // Response dari endpoint ini hanya berubah ketika lagu yang kita dengar berubah
+  res.setHeader(
+    'Cache-Control',
+    'public, s-maxage=60, stale-while-revalidate=30'
+  )
+
+  // Kembalikan response sesuai data yang kita perlukan
+  return res.status(200).json({
+    artist,
+    isPlaying,
+    songUrl,
+    title,
+  })
+}
+```
+
+Kemudian, coba kita run local server kita dengan `next dev`, dan tes API endpoint ini dengan mengunjungi, `http://localhost:3000/api/now-playing` (sesuaikan dengan server Next.js Anda yang sedang berjalan). Jika berhasil, maka Anda akan mendapatkan data seperti ini:
+
+```json:Ada
+{
+  "artist": "Utha Likumahuwa",
+  "isPlaying": true,
+  "songUrl": "https://open.spotify.com/track/1FgpaesxEW8wfOJDCEEEOg",
+  "title": "Tersiksa Lagi"
+}
+```
+
+```json:Tidak
+{ "isPlaying": false }
+```
+
+Selamat Spotify API sudah terintegrasi dengan aplikasi Next.js Anda! Jika Anda ingin melihat lebih in-depth, maka Anda dapat melihat source code nya [disini](https://github.com/agallio/agall.io/blob/main/src/utils/spotify.js).
+
+Terima kasih sudah membaca, stay safe dan have a nice day. 😁
