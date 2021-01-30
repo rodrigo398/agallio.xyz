@@ -25,10 +25,8 @@ export default function Blog({ posts, locale }) {
             .filter((item) => !item.filePath.startsWith('en'))
             .sort(
               (a, b) =>
-                new Date(
-                  dayjs(b.data.date, 'DD-MM-YYYY').format('MM-DD-YYYY')
-                ) -
-                new Date(dayjs(a.data.date, 'DD-MM-YYYY').format('MM-DD-YYYY'))
+                new Date(dayjs(b.data.date, 'DD-MM-YYYY').toISOString()) -
+                new Date(dayjs(a.data.date, 'DD-MM-YYYY').toISOString())
             )
             .map((item, index) => (
               <BlogPost
@@ -47,8 +45,8 @@ export default function Blog({ posts, locale }) {
           .filter((item) => item.filePath.startsWith('en'))
           .sort(
             (a, b) =>
-              new Date(dayjs(b.data.date, 'DD-MM-YYYY').format('MM-DD-YYYY')) -
-              new Date(dayjs(a.data.date, 'DD-MM-YYYY').format('MM-DD-YYYY'))
+              new Date(dayjs(b.data.date, 'DD-MM-YYYY').toISOString()) -
+              new Date(dayjs(a.data.date, 'DD-MM-YYYY').toISOString())
           )
           .map((item, index) => (
             <BlogPost
