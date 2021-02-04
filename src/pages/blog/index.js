@@ -15,7 +15,7 @@ export default function Blog({ posts, locale }) {
       <h1 className="mb-4 text-3xl tracking-wide font-black md:text-4xl dark:text-white">
         Blog
       </h1>
-      <p className="text-gray-700 dark:text-gray-100">
+      <p className="mb-4 text-gray-700 dark:text-gray-100">
         {blogLocale.description[locale]}
       </p>
 
