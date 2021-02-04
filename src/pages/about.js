@@ -20,11 +20,11 @@ export default function About() {
       </Head>
       <NextSeo
         title="Tentang | Agallio Samai"
-        description="Tentang Saya"
+        description="Tentang saya."
         openGraph={{
           url: 'https://agallio.vercel.app/about',
           title: 'Tentang | Agallio Samai',
-          description: 'Tentang Saya',
+          description: 'Tentang saya.',
           site_name: 'Agallio Samai',
           images: [
             {
