@@ -28,13 +28,13 @@ const BlogPost = ({ source, frontMatter, locale }) => {
         title={`${frontMatter.title} | Agallio Samai`}
         description={frontMatter.summary}
         openGraph={{
-          url: 'https://agallio.vercel.app/blog',
+          url: 'https://agallio.xyz/blog',
           title: frontMatter.title,
           description: frontMatter.summary,
           site_name: 'Agallio Samai',
           images: [
             {
-              url: 'http://agallio.vercel.app/images/og-blog.png',
+              url: 'http://agallio.xyz/images/og-blog.png',
               alt: 'Blog - Agallio Samai',
             },
           ],

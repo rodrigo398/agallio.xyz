@@ -22,13 +22,13 @@ export default function About() {
         title="Tentang | Agallio Samai"
         description="Tentang saya."
         openGraph={{
-          url: 'https://agallio.vercel.app/about',
+          url: 'https://agallio.xyz/about',
           title: 'Tentang | Agallio Samai',
           description: 'Tentang saya.',
           site_name: 'Agallio Samai',
           images: [
             {
-              url: 'http://agallio.vercel.app/images/og-about.png',
+              url: 'http://agallio.xyz/images/og-about.png',
               alt: 'Tentang - Agallio Samai',
             },
           ],

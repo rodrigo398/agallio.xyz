@@ -8,11 +8,11 @@ const SeoConfig = {
   openGraph: {
     type: 'website',
     locale: 'id_ID',
-    url: 'https://agallio.vercel.app',
+    url: 'https://agallio.xyz',
     site_name: 'Agallio Samai',
     images: [
       {
-        url: 'http://agallio.vercel.app/images/og-aga.png',
+        url: 'http://agallio.xyz/images/og-aga.png',
         alt: 'Agallio Samai',
       },
     ],

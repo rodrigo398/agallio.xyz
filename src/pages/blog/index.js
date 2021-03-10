@@ -21,13 +21,13 @@ export default function Blog({ posts, locale }) {
         title="Blog | Agallio Samai"
         description="Tulisan-tulisan saya."
         openGraph={{
-          url: 'https://agallio.vercel.app/blog',
+          url: 'https://agallio.xyz/blog',
           title: 'Blog | Agallio Samai',
           description: 'Tulisan-tulisan saya.',
           site_name: 'Agallio Samai',
           images: [
             {
-              url: 'http://agallio.vercel.app/images/og-blog.png',
+              url: 'http://agallio.xyz/images/og-blog.png',
               alt: 'Blog - Agallio Samai',
             },
           ],
