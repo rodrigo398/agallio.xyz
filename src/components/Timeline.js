@@ -166,7 +166,7 @@ const Timeline = () => {
           saya yakin bahwa masih banyak orang yang ingin mengerti hati seorang
           Bapa bagi anak-anakNya.
         </Step>
-        <Step title="Menjadi Principal Frontend Engineer 👨🏻‍💻">
+        <Step title="Menjadi Lead Frontend Engineer 👨🏻‍💻">
           Di awal 2020 saya dipercayakan berpindah peran menjadi manager dan
           mentor tim frontend engineer di PrivyID.
         </Step>
