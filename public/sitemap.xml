@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://agallio.xyz/about</loc>
+  </url>
+
+  <url>
+    <loc>https://agallio.xyz</loc>
+  </url>
+
+  <url>
+    <loc>https://agallio.xyz/blog/chakra-ui</loc>
+  </url>
+
+  <url>
+    <loc>https://agallio.xyz/en/blog/hello-world</loc>
+  </url>
+
+  <url>
+    <loc>https://agallio.xyz/blog/hello-world</loc>
+  </url>
+
+  <url>
+    <loc>https://agallio.xyz/blog/spotify-with-nextjs</loc>
+  </url>
+
+  <url>
+    <loc>https://agallio.xyz/blog/switch-to-tailwind</loc>
+  </url>
+</urlset>
