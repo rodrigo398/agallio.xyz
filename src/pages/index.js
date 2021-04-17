@@ -48,16 +48,8 @@ export default function IndexPage() {
         </span>
       </h1>
       <p className="text-gray-700 dark:text-gray-100">
-        {homeLocale.description_start[locale]}{' '}
-        <a
-          href="https://privy.id"
-          target="_blank"
-          rel="noreferrer"
-          className="text-green-700 dark:text-green-300"
-        >
-          PrivyID
-        </a>
-        . {homeLocale.description_end[locale]}{' '}
+        {homeLocale.description_start[locale]}.{' '}
+        {homeLocale.description_end[locale]}{' '}
         <a
           href="https://freedomlife.id"
           target="_blank"
