@@ -66,7 +66,7 @@ const Footer = () => {
             className={`text-sm ${
               data?.isPlaying
                 ? 'text-green-100'
-                : 'text-gray-500 dark:text-gray-100'
+                : 'text-gray-500 dark:text-gray-400'
             }`}
           >
             {data?.isPlaying ? data?.artist : 'Spotify'}

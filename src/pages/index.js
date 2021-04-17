@@ -69,8 +69,10 @@ export default function IndexPage() {
       >
         <div className="border mt-4 rounded-t-xl border-gray-200 cursor-pointer transition transform hover:bg-gray-50 dark:border-gray-600 dark:hover:bg-gray-800">
           <div className="p-4">
-            <h1 className="font-medium text-xl dark:text-white">FreedomLife</h1>
-            <p className="text-gray-800 dark:text-gray-300">
+            <h1 className="font-medium text-lg dark:text-white sm:text-xl">
+              FreedomLife
+            </h1>
+            <p className="text-sm text-gray-800 dark:text-gray-300 sm:text-base">
               {locale === 'id'
                 ? 'Panduan Baca Alkitab Setahun'
                 : 'A 1-Year Bible Reading Guide'}

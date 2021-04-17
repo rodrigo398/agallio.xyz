@@ -9,8 +9,12 @@ export default function BlogPost({ slug, title, summary, date }) {
   return (
     <Link as={`/blog/${slug}`} href="/blog/[slug]">
       <div className="p-4 border mt-4 rounded-xl border-gray-200 cursor-pointer transition transform hover:bg-gray-50 dark:border-gray-600 dark:hover:bg-gray-800">
-        <h1 className="font-medium text-xl dark:text-white">{title}</h1>
-        <p className="text-gray-800 mt-1 dark:text-gray-300">{summary}</p>
+        <h1 className="font-medium text-lg leading-snug dark:text-white sm:text-xl">
+          {title}
+        </h1>
+        <p className="text-gray-800 text-sm mt-1 dark:text-gray-300 sm:text-base">
+          {summary}
+        </p>
         <p className="text-gray-500 text-sm mt-4 dark:text-gray-400">
           {dayjs(date, 'DD-MM-YYYY')
             .locale(locale === 'id' ? 'id' : 'en')
