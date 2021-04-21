@@ -142,7 +142,7 @@ const EnTimeline = () => {
           sure that there are still many people who want to understand the heart
           of a Father for His children.
         </Step>
-        <Step title="Became a Lead Frontend Engineer 👨🏻‍💻">
+        <Step title="Became a Frontend Engineering Lead 👨🏻‍💻">
           Starting at the beginning of 2020, I was given the opportunity to move
           to a tech leadership role in the frontend engineering team at PrivyID.
         </Step>
