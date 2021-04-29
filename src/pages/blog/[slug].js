@@ -4,6 +4,7 @@ import Head from 'next/head'
 import Image from 'next/image'
 import { NextSeo } from 'next-seo'
 import matter from 'gray-matter'
+import readingTime from 'reading-time'
 import renderToString from 'next-mdx-remote/render-to-string'
 import hydrate from 'next-mdx-remote/hydrate'
 import mdxPrism from 'mdx-prism'
@@ -18,6 +19,18 @@ import { postFilePaths, POSTS_PATH } from '@/utils/mdx'
 
 const BlogPost = ({ source, frontMatter, locale }) => {
   const content = hydrate(source, { components: MDXComponents })
+
+  const getReadingTime = () => {
+    const {
+      readingTime: { text },
+    } = frontMatter
+
+    if (locale === 'id') {
+      return `${text.split(' ')[0]} menit membaca`
+    } else {
+      return text
+    }
+  }
 
   return (
     <>
@@ -48,23 +61,31 @@ const BlogPost = ({ source, frontMatter, locale }) => {
         <h1 className="font-black text-3xl sm:text-4xl dark:text-white">
           {frontMatter.title}
         </h1>
-        <div className="mt-4 flex items-center">
-          <Image
-            src="/images/avatar.webp"
-            alt="Agallio Samai"
-            width={24}
-            height={24}
-            className="rounded-full"
-          />
-          <p className="ml-2 text-sm text-gray-800 dark:text-gray-300">
-            {frontMatter.author} /{' '}
-            {frontMatter.date
-              ? dayjs(frontMatter.date, 'DD-MM-YYYY')
-                  .locale(locale === 'id' ? 'id' : 'en')
-                  .format('dddd, DD MMMM YYYY')
-              : '-'}
+        <div className="mt-4 flex items-center justify-between">
+          <div className="flex items-center">
+            <Image
+              src="/images/avatar.webp"
+              alt="Agallio Samai"
+              width={24}
+              height={24}
+              className="rounded-full"
+            />
+            <p className="ml-2 text-sm text-gray-800 dark:text-gray-300">
+              {frontMatter.author} /{' '}
+              {frontMatter.date
+                ? dayjs(frontMatter.date, 'DD-MM-YYYY')
+                    .locale(locale === 'id' ? 'id' : 'en')
+                    .format('dddd, DD MMMM YYYY')
+                : '-'}
+            </p>
+          </div>
+          <p className="hidden text-sm text-gray-500 dark:text-gray-400 sm:block">
+            {getReadingTime()}
           </p>
         </div>
+        <p className="block mt-2 text-sm text-gray-500 dark:text-gray-400 sm:hidden">
+          {getReadingTime()}
+        </p>
         <article className="mt-14 prose dark:prose-dark">{content}</article>
       </div>
     </>
@@ -89,7 +110,7 @@ export const getStaticProps = async ({ params, locale }) => {
   return {
     props: {
       source: mdxSource,
-      frontMatter: data,
+      frontMatter: { readingTime: readingTime(content), ...data },
       locale,
     },
   }
