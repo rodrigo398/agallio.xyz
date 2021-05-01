@@ -14,7 +14,7 @@
     "start": "next start",
     "lint": "eslint .",
     "format": "prettier --write .",
-    "postinstall": "husky install"
+    "postinstall": "cd .. && husky install"
   },
   "engines": {
     "node": "12.x.x || 14.x.x",
