@@ -80,15 +80,15 @@ export default function IndexPage() {
           </div>
         </div>
         <div className="rounded-b-xl cursor-pointer border border-t-0 bg-white dark:bg-gray-800 dark:border-gray-600">
-          <div className="flex items-center justify-center py-16">
+          <div className="flex items-center justify-center py-16 sm:py-6">
             <Image
               src="/images/projects/freedomlife.png"
-              width={70}
-              height={70}
+              width={45}
+              height={45}
               alt="FreedomLife Logo"
               className="rounded-b-xl cursor-pointer"
             />
-            <h1 className="ml-[5px] text-5xl font-logo text-gray-800 dark:text-white">
+            <h1 className="ml-[5px] text-4xl font-logo text-gray-800 dark:text-white">
               freedomlife
             </h1>
           </div>
