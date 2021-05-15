@@ -11,6 +11,7 @@ module.exports = {
     extend: {
       fontFamily: {
         sans: ['Inter', ...fontFamily.sans],
+        logo: ['Lato', 'sans-serif'],
       },
       typography: (theme) => ({
         DEFAULT: {

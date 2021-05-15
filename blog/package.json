@@ -9,7 +9,7 @@
   },
   "scripts": {
     "dev": "next",
-    "dev:watch": "next-remote-watch ./posts",
+    "dev:watch": "next-remote-watch ./src/posts",
     "build": "next build",
     "start": "next start",
     "lint": "eslint .",

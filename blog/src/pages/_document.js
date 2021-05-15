@@ -12,6 +12,13 @@ export default class Document extends NextDocument {
             type="font/woff2"
             crossOrigin="anonymous"
           />
+          <link
+            rel="preload"
+            href="/fonts/lato-black.woff2"
+            as="font"
+            type="font/woff2"
+            crossOrigin="anonymous"
+          />
           <script
             async
             defer

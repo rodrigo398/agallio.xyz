@@ -79,20 +79,19 @@ export default function IndexPage() {
             </p>
           </div>
         </div>
-        <div
-          className="rounded-b-xl cursor-pointer"
-          style={{
-            background:
-              'linear-gradient(45deg, rgba(16,185,129,1) 30%, rgba(0,212,255,1) 100%)',
-          }}
-        >
-          <Image
-            src="/images/projects/freedomlife.webp"
-            width={1000}
-            height={400}
-            alt="FreedomLife Logo"
-            className="rounded-b-xl cursor-pointer"
-          />
+        <div className="rounded-b-xl cursor-pointer border border-t-0 bg-white dark:bg-gray-800 dark:border-gray-600">
+          <div className="flex items-center justify-center py-16">
+            <Image
+              src="/images/projects/freedomlife.png"
+              width={70}
+              height={70}
+              alt="FreedomLife Logo"
+              className="rounded-b-xl cursor-pointer"
+            />
+            <h1 className="ml-[5px] text-5xl font-logo text-gray-800 dark:text-white">
+              freedomlife
+            </h1>
+          </div>
         </div>
       </a>
 
