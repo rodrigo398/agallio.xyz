@@ -122,13 +122,6 @@ pre {
   @apply mt-0 rounded-t-none;
 }
 
-i,
-em {
-  /* Should be font-style: italic; */
-  font-synthesis: none;
-  font-variation-settings: 'ital' 1;
-}
-
 /* Start purging... */
 @tailwind utilities;
 /* Stop purging. */
@@ -136,7 +129,7 @@ em {
 /* Your own custom utilities */
 @font-face {
   font-family: 'Inter';
-  font-style: normal;
+  font-style: normal, italic;
   font-weight: 100 900;
   font-display: optional;
   src: url(/fonts/inter-var-latin.woff2) format('woff2');

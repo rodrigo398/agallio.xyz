@@ -5,8 +5,8 @@ import Image from 'next/image'
 import { NextSeo } from 'next-seo'
 import matter from 'gray-matter'
 import readingTime from 'reading-time'
-import renderToString from 'next-mdx-remote/render-to-string'
-import hydrate from 'next-mdx-remote/hydrate'
+import { MDXRemote } from 'next-mdx-remote'
+import { serialize } from 'next-mdx-remote/serialize'
 import mdxPrism from 'mdx-prism'
 import codeTitles from 'remark-code-titles'
 import rSlug from 'rehype-slug'
@@ -18,8 +18,6 @@ import dayjs from '@/utils/dayjs'
 import { postFilePaths, POSTS_PATH } from '@/utils/mdx'
 
 const BlogPost = ({ source, frontMatter, locale }) => {
-  const content = hydrate(source, { components: MDXComponents })
-
   const getReadingTime = () => {
     const {
       readingTime: { text },
@@ -86,7 +84,9 @@ const BlogPost = ({ source, frontMatter, locale }) => {
         <p className="block mt-2 text-sm text-gray-500 dark:text-gray-400 sm:hidden">
           {getReadingTime()}
         </p>
-        <article className="mt-14 prose dark:prose-dark">{content}</article>
+        <article className="mt-14 prose dark:prose-dark">
+          <MDXRemote {...source} components={MDXComponents} />
+        </article>
       </div>
     </>
   )
@@ -98,7 +98,7 @@ export const getStaticProps = async ({ params, locale }) => {
 
   const { content, data } = matter(source)
 
-  const mdxSource = await renderToString(content, {
+  const mdxSource = await serialize(content, {
     components: MDXComponents,
     mdxOptions: {
       remarkPlugins: [codeTitles],
