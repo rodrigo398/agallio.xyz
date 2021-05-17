@@ -56,8 +56,16 @@ export default function About() {
           </h1>
           <p className="text-gray-700 my-2 dark:text-gray-200">
             {aboutLocale.description[locale]}{' '}
-            {homeLocale.description_start[locale]}.{' '}
-            {homeLocale.description_end[locale]}{' '}
+            {homeLocale.description_start[locale]}{' '}
+            <a
+              href="https://traveloka.com"
+              target="_blank"
+              rel="noreferrer"
+              className="text-green-700 dark:text-green-300"
+            >
+              Traveloka
+            </a>
+            , {homeLocale.description_end[locale]}{' '}
             <a
               href="https://freedomlife.id"
               target="_blank"

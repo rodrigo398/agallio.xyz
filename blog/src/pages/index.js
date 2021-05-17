@@ -10,6 +10,12 @@ const RecentBlogPost = ({ locale }) => {
     return (
       <>
         <BlogPost
+          slug="fe-engineering-lead"
+          date="13-05-2021"
+          title="Menjadi Seorang Frontend Engineering Lead Di Awal Usia 20-an"
+          summary="Cerita pengalaman saya menjadi seorang frontend engineering lead di awal usia 20-an."
+        />
+        <BlogPost
           slug="spotify-with-nextjs"
           date="27-01-2021"
           title="Menggunakan Spotify API di Next.js"
@@ -48,8 +54,16 @@ export default function IndexPage() {
         </span>
       </h1>
       <p className="text-gray-700 dark:text-gray-100">
-        {homeLocale.description_start[locale]}.{' '}
-        {homeLocale.description_end[locale]}{' '}
+        {homeLocale.description_start[locale]}{' '}
+        <a
+          href="https://traveloka.com"
+          target="_blank"
+          rel="noreferrer"
+          className="text-green-700 dark:text-green-300"
+        >
+          Traveloka
+        </a>
+        , {homeLocale.description_end[locale]}{' '}
         <a
           href="https://freedomlife.id"
           target="_blank"
