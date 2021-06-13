@@ -12,7 +12,7 @@ const FullTimeline = () => (
           href="https://freedomlife.id"
           target="_blank"
           rel="noreferrer"
-          className="text-green-600 dark:text-green-400"
+          className="bouncy-anchor"
         >
           FreedomLife
         </a>{' '}
@@ -29,7 +29,7 @@ const FullTimeline = () => (
           href="https://freedomlife.id"
           target="_blank"
           rel="noreferrer"
-          className="text-green-600 dark:text-green-400"
+          className="bouncy-anchor"
         >
           FreedomLife
         </a>
@@ -63,7 +63,7 @@ const FullTimeline = () => (
           href="https://twitter.com/therusetiawan"
           target="_blank"
           rel="nooopener noreferrer"
-          className="text-green-600 dark:text-green-400"
+          className="bouncy-anchor"
         >
           Heru Setiawan
         </a>
@@ -135,6 +135,22 @@ const EnTimeline = () => {
 
   return (
     <>
+      <Year>2021</Year>
+      <ul>
+        <Step title="Joined Traveloka">
+          I joined Traveloka as a Software Engineer in Web.{' '}
+          <span role="img" aria-label="congratulations">
+            🥳
+          </span>
+        </Step>
+        <Step title="FreedomLife 10K Users 🚀">
+          Finally, after 6 months from 2K users, FreedomLife hits 10K users with
+          ± 2.5K monthly active users!{' '}
+          <span role="img" aria-label="rocket">
+            🚀
+          </span>{' '}
+        </Step>
+      </ul>
       <Year>2020</Year>
       <ul>
         <Step title="FreedomLife 2K Users 🔥">
@@ -153,7 +169,7 @@ const EnTimeline = () => {
             href="https://freedomlife.id"
             target="_blank"
             rel="noreferrer"
-            className="text-green-600 dark:text-green-400"
+            className="bouncy-anchor"
           >
             FreedomLife
           </a>
@@ -177,7 +193,7 @@ const EnTimeline = () => {
             href="https://freedomlife.id"
             target="_blank"
             rel="noreferrer"
-            className="text-green-600 dark:text-green-400"
+            className="bouncy-anchor"
           >
             FreedomLife
           </a>{' '}
@@ -205,7 +221,7 @@ const EnTimeline = () => {
             href="https://freedomlife.id"
             target="_blank"
             rel="noreferrer"
-            className="text-green-600 dark:text-green-400"
+            className="bouncy-anchor"
           >
             FreedomLife
           </a>{' '}

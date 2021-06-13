@@ -1,4 +1,4 @@
-import Image from 'next/image'
+// import Image from 'next/image'
 import { useRouter } from 'next/router'
 
 import homeLocale from '@/locales/home'
@@ -46,20 +46,20 @@ export default function IndexPage() {
   const { locale } = router
 
   return (
-    <div className="flex flex-col pt-32">
-      <h1 className="mb-4 text-3xl tracking-wide font-black md:text-4xl dark:text-white">
+    <div className="flex flex-col pt-28">
+      <h1 className="mb-6 text-3xl tracking-wide font-black md:text-4xl dark:text-white">
         {homeLocale.greetings[locale]}{' '}
         <span role="img" aria-label="melambaikan tangan">
           👋🏻
         </span>
       </h1>
-      <p className="text-gray-700 dark:text-gray-100">
+      <p className="text-gray-700 dark:text-gray-100 leading-relaxed sm:text-xl">
         {homeLocale.description_start[locale]}{' '}
         <a
           href="https://traveloka.com"
           target="_blank"
           rel="noreferrer"
-          className="text-green-700 dark:text-green-300"
+          className="bouncy-anchor"
         >
           Traveloka
         </a>
@@ -68,20 +68,26 @@ export default function IndexPage() {
           href="https://freedomlife.id"
           target="_blank"
           rel="noreferrer"
-          className="text-green-700 dark:text-green-300"
+          className="bouncy-anchor"
         >
           FreedomLife
         </a>
         .
       </p>
 
-      <h2 className="mt-12 font-bold text-2xl dark:text-white">Projects</h2>
+      <p className="sm:text-xl mt-6">
+        <a href="/about" className="bouncy-anchor">
+          Tentang Saya →
+        </a>
+      </p>
+
+      {/* <h2 className="mt-12 font-bold text-2xl dark:text-white">Projects</h2>
       <a
         href="https://freedomlife.id"
         target="_blank"
         rel="noopener noreferrer"
       >
-        <div className="border mt-4 rounded-t-xl border-gray-200 cursor-pointer transition transform hover:bg-gray-50 dark:border-gray-600 dark:hover:bg-gray-800">
+        <div className="border mt-4 rounded-t-xl border-gray-200 cursor-pointer transition transform hover:bg-gray-50 dark:border-gray-700 dark:hover:bg-gray-900">
           <div className="p-4">
             <h1 className="font-medium text-lg dark:text-white sm:text-xl">
               FreedomLife
@@ -93,7 +99,7 @@ export default function IndexPage() {
             </p>
           </div>
         </div>
-        <div className="rounded-b-xl cursor-pointer border border-t-0 bg-white dark:bg-gray-800 dark:border-gray-600">
+        <div className="rounded-b-xl cursor-pointer border border-t-0 bg-white dark:bg-black dark:border-gray-700">
           <div className="flex items-center justify-center py-16 sm:py-6">
             <Image
               src="/images/projects/freedomlife.png"
@@ -107,7 +113,7 @@ export default function IndexPage() {
             </h1>
           </div>
         </div>
-      </a>
+      </a> */}
 
       <h2 className="mt-12 font-bold text-2xl dark:text-white">
         {homeLocale.recent_post[locale]}

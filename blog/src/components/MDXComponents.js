@@ -9,7 +9,10 @@ const CustomLink = (props) => {
     return (
       <Link href={href}>
         {/* eslint-disable-next-line jsx-a11y/anchor-has-content */}
-        <a {...props} />
+        <a
+          {...props}
+          className={props.type !== 'image' ? 'bouncy-anchor' : ''}
+        />
       </Link>
     )
   }
@@ -17,7 +20,12 @@ const CustomLink = (props) => {
   return (
     <>
       {/* eslint-disable-next-line jsx-a11y/anchor-has-content */}
-      <a target="_blank" rel="noopener noreferrer" {...props} />
+      <a
+        target="_blank"
+        rel="noopener noreferrer"
+        {...props}
+        className={props.type !== 'image' ? 'bouncy-anchor' : ''}
+      />
     </>
   )
 }
@@ -25,6 +33,7 @@ const CustomLink = (props) => {
 const MDXComponents = {
   Image,
   a: CustomLink,
+  ImageLink: (props) => <CustomLink type="image" {...props} />,
 }
 
 export default MDXComponents

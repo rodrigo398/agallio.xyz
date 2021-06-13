@@ -15,7 +15,7 @@ html {
 }
 
 html.dark {
-  @apply bg-gray-900;
+  @apply bg-black;
 }
 
 html.light {
@@ -23,11 +23,37 @@ html.light {
 }
 
 body {
-  @apply p-0 m-0 bg-white dark:bg-gray-900;
+  @apply p-0 m-0 bg-white dark:bg-black;
 }
 
 #__next {
-  @apply bg-white dark:bg-gray-900;
+  @apply bg-white dark:bg-black;
+}
+
+.bouncy-anchor {
+  position: relative;
+  overflow: hidden;
+  text-decoration: none;
+  @apply text-green-600 dark:text-green-400 font-semibold;
+}
+
+.bouncy-anchor::after {
+  content: '';
+  position: absolute;
+  left: 12px;
+  bottom: -4px;
+  width: calc(100% - 8px);
+  height: calc(100% - 8px);
+  z-index: 1;
+  transition: 0.35s cubic-bezier(0.25, 0.1, 0, 2.05);
+  @apply bg-green-600 bg-opacity-20 dark:bg-green-400 dark:bg-opacity-25;
+}
+
+.bouncy-anchor:hover::after {
+  left: 0;
+  bottom: -2px;
+  width: 100%;
+  height: 100%;
 }
 
 .prose code {

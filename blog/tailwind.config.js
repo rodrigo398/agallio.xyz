@@ -18,10 +18,8 @@ module.exports = {
           css: {
             color: theme('colors.gray.700'),
             a: {
-              color: theme('colors.green.500'),
-              '&:hover': {
-                color: theme('colors.green.700'),
-              },
+              color: theme('colors.green.600'),
+              textDecoration: 'none',
             },
             'h2,h3,h4': {
               'scroll-margin-top': spacing[32],
@@ -35,9 +33,7 @@ module.exports = {
             color: theme('colors.gray.300'),
             a: {
               color: theme('colors.green.400'),
-              '&:hover': {
-                color: theme('colors.green.600'),
-              },
+              textDecoration: 'none',
               code: { color: theme('colors.green.400') },
             },
             blockquote: {

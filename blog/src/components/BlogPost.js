@@ -8,7 +8,7 @@ export default function BlogPost({ slug, title, summary, date }) {
   const { locale } = router
   return (
     <Link as={`/blog/${slug}`} href="/blog/[slug]">
-      <div className="p-4 border mt-4 rounded-xl border-gray-200 cursor-pointer transition transform hover:bg-gray-50 dark:border-gray-600 dark:hover:bg-gray-800">
+      <div className="p-4 border mt-4 rounded border-gray-200 cursor-pointer transition transform hover:bg-gray-50 dark:border-gray-700 dark:hover:bg-gray-900">
         <h1 className="font-medium text-lg leading-snug dark:text-white sm:text-xl">
           {title}
         </h1>

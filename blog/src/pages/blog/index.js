@@ -37,11 +37,11 @@ export default function Blog({ posts, locale }) {
         }}
       />
 
-      <div className="flex flex-col pt-32">
-        <h1 className="mb-4 text-3xl tracking-wide font-black md:text-4xl dark:text-white">
+      <div className="flex flex-col pt-28">
+        <h1 className="mb-4 text-4xl tracking-wide font-black md:text-4xl dark:text-white">
           Blog
         </h1>
-        <p className="mb-4 text-gray-700 dark:text-gray-100">
+        <p className="text-lg md:text-xl mb-4 text-gray-700 dark:text-gray-100">
           {blogLocale.description[locale]}
         </p>
 

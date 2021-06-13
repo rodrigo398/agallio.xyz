@@ -51,7 +51,7 @@ const FullTimeline = () => (
           href="https://freedomlife.id"
           target="_blank"
           rel="noreferrer"
-          className="text-green-600 dark:text-green-400"
+          className="bouncy-anchor"
         >
           FreedomLife
         </a>
@@ -87,7 +87,7 @@ const FullTimeline = () => (
           href="https://twitter.com/therusetiawan"
           target="_blank"
           rel="nooopener noreferrer"
-          className="text-green-600 dark:text-green-400"
+          className="bouncy-anchor"
         >
           Heru Setiawan
         </a>
@@ -159,6 +159,24 @@ const Timeline = () => {
 
   return (
     <>
+      <Year>2021</Year>
+      <ul>
+        <Step title="Bergabung Dengan Traveloka">
+          Saya bergabung menjadi seorang Software Engineer di Traveloka, untuk
+          membantu mereka di semua bagian yang berkaitan dengan Web.{' '}
+          <span role="img" aria-label="congratulations">
+            🥳
+          </span>
+        </Step>
+        <Step title="FreedomLife 10 Ribu Pengguna 🚀">
+          Akhirnya, setelah 6 bulan dari 2 ribu pengguna, FreedomLife menyentuh
+          10.000 pengguna aktif, dengan pengguna aktif perbulan sebanyak ± 2.500
+          pengguna!{' '}
+          <span role="img" aria-label="rocket">
+            🚀
+          </span>{' '}
+        </Step>
+      </ul>
       <Year>2020</Year>
       <ul>
         <Step title="FreedomLife 2 Ribu Pengguna 🔥">
@@ -177,7 +195,7 @@ const Timeline = () => {
             href="https://freedomlife.id"
             target="_blank"
             rel="noreferrer"
-            className="text-green-600 dark:text-green-400"
+            className="bouncy-anchor"
           >
             FreedomLife
           </a>
@@ -201,7 +219,7 @@ const Timeline = () => {
             href="https://freedomlife.id"
             target="_blank"
             rel="noreferrer"
-            className="text-green-600 dark:text-green-400"
+            className="bouncy-anchor"
           >
             FreedomLife
           </a>{' '}
@@ -231,7 +249,7 @@ const Timeline = () => {
             href="https://freedomlife.id"
             target="_blank"
             rel="noreferrer"
-            className="text-green-600 dark:text-green-400"
+            className="bouncy-anchor"
           >
             FreedomLife
           </a>

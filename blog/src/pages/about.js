@@ -38,7 +38,7 @@ export default function About() {
         }}
       />
 
-      <div className="flex flex-col pt-32">
+      <div className="flex flex-col pt-28">
         <div className="flex flex-col items-center">
           <Image
             src="/images/avatar.webp"
@@ -54,14 +54,13 @@ export default function About() {
           <h1 className="font-black tracking-wide text-3xl mb-4 sm:text-4xl dark:text-white">
             {aboutLocale.about_me[locale]}
           </h1>
-          <p className="text-gray-700 my-2 dark:text-gray-200">
+          <p className="md:text-lg leading-relaxed text-gray-700 my-2 dark:text-gray-200">
             {aboutLocale.description[locale]}{' '}
-            {homeLocale.description_start[locale]}{' '}
             <a
               href="https://traveloka.com"
               target="_blank"
               rel="noreferrer"
-              className="text-green-700 dark:text-green-300"
+              className="bouncy-anchor"
             >
               Traveloka
             </a>
@@ -70,20 +69,20 @@ export default function About() {
               href="https://freedomlife.id"
               target="_blank"
               rel="noreferrer"
-              className="text-green-700 dark:text-green-300"
+              className="bouncy-anchor"
             >
               FreedomLife
             </a>
             .
           </p>
 
-          <p className="my-2 text-gray-700 dark:text-gray-200">
+          <p className="mt-4 mb-2 md:text-lg text-gray-700 dark:text-gray-200">
             {aboutLocale.music_description[locale]}{' '}
             <a
               href="https://instagram.com/agallio"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-green-700 dark:text-green-300"
+              className="bouncy-anchor"
             >
               Instagram
             </a>{' '}
@@ -92,7 +91,7 @@ export default function About() {
               href="https://www.youtube.com/channel/UCyX8oVNaFtOi0PI98t7EO6g"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-green-700 dark:text-green-300"
+              className="bouncy-anchor"
             >
               YouTube
             </a>

@@ -13,7 +13,7 @@ function MyApp({ Component, pageProps, router }) {
 
       <Header router={router} />
 
-      <main className="flex flex-col max-w-xl mx-auto px-4 md:px-0">
+      <main className="flex flex-col max-w-2xl mx-auto px-4 md:px-0">
         <Component {...pageProps} />
 
         <Footer />
