@@ -31,7 +31,7 @@
     "gray-matter": "^4.0.3",
     "htmr": "^1.0.0",
     "mdx-prism": "^0.3.3",
-    "next": "^10.2.3",
+    "next": "^11.0.0",
     "next-mdx-remote": "^3.0.2",
     "next-remote-watch": "^1.0.0",
     "next-seo": "^4.24.0",
@@ -55,7 +55,7 @@
     "globby": "^11.0.3",
     "husky": "^6.0.0",
     "pinst": "^2.1.6",
-    "postcss": "8.3.2",
+    "postcss": "8.3.4",
     "preact": "^10.5.13",
     "prettier": "^2.3.1",
     "tailwindcss": "^2.1.4"

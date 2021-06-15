@@ -49,9 +49,6 @@ const securityHeaders = [
 ]
 
 module.exports = {
-  future: {
-    webpack5: true,
-  },
   i18n: {
     locales: ['id', 'en'],
     defaultLocale: 'id',
