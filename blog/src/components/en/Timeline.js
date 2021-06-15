@@ -58,7 +58,7 @@ const FullTimeline = () => (
       </Step>
       <Step title="Special PHP Mentoring">
         I&apos;m following special mentoring for PHP programming language. My
-        mentor was{' '}
+        mentor was <br />
         <a
           href="https://twitter.com/therusetiawan"
           target="_blank"
