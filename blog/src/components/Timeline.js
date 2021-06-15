@@ -269,7 +269,7 @@ const Timeline = () => {
         onKeyDown={() => undefined}
       >
         <div className="flex-1 h-px mr-4 bg-gray-200 dark:bg-gray-600" />
-        <p className="flex items-center font-medium dark:text-white">
+        <p className="flex flex-grow items-center justify-center font-medium dark:text-white">
           {isFullTimeline ? (
             <>
               Lihat Lebih Sedikit{' '}
