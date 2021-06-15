@@ -29,6 +29,7 @@
     "@tailwindcss/typography": "^0.4.1",
     "dayjs": "^1.10.5",
     "gray-matter": "^4.0.3",
+    "htmr": "^1.0.0",
     "mdx-prism": "^0.3.3",
     "next": "^10.2.3",
     "next-mdx-remote": "^3.0.2",

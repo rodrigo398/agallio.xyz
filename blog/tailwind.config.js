@@ -18,7 +18,7 @@ module.exports = {
           css: {
             color: theme('colors.gray.700'),
             a: {
-              color: theme('colors.green.600'),
+              color: theme('colors.green.800'),
               textDecoration: 'none',
             },
             'h2,h3,h4': {

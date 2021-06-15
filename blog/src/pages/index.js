@@ -1,5 +1,6 @@
-// import Image from 'next/image'
+import Link from 'next/link'
 import { useRouter } from 'next/router'
+import htmr from 'htmr'
 
 import homeLocale from '@/locales/home'
 
@@ -31,12 +32,20 @@ const RecentBlogPost = ({ locale }) => {
     )
   } else {
     return (
-      <BlogPost
-        slug="en-hello-world"
-        date="21-01-2021"
-        title="Hello World!"
-        summary="This is my first english post!"
-      />
+      <>
+        <BlogPost
+          slug="en-switch-to-tailwind"
+          date="22-01-2021"
+          title="Switch To Tailwind CSS"
+          summary="Why did I end up switching to Tailwind CSS? How does it affect the performance of this blog?"
+        />
+        <BlogPost
+          slug="en-hello-world"
+          date="21-01-2021"
+          title="Hello World!"
+          summary="This is my first english post!"
+        />
+      </>
     )
   }
 }
@@ -54,31 +63,13 @@ export default function IndexPage() {
         </span>
       </h1>
       <p className="text-gray-700 dark:text-gray-100 leading-relaxed sm:text-xl">
-        {homeLocale.description_start[locale]}{' '}
-        <a
-          href="https://traveloka.com"
-          target="_blank"
-          rel="noreferrer"
-          className="bouncy-anchor"
-        >
-          Traveloka
-        </a>
-        , {homeLocale.description_end[locale]}{' '}
-        <a
-          href="https://freedomlife.id"
-          target="_blank"
-          rel="noreferrer"
-          className="bouncy-anchor"
-        >
-          FreedomLife
-        </a>
-        .
+        {htmr(homeLocale.description[locale])}
       </p>
 
       <p className="sm:text-xl mt-6">
-        <a href="/about" className="bouncy-anchor">
-          Tentang Saya →
-        </a>
+        <Link href="/about" locale={locale}>
+          <a className="bouncy-anchor">{homeLocale.cta_about[locale]} →</a>
+        </Link>
       </p>
 
       {/* <h2 className="mt-12 font-bold text-2xl dark:text-white">Projects</h2>

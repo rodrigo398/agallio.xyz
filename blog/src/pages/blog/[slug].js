@@ -59,6 +59,7 @@ const BlogPost = ({ source, frontMatter, locale }) => {
         <h1 className="font-black text-3xl sm:text-4xl dark:text-white">
           {frontMatter.title}
         </h1>
+
         <div className="mt-4 flex items-center justify-between">
           <div className="flex items-center">
             <Image
@@ -84,7 +85,7 @@ const BlogPost = ({ source, frontMatter, locale }) => {
         <p className="block mt-2 text-sm text-gray-500 dark:text-gray-400 sm:hidden">
           {getReadingTime()}
         </p>
-        <article className="mt-14 prose dark:prose-dark">
+        <article className="max-w-2xl mt-14 prose dark:prose-dark">
           <MDXRemote {...source} components={MDXComponents} />
         </article>
       </div>

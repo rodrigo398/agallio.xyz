@@ -103,29 +103,29 @@ const Header = ({ router }) => {
     activePath = '/blog'
   }
 
-  // const handleI18n = () => {
-  //   if (locale === 'en') {
-  //     if (router.pathname === '/blog/[slug]') {
-  //       router.push('/blog', '/blog', {
-  //         locale: 'id',
-  //       })
-  //     } else {
-  //       router.push(router.pathname, router.pathname, {
-  //         locale: 'id',
-  //       })
-  //     }
-  //   } else if (locale === 'id') {
-  //     if (router.pathname === '/blog/[slug]') {
-  //       router.push('/blog', '/blog', {
-  //         locale: 'en',
-  //       })
-  //     } else {
-  //       router.push(router.pathname, router.pathname, {
-  //         locale: 'en',
-  //       })
-  //     }
-  //   }
-  // }
+  const handleI18n = () => {
+    if (locale === 'en') {
+      if (router.pathname === '/blog/[slug]') {
+        router.push('/blog', '/blog', {
+          locale: 'id',
+        })
+      } else {
+        router.push(router.pathname, router.pathname, {
+          locale: 'id',
+        })
+      }
+    } else if (locale === 'id') {
+      if (router.pathname === '/blog/[slug]') {
+        router.push('/blog', '/blog', {
+          locale: 'en',
+        })
+      } else {
+        router.push(router.pathname, router.pathname, {
+          locale: 'en',
+        })
+      }
+    }
+  }
 
   return (
     <>
@@ -136,7 +136,7 @@ const Header = ({ router }) => {
         style={{ top: -1 }}
       >
         <div
-          className="absolute w-full h-full left-0 top-0 bg-white bg-opacity-60 dark:bg-black dark:bg-opacity-60"
+          className="absolute w-full h-full left-0 top-0 bg-white bg-opacity-50 dark:bg-black dark:bg-opacity-50"
           style={{
             zIndex: -1,
             backdropFilter: 'saturate(180%) blur(20px)',
@@ -201,7 +201,7 @@ const Header = ({ router }) => {
               </Link>
             </div>
             <div className="flex">
-              {/* <button
+              <button
                 aria-label="Toggle Language"
                 className="flex items-center justify-center w-10 h-10 mr-3 border rounded transition transform duration-300 border-gray-300 dark:border-gray-700 focus:outline-none focus:bg-gray-200 dark:focus:bg-gray-800"
                 onClick={handleI18n}
@@ -215,7 +215,7 @@ const Header = ({ router }) => {
                     🇺🇸
                   </span>
                 )}
-              </button> */}
+              </button>
               <button
                 aria-label="Switch Theme"
                 className="w-10 h-10 p-3 bg-green-200 text-green-800 rounded transition transform duration-300 dark:bg-green-800 dark:text-green-200 focus:outline-none focus:ring-1 focus:ring-green-800 dark:focus:ring-green-200"
@@ -254,7 +254,7 @@ const Header = ({ router }) => {
         style={{ top: -1 }}
       >
         <div
-          className="absolute w-full h-full left-0 top-0 border-b border-gray-100 bg-white bg-opacity-60 dark:bg-black dark:border-gray-800 dark:bg-opacity-80"
+          className="absolute w-full h-full left-0 top-0 border-b border-gray-100 bg-white bg-opacity-50 dark:bg-black dark:border-gray-800 dark:bg-opacity-50"
           style={{
             zIndex: -1,
             backdropFilter: 'saturate(180%) blur(20px)',
@@ -271,7 +271,7 @@ const Header = ({ router }) => {
             />
           </div>
           <div className="flex items-center">
-            {/* <button
+            <button
               aria-label="Toggle Language"
               className="flex items-center justify-center w-10 h-10 mr-2 border rounded transition transform duration-300 border-gray-300 dark:border-gray-700 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none"
               onClick={handleI18n}
@@ -285,7 +285,7 @@ const Header = ({ router }) => {
                   🇺🇸
                 </span>
               )}
-            </button> */}
+            </button>
             <button
               aria-label="Switch Theme"
               className="w-10 h-10 p-3 bg-green-200 text-green-800 rounded transition transform duration-300 hover:bg-green-300 focus:outline-none dark:bg-green-900 dark:text-green-200 dark:hover:bg-green-800"

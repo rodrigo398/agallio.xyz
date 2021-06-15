@@ -34,7 +34,7 @@ body {
   position: relative;
   overflow: hidden;
   text-decoration: none;
-  @apply text-green-600 dark:text-green-400 font-semibold;
+  @apply text-green-800 dark:text-green-400 font-semibold;
 }
 
 .bouncy-anchor::after {
@@ -46,7 +46,7 @@ body {
   height: calc(100% - 8px);
   z-index: 1;
   transition: 0.35s cubic-bezier(0.25, 0.1, 0, 2.05);
-  @apply bg-green-600 bg-opacity-20 dark:bg-green-400 dark:bg-opacity-25;
+  @apply bg-green-500 bg-opacity-20 dark:bg-green-400 dark:bg-opacity-25;
 }
 
 .bouncy-anchor:hover::after {
@@ -74,6 +74,10 @@ body {
 
 .prose pre code {
   @apply bg-transparent dark:bg-transparent text-gray-700;
+}
+
+.prose-lg pre {
+  @apply sm:my-0;
 }
 
 .token.prolog,

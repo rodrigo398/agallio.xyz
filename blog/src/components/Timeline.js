@@ -161,7 +161,7 @@ const Timeline = () => {
     <>
       <Year>2021</Year>
       <ul>
-        <Step title="Bergabung Dengan Traveloka">
+        <Step title="Bergabung Dengan Traveloka!">
           Saya bergabung menjadi seorang Software Engineer di Traveloka, untuk
           membantu mereka di semua bagian yang berkaitan dengan Web.{' '}
           <span role="img" aria-label="congratulations">

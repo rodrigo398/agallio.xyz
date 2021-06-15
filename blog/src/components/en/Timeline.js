@@ -137,8 +137,9 @@ const EnTimeline = () => {
     <>
       <Year>2021</Year>
       <ul>
-        <Step title="Joined Traveloka">
-          I joined Traveloka as a Software Engineer in Web.{' '}
+        <Step title="Joined Traveloka!">
+          I joined as a Software Engineer at Traveloka, to help them with
+          everything related to the Web.{' '}
           <span role="img" aria-label="congratulations">
             🥳
           </span>

@@ -2,9 +2,9 @@ import Head from 'next/head'
 import Image from 'next/image'
 import { useRouter } from 'next/router'
 import { NextSeo } from 'next-seo'
+import htmr from 'htmr'
 
 import aboutLocale from '@/locales/about'
-import homeLocale from '@/locales/home'
 
 import Timeline from '@/components/Timeline'
 import EnTimeline from '@/components/en/Timeline'
@@ -16,10 +16,10 @@ export default function About() {
   return (
     <>
       <Head>
-        <title>Tentang | Agallio Samai</title>
+        <title>{aboutLocale.title[locale]}</title>
       </Head>
       <NextSeo
-        title="Tentang | Agallio Samai"
+        title={aboutLocale.title[locale]}
         description="Tentang saya."
         openGraph={{
           url: 'https://agallio.xyz/about',
@@ -52,50 +52,21 @@ export default function About() {
 
         <div className="mt-16">
           <h1 className="font-black tracking-wide text-3xl mb-4 sm:text-4xl dark:text-white">
-            {aboutLocale.about_me[locale]}
+            {aboutLocale.about_me[locale]}{' '}
+            <span role="img" aria-label="man working with macbook">
+              🧑🏻‍💻
+            </span>
           </h1>
           <p className="md:text-lg leading-relaxed text-gray-700 my-2 dark:text-gray-200">
-            {aboutLocale.description[locale]}{' '}
-            <a
-              href="https://traveloka.com"
-              target="_blank"
-              rel="noreferrer"
-              className="bouncy-anchor"
-            >
-              Traveloka
-            </a>
-            , {homeLocale.description_end[locale]}{' '}
-            <a
-              href="https://freedomlife.id"
-              target="_blank"
-              rel="noreferrer"
-              className="bouncy-anchor"
-            >
-              FreedomLife
-            </a>
-            .
+            {htmr(aboutLocale.description[locale])}
           </p>
 
-          <p className="mt-4 mb-2 md:text-lg text-gray-700 dark:text-gray-200">
-            {aboutLocale.music_description[locale]}{' '}
-            <a
-              href="https://instagram.com/agallio"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="bouncy-anchor"
-            >
-              Instagram
-            </a>{' '}
-            {locale === 'en' ? 'and' : 'dan'}{' '}
-            <a
-              href="https://www.youtube.com/channel/UCyX8oVNaFtOi0PI98t7EO6g"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="bouncy-anchor"
-            >
-              YouTube
-            </a>
-            {locale === 'en' ? '.' : ' saya.'}
+          <p className="mt-4 mb-2 leading-relaxed md:text-lg text-gray-700 dark:text-gray-200">
+            {htmr(aboutLocale.long_description[locale])}
+          </p>
+
+          <p className="mt-4 mb-2 leading-relaxed md:text-lg text-gray-700 dark:text-gray-200">
+            {htmr(aboutLocale.music_description[locale])}
           </p>
 
           <h1 className="font-black tracking-wide text-3xl mb-4 mt-12 sm:text-4xl dark:text-white">
