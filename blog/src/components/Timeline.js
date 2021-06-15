@@ -269,10 +269,10 @@ const Timeline = () => {
         onKeyDown={() => undefined}
       >
         <div className="flex-1 h-px mr-4 bg-gray-200 dark:bg-gray-600" />
-        <p className="flex flex-grow items-center justify-center font-medium dark:text-white">
+        <p className="flex items-center justify-center font-medium dark:text-white">
           {isFullTimeline ? (
             <>
-              Lihat Lebih Sedikit{' '}
+              Tutup{' '}
               <svg
                 className="h-4 w-4 ml-1"
                 xmlns="http://www.w3.org/2000/svg"
@@ -290,7 +290,7 @@ const Timeline = () => {
             </>
           ) : (
             <>
-              Lihat Lebih Banyak{' '}
+              Lihat Selengkapnya{' '}
               <svg
                 className="h-4 w-4 ml-1"
                 xmlns="http://www.w3.org/2000/svg"
