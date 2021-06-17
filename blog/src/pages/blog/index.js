@@ -92,17 +92,17 @@ export function getStaticProps({ locale }) {
 
   const seo = {
     id: {
-      title: 'Tentang Saya | Agallio Samai',
-      description: 'Tentang saya.',
+      title: 'Blog | Agallio Samai',
+      description: 'Tulisan-tulisan saya.',
       openGraph: {
-        url: 'https://agallio.xyz/about',
-        title: 'Tentang Saya | Agallio Samai',
-        description: 'Tentang saya.',
+        url: 'https://agallio.xyz/blog',
+        title: 'Blog | Agallio Samai',
+        description: 'Tulisan-tulisan saya.',
         site_name: 'Agallio Samai',
         images: [
           {
-            url: 'http://agallio.xyz/images/og-about.png',
-            alt: 'Tentang Saya - Agallio Samai',
+            url: 'http://agallio.xyz/images/og-blog.png',
+            alt: 'Blog - Agallio Samai',
           },
         ],
       },
@@ -111,17 +111,17 @@ export function getStaticProps({ locale }) {
       },
     },
     en: {
-      title: 'About Me | Agallio Samai',
-      description: 'About me.',
+      title: 'Blog | Agallio Samai',
+      description: 'My writings.',
       openGraph: {
-        url: 'https://agallio.xyz/en/about',
-        title: 'About Me | Agallio Samai',
-        description: 'About me.',
+        url: 'https://agallio.xyz/en/blog',
+        title: 'Blog | Agallio Samai',
+        description: 'My writings.',
         site_name: 'Agallio Samai',
         images: [
           {
-            url: 'http://agallio.xyz/images/og-en-about.png',
-            alt: 'About Me - Agallio Samai',
+            url: 'http://agallio.xyz/images/og-en-blog.png',
+            alt: 'Blog - Agallio Samai',
           },
         ],
       },
