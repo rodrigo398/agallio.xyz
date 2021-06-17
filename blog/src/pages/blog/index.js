@@ -11,35 +11,20 @@ import blogLocale from '@/locales/blog'
 import dayjs from '@/utils/dayjs'
 import { postFilePaths, POSTS_PATH } from '@/utils/mdx'
 
-export default function Blog({ posts, locale }) {
+export default function Blog({ posts, locale, seo }) {
   return (
     <>
       <Head>
-        <title>Blog | Agallio Samai</title>
+        <title>{seo[locale].title}</title>
       </Head>
-      <NextSeo
-        title="Blog | Agallio Samai"
-        description="Tulisan-tulisan saya."
-        openGraph={{
-          url: 'https://agallio.xyz/blog',
-          title: 'Blog | Agallio Samai',
-          description: 'Tulisan-tulisan saya.',
-          site_name: 'Agallio Samai',
-          images: [
-            {
-              url: 'http://agallio.xyz/images/og-blog.png',
-              alt: 'Blog - Agallio Samai',
-            },
-          ],
-        }}
-        twitter={{
-          cardType: 'summary_large_image',
-        }}
-      />
+      <NextSeo {...seo[locale]} />
 
       <div className="flex flex-col pt-28">
         <h1 className="mb-4 text-4xl tracking-wide font-black md:text-4xl dark:text-white">
-          Blog
+          Blog{' '}
+          <span role="img" aria-label="handwriting">
+            ✍🏻
+          </span>
         </h1>
         <p className="text-lg md:text-xl mb-4 text-gray-700 dark:text-gray-100">
           {blogLocale.description[locale]}
@@ -105,5 +90,46 @@ export function getStaticProps({ locale }) {
     }
   })
 
-  return { props: { posts, locale } }
+  const seo = {
+    id: {
+      title: 'Tentang Saya | Agallio Samai',
+      description: 'Tentang saya.',
+      openGraph: {
+        url: 'https://agallio.xyz/about',
+        title: 'Tentang Saya | Agallio Samai',
+        description: 'Tentang saya.',
+        site_name: 'Agallio Samai',
+        images: [
+          {
+            url: 'http://agallio.xyz/images/og-about.png',
+            alt: 'Tentang Saya - Agallio Samai',
+          },
+        ],
+      },
+      twitter: {
+        cardType: 'summary_large_image',
+      },
+    },
+    en: {
+      title: 'About Me | Agallio Samai',
+      description: 'About me.',
+      openGraph: {
+        url: 'https://agallio.xyz/en/about',
+        title: 'About Me | Agallio Samai',
+        description: 'About me.',
+        site_name: 'Agallio Samai',
+        images: [
+          {
+            url: 'http://agallio.xyz/images/og-en-about.png',
+            alt: 'About Me - Agallio Samai',
+          },
+        ],
+      },
+      twitter: {
+        cardType: 'summary_large_image',
+      },
+    },
+  }
+
+  return { props: { posts, locale, seo } }
 }

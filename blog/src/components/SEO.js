@@ -4,7 +4,7 @@ import { DefaultSeo } from 'next-seo'
 
 const SeoConfig = {
   title: 'Agallio Samai',
-  description: 'Web Engineer.',
+  description: '🇮🇩 Musician who code.',
   openGraph: {
     type: 'website',
     locale: 'id_ID',
@@ -12,7 +12,7 @@ const SeoConfig = {
     site_name: 'Agallio Samai',
     images: [
       {
-        url: 'http://agallio.xyz/images/og-aga.png',
+        url: 'http://agallio.xyz/images/og-main.png',
         alt: 'Agallio Samai',
       },
     ],

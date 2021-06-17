@@ -16,27 +16,9 @@ export default function About() {
   return (
     <>
       <Head>
-        <title>{aboutLocale.title[locale]}</title>
+        <title>{aboutLocale.seo[locale].title}</title>
       </Head>
-      <NextSeo
-        title={aboutLocale.title[locale]}
-        description="Tentang saya."
-        openGraph={{
-          url: 'https://agallio.xyz/about',
-          title: 'Tentang | Agallio Samai',
-          description: 'Tentang saya.',
-          site_name: 'Agallio Samai',
-          images: [
-            {
-              url: 'http://agallio.xyz/images/og-about.png',
-              alt: 'Tentang - Agallio Samai',
-            },
-          ],
-        }}
-        twitter={{
-          cardType: 'summary_large_image',
-        }}
-      />
+      <NextSeo {...aboutLocale.seo[locale]} />
 
       <div className="flex flex-col pt-28">
         <div className="flex flex-col items-center">

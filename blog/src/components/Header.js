@@ -207,11 +207,11 @@ const Header = ({ router }) => {
                 onClick={handleI18n}
               >
                 {locale === 'id' ? (
-                  <span role="img" aria-label="Indonesia">
+                  <span role="img" aria-label="indonesian">
                     🇮🇩
                   </span>
                 ) : (
-                  <span role="img" aria-label="Inggris">
+                  <span role="img" aria-label="english">
                     🇺🇸
                   </span>
                 )}
@@ -277,11 +277,11 @@ const Header = ({ router }) => {
               onClick={handleI18n}
             >
               {locale === 'id' ? (
-                <span role="img" aria-label="Indonesia">
+                <span role="img" aria-label="indonesian">
                   🇮🇩
                 </span>
               ) : (
-                <span role="img" aria-label="Inggris">
+                <span role="img" aria-label="english">
                   🇺🇸
                 </span>
               )}

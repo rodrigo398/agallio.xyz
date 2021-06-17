@@ -13,9 +13,7 @@ export default function NotFound() {
         {notFoundLocale.text[locale]}
       </h1>
       <Link href="/">
-        <a className="py-2 px-4 border border-green-600 rounded-lg text-green-600 transition transform text-center hover:text-white hover:border-green-600 hover:bg-green-600 dark:text-green-200 dark:border-green-200 dark:hover:bg-green-900">
-          {notFoundLocale.button[locale]}
-        </a>
+        <a className="bouncy-anchor text-xl">{notFoundLocale.button[locale]}</a>
       </Link>
     </div>
   )

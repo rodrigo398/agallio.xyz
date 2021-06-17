@@ -58,7 +58,7 @@ export default function IndexPage() {
     <div className="flex flex-col pt-28">
       <h1 className="mb-6 text-3xl tracking-wide font-black md:text-4xl dark:text-white">
         {homeLocale.greetings[locale]}{' '}
-        <span role="img" aria-label="melambaikan tangan">
+        <span role="img" aria-label="handwaves">
           👋🏻
         </span>
       </h1>

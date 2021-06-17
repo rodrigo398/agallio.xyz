@@ -1,5 +1,44 @@
 const aboutLocale = {
-  title: { id: 'Tentang | Agallio Samai', en: 'About Me | Agallio Samai' },
+  seo: {
+    id: {
+      title: 'Tentang Saya | Agallio Samai',
+      description: 'Tentang saya.',
+      openGraph: {
+        url: 'https://agallio.xyz/about',
+        title: 'Tentang Saya | Agallio Samai',
+        description: 'Tentang saya.',
+        site_name: 'Agallio Samai',
+        images: [
+          {
+            url: 'http://agallio.xyz/images/og-about.png',
+            alt: 'Tentang Saya - Agallio Samai',
+          },
+        ],
+      },
+      twitter: {
+        cardType: 'summary_large_image',
+      },
+    },
+    en: {
+      title: 'About Me | Agallio Samai',
+      description: 'About me.',
+      openGraph: {
+        url: 'https://agallio.xyz/en/about',
+        title: 'About Me | Agallio Samai',
+        description: 'About me.',
+        site_name: 'Agallio Samai',
+        images: [
+          {
+            url: 'http://agallio.xyz/images/og-en-about.png',
+            alt: 'About Me - Agallio Samai',
+          },
+        ],
+      },
+      twitter: {
+        cardType: 'summary_large_image',
+      },
+    },
+  },
   about_me: { id: 'Tentang Saya', en: 'About Me' },
   description: {
     id: `
