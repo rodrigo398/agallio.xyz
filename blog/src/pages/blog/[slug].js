@@ -16,7 +16,7 @@ import autolinkHeadings from 'rehype-autolink-headings'
 import MDXComponents from '@/components/MDXComponents'
 import TranslateIcon from '@/components/icons/TranslateIcon'
 
-import aboutLocale from '@/locales/about'
+import blogLocale from '@/locales/blog'
 
 import dayjs from '@/utils/dayjs'
 import { postFilePaths, POSTS_PATH } from '@/utils/mdx'
@@ -52,13 +52,13 @@ const BlogPost = ({ source, frontMatter, slug }) => {
         title={`${frontMatter.title} | Agallio Samai`}
         description={frontMatter.summary}
         openGraph={{
-          url: aboutLocale.seo[locale].openGraph.url,
+          url: blogLocale.seo[locale].openGraph.url,
           title: frontMatter.title,
           description: frontMatter.summary,
-          site_name: aboutLocale.seo.en.openGraph.site_name,
-          images: aboutLocale.seo[locale].openGraph.images,
+          site_name: blogLocale.seo.en.openGraph.site_name,
+          images: blogLocale.seo[locale].openGraph.images,
         }}
-        twitter={aboutLocale.seo.en.twitter}
+        twitter={blogLocale.seo.en.twitter}
       />
 
       <div className="flex flex-col pt-32">
