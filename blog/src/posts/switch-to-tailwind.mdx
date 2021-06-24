@@ -1,29 +1,30 @@
 ---
-title: Beralih ke Tailwind CSS
-summary: Mengapa saya akhirnya beralih ke Tailwind CSS? Apa pengaruhnya ke performa blog ini?
+title: Switch to Tailwind CSS
+summary: Why did I end up switching to Tailwind CSS? How does it affect the performance of this blog?
 author: Agallio Samai
-date: 22-01-2021
+posted_date: 22-01-2021
+updated_date: 17-06-2021
 ---
 
-Sebelumnya, blog ini dibangun menggunakan Chakra UI. Namun ternyata, blog ini menjadi cukup berat diakses oleh pengguna dengan internet yang lambat, dan juga memiliki isu dengan [server-side rendering](https://github.com/chakra-ui/chakra-ui/issues/349).
+Previously, this blog was built using Chakra UI. But it turns out to be quite heavy for users with slow internet connection and has some server-side rendering [issues](https://github.com/chakra-ui/chakra-ui/issues/349).
 
-Akhirnya, saya memutuskan untuk mencoba Tailwind CSS karena utility CSS classes atau atomic CSS sering saya dengar dan membuat saya tertarik sejak satu semester kebelakang.
+Finally, I decided to try Tailwind CSS because of the utility CSS classes (or atomic CSS) has really got my attention since the last semester.
 
-Dan ternyata... Tailwind CSS memiliki _developer-experience_ yang bagus dan juga performa yang sangat cepat.
+And _ooh-boy..._ it has a nice developer-experience and the performance are just blazingly fast.
 
-## Impresi Pertama
+## First Impression
 
-Pertama, saya sama sekali tidak punya pengalaman dengan utility CSS classes atau atomic CSS ini. Saya hanya memiliki pengalaman dengan library UI component, yang sudah menyediakan segala sesuatunya untuk saya. Seperti komponen, `Button`, `Card`, `Dropdown`, sudah tersedia dan siap dipakai.
+First of all, I have absolutely no experience with utility CSS classes (or atomic CSS). I only have experience with UI component libraries, which have anything in store for me. Like, `Button`, `Card`, `Dropdown`, component are provided and ready-to-use.
 
-Bahkan awalnya, saya merasa tidak ingin mempelajari Tailwind CSS, karena menurut saya, terlalu kompleks dan ribet. Semua komponen yang saya butuhkan, harus saya buat sendiri. "Itu akan menjadi hal yang sangat melelahkan", pikirku.
+Even at the beginning, I did not feel like learning Tailwind CSS, because in my opinion, it was too complex and complicated. Every component I need, I should make it on my own. "It would be a very tiring thing", I thought.
 
-Tapi karena saya punya waktu luang, jadi saya putuskan untuk mencobanya.
+But because I have a spare time, I decided to try it.
 
-### Ide ➡️ Kode
+### Idea ➡️ Code
 
-Hal pertama yang orang selalu bilang pada saya tentang Tailwind CSS adalah kemudahan untuk menuangkan ide styling yang ada di kepala ke dalam kode. Dan setelah saya mencobanya, ternyata itu benar, namun dengan syarat.
+The first thing people always say to me about Tailwind CSS is how easy it is to pour the styling ideas we have in our head into the code. And after I gave it a try, it turned out to be true but with conditions.
 
-Kita harus familiar dengan utility class names yang Tailwind CSS berikan. Contohnya, jika kita ingin membuat segala komponen yang ada dalam div berada di tengah dengan menggunakan vanila CSS, kita menulisnya seperti ini:
+We must be familiar with Tailwind CSS utility class names. For example, if we want to center everything inside a div using flex in vanilla CSS, we write it like this:
 
 ```css
 display: flex;
@@ -31,27 +32,31 @@ align-items: center;
 justify-content: center;
 ```
 
-Namun di Tailwind CSS kita menulisnya seperti ini:
+But in Tailwind CSS, we write it like this:
 
 ```jsx
 <div className="flex items-center justify-center" />
 ```
 
-Pada awalnya, saya agak kebingungan. Karena, beberapa class names ternyata berbeda dengan property aslinya yang ada pada vanila CSS. Namun, [dokumentasi](https://tailwindcss.com/docs) mereka sangat bagus dan memudahkan kita untuk mencari class names yang kita butuhkan.
+At first I was a little confused. Because it turns out that some class names are quite different from the original properties in vanila CSS. But apparently, the [documentation](https://tailwindcss.com/docs) is very good and makes it easier for me to find the class names that I need.
 
-### Performa
+### Performance
 
-Hal yang kedua adalah performanya. Karena Tailwind CSS menggunakan library PurgeCSS yang dapat menghapus styles yang tidak kita butuhkan. Hal tersebut, membuat ukuran hasil kompilasi CSS-nya menjadi sangat kecil dan bersahabat dengan pengguna yang memiliki koneksi lambat.
+The second thing is the performance. Because Tailwind CSS uses a library called PurgeCSS that can remove unused styles. That way, the compiled CSS size becomes tiny and friendly to the users with slow connections.
 
-Cara membuat PurgeCSS bekerja cukup mudah. Hanya dengan menambahkan properti `purge` pada `tailwind.config.js` seperti ini:
+How to make the PurgeCSS works is simple. Just add `purge` property to `tailwind.config.js`. For example:
 
 ```js:tailwind.config.js
+/**
+ * Fill the `purge` property with all of your working files that uses
+ * Tailwind CSS.
+ */
 module.exports = {
   purge: [
-    './**/*.html', // Untuk HTML murni
-    './**/*.vue', // Untuk Vue
-    './**/*.jsx', // Untuk React / Vue yang menggunakan JSX
-    './**/*.js' // Untuk React
+    './**/*.html', // For HTML
+    './**/*.vue', // For Vue
+    './**/*.jsx', // For React / Vue that uses JSX
+    './**/*.js' // For React
   ],
   theme: {},
   variants: {},
@@ -59,31 +64,36 @@ module.exports = {
 }
 ```
 
-Keuntungan performa ini tidak hanya dalam production build saja, namun juga dalam development build. Karena ada fitur just-in-time (jit) yang disediakan oleh Tailwind CSS.
+The performance benefit is not only on the production builds, but also on the development builds. Thanks to Tailwind CSS just-in-time (jit) feature.
 
-Dahulu sebelum ada fitur just-in-time ini, Tailwind CSS mengkompilasi semua utility classes dalam initial build time. Dengan begitu ukuran hasil kompilasinya menjadi besar. Tidak efektif bagi kita yang hanya menggunakan beberapa utility classes saja.
+So just-in-time feature is basically a new compiler that generates styles on-demand as we author our templates instead of generating everything in advance at initial build time. So initial development builds time becomes noticeably faster.
 
-Nah, fitur tersebut hadir dengan berbentuk sebuah compiler baru yang mengkompilasi styles sesuai kebutuhan kita yang kita tulis di dalam kode. Hasil kompilasinya jauh lebih kecil, dan initial development build time menjadi jauh lebih cepat.
-
-Dengan fitur just-in-time, saya juga bisa menulis style kustom di dalam class names tanpa harus membuat CSS kustom. Contohnya, jika saya ingin melakukan kustomisasi margin left pada komponen card saya:
+With just-in-time feature, I could also generate arbitrary styles without writing custom CSS. For example, I need a custom margin left for my card component:
 
 ```jsx
-// Saya tidak perlu lagi menulis seperti ini:
+// I don't need to write like this anymore:
 <Card className="..." style={{ marginLeft: 10 }} />
 
-// Saya hanya perlu menulis seperti ini:
+// I write this instead:
 <Card className="ml-[10px]" />
 ```
 
-Untuk belajar lebih dalam tentang fitur just-in-time, baca [disini](https://tailwindcss.com/docs/just-in-time-mode#enabling-jit-mode).
+We can use Tailwind CSS just-in-time feature by adding `mode` key to the `tailwind.config.js` like this:
 
-## Metriks Lighthouse
+```js:tailwind.config.js
+module.exports = {
+  mode: 'jit',
+  // ... the rest of the config
+}
+```
 
-<!-- Sebelumnya saat saya menggunakan Chakra UI, nilai performa yang diberikan oleh [Lighthouse](https://web.dev/measure/) hanya di sekitar 80. Walaupun sudah cukup baik, namun di skala skor yang mereka berikan itu termasuk di skala kuning yang artinya dapat diperbaiki. -->
+To know more about just-in-time feature, [read here](https://tailwindcss.com/docs/just-in-time-mode#enabling-jit-mode).
 
-Sebelumnya, saat blog ini masih menggunakan Chakra UI, nilai performa dari metriks Lighthouse hanya di sekitar 80. Walaupun sebenarnya sudah cukup baik, namun skor tersebut dikategorikan di skala kuning, yang artinya masih dapat diperbaiki.
+### Lighthouse Metrics
 
-Sekarang, setelah blog ini menggunakan Tailwind CSS, skornya naik cukup drastis, ke skor yang hampir sempurna, saat dites menggunakan browser Chrome dalam mode incognito.
+Previously, when this blog still uses Chakra UI, the Lighthouse metrics performance score was only around 80. Although it is quite good, the score is categorized as yellow color, which means it could be improved.
+
+And now, after using Tailwind CSS, the score went up drastically, even almost a perfect score, when tested for the first time in Chrome browser using incognito mode.
 
 <Image
   src="/images/blog/tailwindcss-performance.png"
@@ -92,9 +102,7 @@ Sekarang, setelah blog ini menggunakan Tailwind CSS, skornya naik cukup drastis,
   alt="Tailwind CSS Performance"
 />
 
-<!-- Setelah itu saya coba test lagi di website [web.dev](https://web.dev/measure/) untuk melihat apakah hasil yang diberikan mirip atau tidak. Dan ternyata hasilnya cukup mengejutkan karena cukup mirip dengan hasil sebelumnya. -->
-
-Setelah itu, saya mencoba untuk melakukan test lagi via [web.dev](https://web.dev/measure/) untuk melihat apakah hasil yang saya dapat sebelumnya sudah akurat atau belum. Dan ternyata hasilnya cukup mengejutkan karena mirip dengan hasil tes yang sebelumnya.
+After that, I tried to run the test again via [web.dev](https://web.dev/measure/) to see if the results given by the Chrome incognito mode were accurate or not. And it turns out that the results are quite surprising because they are quite similar to the previous Chrome incognito mode results.
 
 <Image
   src="/images/blog/tailwindcss-webdev.png"
@@ -103,18 +111,14 @@ Setelah itu, saya mencoba untuk melakukan test lagi via [web.dev](https://web.de
   alt="Tailwind CSS Performance Web.Dev"
 />
 
-## Kesimpulan
+## Conclusion
 
-Dengan hasil tersebut, saya sangat senang sudah menyediakan waktu untuk belajar Tailwind CSS dan saya sangat menyukainya. 😍
+With that result, I am very happy that I tried Tailwind CSS and I really like it. 😍
 
-<!-- Walaupun menurut saya, Tailwind CSS hanya cocok untuk saya saat saya mengerjakan project-project yang skalanya kecil. Karena di pekerjaan saya sehari-hari, dituntut untuk bekerja dengan waktu yang singkat. Jika saya menggunakan Tailwind CSS sudah pasti saya akan ketinggalan, karena segala sesuatunya harus saya buat sendiri. Sementara saat saya bekerja, saya masih banyak bergantung pada UI component library yang siap pakai seperti Material-UI atau Ant Design karena mempunyai katalog komponen yang lebih lengkap. -->
+Although I think, Tailwind CSS is only suitable for me when I am working on a small-scale projects. Because in my day-to-day work, I am required to work fast with tight deadlines. But Tailwind CSS can not help me with that. I should make all of the components by myself, that requires a lot of time and effort.
 
-Walaupun menurut saya, Tailwind CSS hanya cocok untuk saya saat saya mengerjakan project yang skalanya kecil. Karena di pekerjaan saya sehari-hari, saya dituntut bekerja dengan cepat karena waktu pengerjaan yang singkat. Dalam hal ini, Tailwind CSS tidak dapat membantu saya. Saya harus membuat semua komponen yang saya perlukan sendiri, dan itu membutuhkan banyak waktu dan tenaga.
+I once thought of creating a UI component library for myself using Tailwind CSS. But because I haven't had time to learn and find out more about how to make a design system or even a UI component library, so I am still only thinking about it.
 
-Saya pernah berpikir untuk membuat library UI komponen sendiri menggunakan Tailwind CSS. Tapi karena saya belum sempat belajar dan mendalami bagaimana cara membuat design system juga library UI komponen, saya masih hanya memikirkannya saja.
+Last but not least, I am still learning about Tailwind CSS until this day. If you want to see how this blog was rewritten with Tailwind CSS, you can visit this blog [repository](https://github.com/agallio/agallio.xyz). If you want to chat or you have more knowledge about Tailwind CSS that I don't know yet, let me know by hit me up on [Twitter](https://twitter.com/agalliosamai)!
 
-Last but not least, saya masih belajar tentang Tailwind CSS sampai hari ini. Jika Anda ingin melihat bagaimana blog ini ditulis ulang dengan Tailwind CSS, Anda dapat mengunjungi [repositori](https://github.com/agallio/agallio.xyz) blog ini.
-
-Jika Anda ingin mengobrol atau Anda memiliki lebih banyak pengetahuan tentang Tailwind CSS, Anda bisa menghubungi saya via [Twitter](https://twitter.com/agalliosamai)!
-
-Terima kasih sudah membaca, stay safe dan have a nice day. 😁
+Thanks for reading, stay safe and have a nice day. 😁

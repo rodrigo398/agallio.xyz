@@ -35,18 +35,25 @@ const FullTimeline = () => (
   <>
     <Year>2018</Year>
     <ul>
-      <Step title="Perkenalan Dengan React &amp; Node.js">
-        Saya belajar menggunakan React &amp; Node.js untuk membangun FreedomLife
-        juga sebagai tantangan utama saya selama masa internship untuk membantu
-        perusahaan mengembangkan produk menggunakan React &amp; Node.js.
+      <Step title="Introduction To React &amp; Node.js">
+        I learned to use React &amp; Node.js to build{' '}
+        <a
+          href="https://freedomlife.id"
+          target="_blank"
+          rel="noreferrer"
+          className="bouncy-anchor"
+        >
+          FreedomLife
+        </a>{' '}
+        as well as my main challenge during my internship to help my company to
+        develop their product using React &amp; Node.js.
       </Step>
       <Step title="Mentoring LKS - Web Design">
-        Saya dipercayakan menjadi mentor untuk adik kelas saya yang akan
-        mengikuti LKS - Web Design.
+        I was appointed to be a mentor for my juniors who were going to
+        participate in LKS - Web Design.
       </Step>
-      <Step title="Memulai FreedomLife">
-        Saya memulai membuat aplikasi panduan baca Alkitab setahun berbasis web
-        bernama{' '}
+      <Step title="Started FreedomLife">
+        I started creating a web-based bible reading guide app called,{' '}
         <a
           href="https://freedomlife.id"
           target="_blank"
@@ -55,34 +62,32 @@ const FullTimeline = () => (
         >
           FreedomLife
         </a>
-        . Ditahap awal ini saya memulai dengan melakukan riset terhadap calon
-        pengguna apa saja yang mereka butuhkan dalam aplikasi ini.
+        . In this initial phase I started by doing research on what potential
+        users need in this application.
       </Step>
       <Step title="Frontend Engineer - Internship">
-        Karena saya masuk di SMK 4 tahun, tahun terakhir di SMK ini digunakan
-        untuk melakukan internship pekerjaan penuh waktu. Saya mengambil
-        internship selama 1 tahun di Docotel Group sebagai Frontend Engineer.
+        Because I entered the vocational high school with a school period of 4
+        years, this last year was used to do a full-time internship job. I took
+        a 1-year internship at Docotel Group as a Frontend Engineer.
       </Step>
     </ul>
     <Year>2017</Year>
     <ul>
-      <Step title="Runner-Up LKS - Web Design 🥳">
-        Puji Tuhan setelah perjalanan panjang selama 2 tahun saya berhasil
-        mendapatkan posisi juara kedua di Lomba Kompetensi Siswa tingkat
-        Provinsi Daerah Istimewa Yogyakarta.
+      <Step title="Became A Runner-Up LKS - Web Design 🥳">
+        After a long journey for 2 years, I became a runner-up in the LKS
+        (student competency competition) at the provincial level.
       </Step>
       <Step title="LKS - Web Design II">
-        Puji Tuhan untuk kedua kalinya saya lolos seleksi tingkat sekolah, dan
-        melanjutkan untuk Lomba Kompetensi Siswa tingkat Provinsi Daerah
-        Istimewa Yogyakarta.
+        Praise God for the second time I passed the school level selection, and
+        proceeded to the provincial level for the second time.
       </Step>
-      <Step title="Seleksi LKS - Web Design II">
-        Saya kembali lagi mengikuti seleksi Lomba Kompetensi Siswa di bidang
-        lomba web design tingkat sekolah, dengan persiapan yang lebih matang.
+      <Step title="LKS - Web Design Selection II">
+        I returned to participate in the LKS selection at the school level, with
+        more thorough preparation.
       </Step>
-      <Step title="Mentoring PHP Khusus">
-        Saya mengikuti mentoring khusus untuk bahasa pemrograman PHP. Mentor
-        saya waktu itu mas{' '}
+      <Step title="Special PHP Mentoring">
+        I&apos;m following special mentoring for PHP programming language. My
+        mentor was <br />
         <a
           href="https://twitter.com/therusetiawan"
           target="_blank"
@@ -91,65 +96,65 @@ const FullTimeline = () => (
         >
           Heru Setiawan
         </a>
-        . Di sesi mentoring ini juga membahas apa yang membuat saya gagal di
-        seleksi LKS tahun lalu.
+        . In this mentoring session also discussed what made me fail in last
+        year&apos;s LKS selection.
       </Step>
     </ul>
     <Year>2016</Year>
     <ul>
-      <Step title="Gagal LKS - Web Design 🥲">
-        Saya kalah di tingkat provinsi. Saya merasa sedih, namun juga ada rasa
-        semangat untuk belajar agar lebih baik lagi di tahun depan.
+      <Step title="Lost LKS - Web Design 🥲">
+        I lost at provincial level. I feel sad, but there is also sense of
+        passion to learn to be better in the next year.
       </Step>
       <Step title="LKS - Web Design">
-        Puji Tuhan saya lolos seleksi di tingkat sekolah, akhirnya saya naik ke
-        Lomba Kompetensi Siswa tingkat Provinsi Daerah Istimewa Yogyakarta.
+        Praise God I passed the school level selection, then I went up to the
+        LKS (student competency competition) at the provincial level.
       </Step>
-      <Step title="Seleksi LKS - Web Design">
-        Setelah selesai pelatihan, saya mengikuti seleksi Lomba Kompetensi Siswa
-        di bidang lomba web design tingkat sekolah.
+      <Step title="LKS - Web Design Selection">
+        After completing the training, I participated in the LKS (student
+        competency competition) selection at the school level.
       </Step>
-      <Step title="Pelatihan LKS - Web Design">
-        Saya mengikuti pelatihan web design untuk mempersiapkan seleksi Lomba
-        Kompetensi Siswa pada tingkat sekolah.
+      <Step title="LKS - Web Design Training">
+        I participated in web design training to prepare for LKS (student
+        competency competition) selection at school level.
       </Step>
-      <Step title="Menjadi Asisten Guru Untuk Mengajar Web Development">
-        Saya dipercayakan untuk mengajar teman-teman sekelas dalam pelajaran web
-        development. Pelajaran waktu itu menggunakan PHP Native, HTML, CSS untuk
-        membuat sebuah aplikasi CRUD sederhana.
+      <Step title="Became A Teacher Assistant To Teach Web Development">
+        I was entrusted to teach classmates in web development lessons. The
+        lesson is PHP Native, HTML, and CSS to create a simple CRUD application.
       </Step>
     </ul>
     <Year>2015</Year>
     <ul>
-      <Step title="Masuk SMK Jurusan Komputer &amp; Jaringan 🤓">
-        Ketertarikan saya terhadap dunia teknologi yang semakin berkembang
-        membuat saya tertarik untuk menekuninya dengan masuk ke SMK.
+      <Step title="Go To Vocational High School (Computer &amp; Engineering) 🤓">
+        My interest in technology made me interested in learning more by
+        entering vocational high school that have computer and engineering
+        fields.
       </Step>
     </ul>
     <Year>2013</Year>
     <ul>
-      <Step title="Belajar Web Development II (JavaScript)">
-        Selanjutnya saya belajar sendiri lewat internet untuk mengenal apa itu
-        JavaScript dan bagaimana cara kerjanya.
+      <Step title="Learn Web Development II (JavaScript)">
+        Next, I learned by myself over the internet to know what JavaScript is
+        and how it works.
       </Step>
-      <Step title="Belajar Web Development I (HTML & CSS)">
-        Ayah saya membelikan buku tentang web development dasar, lalu saya mulai
-        membacanya dan mempraktekannya. Saat itu saya belajar apa itu HTML &amp;
-        CSS dan bagaimana cara mereka bekerja.
+      <Step title="Learn Web Development I (HTML &amp; CSS)">
+        My father bought me a book about basic web development, then I started
+        reading it and practicing it. At that time I learned what HTML &amp; CSS
+        are and how they work.
       </Step>
-      <Step title="Belajar Apa Itu Internet">
-        Saya mulai belajar tentang apa itu internet dan apa saja yang tersedia
-        di dalamnya, selain game.
+      <Step title="Learn What The Internet Is">
+        I started learning about what the internet is and what&apos;s available
+        in it, other than gaming.
       </Step>
-      <Step title="Komputer Pertama Saya">
-        Komputer yang pertama kali saya gunakan adalah komputer ayah saya. Dulu
-        saya memakainya untuk bermain game web-flash Facebook, seperti
-        Restaurant City, Farmville, dan Ninja Saga.
+      <Step title="My First Computer">
+        The first computer that I used was my father&apos;s. I used to use it to
+        play Facebook web-flash games, like Restaurant City, Farmville, and
+        Ninja Saga.
       </Step>
     </ul>
     <Year>2000</Year>
     <ul>
-      <Step title="Lahir Ke Dunia 🧑🏻‍🍼"></Step>
+      <Step title="Born 🧑🏻‍🍼"></Step>
     </ul>
   </>
 )
@@ -161,17 +166,16 @@ const Timeline = () => {
     <>
       <Year>2021</Year>
       <ul>
-        <Step title="Bergabung Dengan Traveloka!">
-          Saya bergabung menjadi seorang Software Engineer di Traveloka, untuk
-          membantu mereka di semua bagian yang berkaitan dengan Web.{' '}
+        <Step title="Joined Traveloka!">
+          I joined as a Software Engineer at Traveloka, to help them with
+          everything related to the Web.{' '}
           <span role="img" aria-label="congratulations">
             🥳
           </span>
         </Step>
-        <Step title="FreedomLife 10 Ribu Pengguna 🚀">
-          Akhirnya, setelah 6 bulan dari 2 ribu pengguna, FreedomLife menyentuh
-          10.000 pengguna aktif, dengan pengguna aktif perbulan sebanyak ± 2.500
-          pengguna!{' '}
+        <Step title="FreedomLife 10K Users 🚀">
+          Finally, after 6 months from 2K users, FreedomLife hits 10K users with
+          ± 2.5K monthly active users!{' '}
           <span role="img" aria-label="rocket">
             🚀
           </span>{' '}
@@ -179,18 +183,18 @@ const Timeline = () => {
       </ul>
       <Year>2020</Year>
       <ul>
-        <Step title="FreedomLife 2 Ribu Pengguna 🔥">
-          FreedomLife menyentuh dua ribu pengguna di akhir tahun 2020. Membuat
-          saya yakin bahwa masih banyak orang yang ingin mengerti hati seorang
-          Bapa bagi anak-anakNya.
+        <Step title="FreedomLife 2K Users 🔥">
+          FreedomLife reaches two thousand users by the end of 2020. It makes me
+          sure that there are still many people who want to understand the heart
+          of a Father for His children.
         </Step>
-        <Step title="Menjadi Lead Frontend Engineer 👨🏻‍💻">
-          Di awal 2020 saya dipercayakan berpindah peran menjadi manager dan
-          mentor tim frontend engineer di PrivyID.
+        <Step title="Became a Frontend Engineering Lead 👨🏻‍💻">
+          Starting at the beginning of 2020, I was given the opportunity to move
+          to a tech leadership role in the frontend engineering team at PrivyID.
         </Step>
-        <Step title="Merilis FreedomLife 🚀">
-          Setelah satu tahun lebih dibuat, akhirnya saya merilis aplikasi
-          panduan baca Alkitab setahun,{' '}
+        <Step title="Released FreedomLife 🚀">
+          After being built for more than a year, I finally released my
+          open-source project, a one-year Bible reading guide application,{' '}
           <a
             href="https://freedomlife.id"
             target="_blank"
@@ -202,19 +206,19 @@ const Timeline = () => {
           .
         </Step>
         <Step title="Frontend Engineer - Full-time II">
-          Setelah waktu peristirahatan saya, saya kembali lagi bekerja di
-          PrivyID sebagai Frontend Engineer.
+          After my rest period, I returned to work at PrivyID as a Frontend
+          Engineer.
         </Step>
       </ul>
       <Year>2019</Year>
       <ul>
-        <Step title="Istirahat Dari Dunia Kerja">
-          Di akhir tahun 2019, saya memutuskan untuk istirahat dari dunia kerja
-          selama 1 bulan untuk membuat pikiran dan mental saya kembali normal
-          setelah hampir 2 tahun bekerja.
+        <Step title="1 Month Break 🛌">
+          At the end of 2019, I decided to take a 1 month break to make my mind
+          and mentality return to normal &amp; healthy condition after almost 2
+          years of work.
         </Step>
         <Step title="Testing FreedomLife Beta">
-          Melakukan test awal aplikasi{' '}
+          Conduct an initial test of the{' '}
           <a
             href="https://freedomlife.id"
             target="_blank"
@@ -223,28 +227,26 @@ const Timeline = () => {
           >
             FreedomLife
           </a>{' '}
-          kepada pengguna yang merupakan responden riset sebelumnya, untuk
-          menyempurnakan aplikasi tersebut.
+          app on users who are respondents to previous research, to improve the
+          application.
         </Step>
-        <Step title="Bekerja Dengan Orang Luar Negeri">
-          Di Skyshi saya mendapatkan kesempatan untuk bekerja di perusahaan
-          multinasional, GetCraft. Saya bekerja dengan orang-orang dari
-          Singapore, US, Australia, dan Bulgaria. Saya banyak mendapatkan
-          pengetahuan baru, juga pandangan baru dari orang-orang yang ada di
-          luar sana.
+        <Step title="Working With People Abroad">
+          At Skyshi I had the opportunity to work for a multinational company,
+          GetCraft. I work with people from Singapore, US, Australia and
+          Bulgaria. I got a lot of new knowledge, as well as new insights from
+          the people living abroad.
         </Step>
         <Step title="Frontend Engineer - Full-time I">
-          Akhirnya setelah saya lulus dan setelah berakhir masa internship saya,
-          saya mendapatkan pekerjaan full-time di Skyshi Digital Indonesia
-          sebagai Frontend Engineer.
+          Finally, after I graduated and after the end of my internship, I got a
+          full-time jobat Skyshi Digital Indonesia as a Frontend Engineer.
         </Step>
-        <Step title="Lulus SMK 🎓">
-          Sebuah pencapaian yang menurut saya luar biasa. Akhirnya setelah 4
-          tahun, selesai juga semua perjuangan saya di SMK.
+        <Step title="Graduated From Vocational High School 🎓">
+          An achievement that I think is extraordinary. Finally, after 4 years,
+          I graduated with all my wonderful once-in-a-lifetime experiences.
         </Step>
-        <Step title="Mulai Mendesain FreedomLife">
-          Setelah melakukan riset, saya mulai melakukan desain kerangka awal
-          aplikasi{' '}
+        <Step title="Start Designing FreedomLife">
+          After doing some research, I started designing the initial framework
+          for{' '}
           <a
             href="https://freedomlife.id"
             target="_blank"
@@ -252,9 +254,9 @@ const Timeline = () => {
             className="bouncy-anchor"
           >
             FreedomLife
-          </a>
-          , dimulai dari desain UI dan UX, kemudian desain data dan arsitektur
-          kode.
+          </a>{' '}
+          app, starting from UI and UX design, then the data design and the code
+          architecture.
         </Step>
       </ul>
 
@@ -272,7 +274,7 @@ const Timeline = () => {
         <p className="flex items-center justify-center font-medium dark:text-white">
           {isFullTimeline ? (
             <>
-              Tutup{' '}
+              See Less{' '}
               <svg
                 className="h-4 w-4 ml-1"
                 xmlns="http://www.w3.org/2000/svg"
@@ -290,7 +292,7 @@ const Timeline = () => {
             </>
           ) : (
             <>
-              Lihat Selengkapnya{' '}
+              See More{' '}
               <svg
                 className="h-4 w-4 ml-1"
                 xmlns="http://www.w3.org/2000/svg"

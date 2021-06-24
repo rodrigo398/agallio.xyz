@@ -4,7 +4,7 @@ import { useTheme } from 'next-themes'
 
 import headerLocale from '@/locales/header'
 
-const NavLinks = ({ activeRoute, isExpanded, setExpanded, locale }) => (
+const NavLinks = ({ activeRoute, isExpanded, setExpanded }) => (
   <>
     <Link href="/">
       <button
@@ -12,19 +12,19 @@ const NavLinks = ({ activeRoute, isExpanded, setExpanded, locale }) => (
         className={`py-2 rounded focus:outline-none ${
           isExpanded
             ? `w-full mb-1 ${
-                activeRoute === headerLocale.home[locale]
+                activeRoute === headerLocale.home.en
                   ? 'bg-gray-200 text-gray-800 dark:bg-gray-800 dark:text-white'
                   : 'dark:text-white'
               }`
-            : `w-32 mr-2 transition transform duration-300 ${
-                activeRoute === headerLocale.home[locale]
+            : `flex-1 mr-2 transition transform duration-300 ${
+                activeRoute === headerLocale.home.en
                   ? 'bg-gray-200 text-gray-800 hover:bg-gray-300 dark:bg-gray-800 dark:text-white dark:hover:bg-gray-700'
                   : 'text-gray-800 hover:bg-gray-200 dark:text-white dark:hover:bg-gray-900'
               }`
         }`}
         onClick={isExpanded ? () => setExpanded(false) : null}
       >
-        {headerLocale.home[locale]}
+        {headerLocale.home.en}
       </button>
     </Link>
 
@@ -34,19 +34,19 @@ const NavLinks = ({ activeRoute, isExpanded, setExpanded, locale }) => (
         className={`py-2 rounded focus:outline-none ${
           isExpanded
             ? `w-full mb-1 ${
-                activeRoute === headerLocale.about[locale]
+                activeRoute === headerLocale.about.en
                   ? 'bg-gray-200 text-gray-800 dark:bg-gray-800 dark:text-white'
                   : 'dark:text-white'
               }`
-            : `w-32 mr-2 transition transform duration-300 ${
-                activeRoute === headerLocale.about[locale]
+            : `flex-1 mr-2 transition transform duration-300 ${
+                activeRoute === headerLocale.about.en
                   ? 'bg-gray-200 text-gray-800 hover:bg-gray-300 dark:bg-gray-800 dark:text-white dark:hover:bg-gray-700'
                   : 'text-gray-800 hover:bg-gray-200 dark:text-white dark:hover:bg-gray-900'
               }`
         }`}
         onClick={isExpanded ? () => setExpanded(false) : null}
       >
-        {headerLocale.about[locale]}
+        {headerLocale.about.en}
       </button>
     </Link>
 
@@ -56,19 +56,19 @@ const NavLinks = ({ activeRoute, isExpanded, setExpanded, locale }) => (
         className={`py-2 rounded focus:outline-none ${
           isExpanded
             ? `w-full mb-1 ${
-                activeRoute === headerLocale.blog[locale]
+                activeRoute === headerLocale.blog.en
                   ? 'bg-gray-200 text-gray-800 dark:bg-gray-800 dark:text-white'
                   : 'dark:text-white'
               }`
-            : `w-32 transition transform duration-300 ${
-                activeRoute === headerLocale.blog[locale]
+            : `flex-1 mr-2 transition transform duration-300 ${
+                activeRoute === headerLocale.blog.en
                   ? 'bg-gray-200 text-gray-800 hover:bg-gray-300 dark:bg-gray-800 dark:text-white dark:hover:bg-gray-700'
                   : 'text-gray-800 hover:bg-gray-200 dark:text-white dark:hover:bg-gray-900'
               }`
         }`}
         onClick={isExpanded ? () => setExpanded(false) : null}
       >
-        {headerLocale.blog[locale]}
+        {headerLocale.blog.en}
       </button>
     </Link>
   </>
@@ -91,41 +91,41 @@ const Header = ({ router }) => {
   let activeRoute = ''
   let activePath = ''
   if (router.pathname === '/') {
-    activeRoute = headerLocale.home[locale]
+    activeRoute = headerLocale.home.en
     activePath = '/'
   }
   if (router.pathname.startsWith('/about')) {
-    activeRoute = headerLocale.about[locale]
+    activeRoute = headerLocale.about.en
     activePath = '/about'
   }
   if (router.pathname.startsWith('/blog')) {
-    activeRoute = headerLocale.blog[locale]
+    activeRoute = headerLocale.blog.en
     activePath = '/blog'
   }
 
-  const handleI18n = () => {
-    if (locale === 'en') {
-      if (router.pathname === '/blog/[slug]') {
-        router.push('/blog', '/blog', {
-          locale: 'id',
-        })
-      } else {
-        router.push(router.pathname, router.pathname, {
-          locale: 'id',
-        })
-      }
-    } else if (locale === 'id') {
-      if (router.pathname === '/blog/[slug]') {
-        router.push('/blog', '/blog', {
-          locale: 'en',
-        })
-      } else {
-        router.push(router.pathname, router.pathname, {
-          locale: 'en',
-        })
-      }
-    }
-  }
+  // const handleI18n = () => {
+  //   if (locale === 'en') {
+  //     if (router.pathname === '/blog/[slug]') {
+  //       router.push('/blog', '/blog', {
+  //         locale: 'id',
+  //       })
+  //     } else {
+  //       router.push(router.pathname, router.pathname, {
+  //         locale: 'id',
+  //       })
+  //     }
+  //   } else if (locale === 'id') {
+  //     if (router.pathname === '/blog/[slug]') {
+  //       router.push('/blog', '/blog', {
+  //         locale: 'en',
+  //       })
+  //     } else {
+  //       router.push(router.pathname, router.pathname, {
+  //         locale: 'en',
+  //       })
+  //     }
+  //   }
+  // }
 
   return (
     <>
@@ -201,7 +201,7 @@ const Header = ({ router }) => {
               </Link>
             </div>
             <div className="flex">
-              <button
+              {/* <button
                 aria-label="Toggle Language"
                 className="flex items-center justify-center w-10 h-10 mr-3 border rounded transition transform duration-300 border-gray-300 dark:border-gray-700 focus:outline-none focus:bg-gray-200 dark:focus:bg-gray-800"
                 onClick={handleI18n}
@@ -215,7 +215,7 @@ const Header = ({ router }) => {
                     🇺🇸
                   </span>
                 )}
-              </button>
+              </button> */}
               <button
                 aria-label="Switch Theme"
                 className="w-10 h-10 p-3 bg-green-200 text-green-800 rounded transition transform duration-300 dark:bg-green-800 dark:text-green-200 focus:outline-none focus:ring-1 focus:ring-green-800 dark:focus:ring-green-200"
@@ -262,7 +262,7 @@ const Header = ({ router }) => {
           }}
         />
         <div className="w-full max-w-2xl mx-auto flex items-center justify-between">
-          <div>
+          <div className="w-full flex">
             <NavLinks
               activeRoute={activeRoute}
               isExpanded={isExpanded}
@@ -271,7 +271,7 @@ const Header = ({ router }) => {
             />
           </div>
           <div className="flex items-center">
-            <button
+            {/* <button
               aria-label="Toggle Language"
               className="flex items-center justify-center w-10 h-10 mr-2 border rounded transition transform duration-300 border-gray-300 dark:border-gray-700 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none"
               onClick={handleI18n}
@@ -285,7 +285,7 @@ const Header = ({ router }) => {
                   🇺🇸
                 </span>
               )}
-            </button>
+            </button> */}
             <button
               aria-label="Switch Theme"
               className="w-10 h-10 p-3 bg-green-200 text-green-800 rounded transition transform duration-300 hover:bg-green-300 focus:outline-none dark:bg-green-900 dark:text-green-200 dark:hover:bg-green-800"

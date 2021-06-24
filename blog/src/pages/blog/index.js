@@ -11,13 +11,13 @@ import blogLocale from '@/locales/blog'
 import dayjs from '@/utils/dayjs'
 import { postFilePaths, POSTS_PATH } from '@/utils/mdx'
 
-export default function Blog({ posts, locale, seo }) {
+export default function Blog({ posts, seo }) {
   return (
     <>
       <Head>
-        <title>{seo[locale].title}</title>
+        <title>{seo.en.title}</title>
       </Head>
-      <NextSeo {...seo[locale]} />
+      <NextSeo {...seo.en} />
 
       <div className="flex flex-col pt-28">
         <h1 className="mb-4 text-4xl tracking-wide font-black md:text-4xl dark:text-white">
@@ -27,38 +27,26 @@ export default function Blog({ posts, locale, seo }) {
           </span>
         </h1>
         <p className="text-lg md:text-xl mb-4 text-gray-700 dark:text-gray-100">
-          {blogLocale.description[locale]}
+          {blogLocale.description.en}
         </p>
 
-        {locale === 'id' ? (
-          posts.filter((item) => !item.filePath.startsWith('en')).length > 0 ? (
-            posts
-              .filter((item) => !item.filePath.startsWith('en'))
-              .sort(
-                (a, b) =>
-                  new Date(dayjs(b.data.date, 'DD-MM-YYYY').toISOString()) -
-                  new Date(dayjs(a.data.date, 'DD-MM-YYYY').toISOString())
-              )
-              .map((item, index) => (
-                <BlogPost
-                  key={index}
-                  slug={item.filePath.replace(/\.mdx?$/, '')}
-                  title={item.data.title}
-                  summary={item.data.summary}
-                  date={item.data.date}
-                />
-              ))
-          ) : (
-            <p>Belum ada tulisan dalam Bahasa Indonesia.</p>
-          )
-        ) : posts.filter((item) => item.filePath.startsWith('en')).length >
-          0 ? (
+        {posts.filter((item) => !item.filePath.startsWith('id')).length > 0 ? (
           posts
-            .filter((item) => item.filePath.startsWith('en'))
+            .filter((item) => !item.filePath.startsWith('id'))
             .sort(
               (a, b) =>
-                new Date(dayjs(b.data.date, 'DD-MM-YYYY').toISOString()) -
-                new Date(dayjs(a.data.date, 'DD-MM-YYYY').toISOString())
+                new Date(
+                  dayjs(
+                    b.data.updated_date || b.data.posted_date,
+                    'DD-MM-YYYY'
+                  ).toISOString()
+                ) -
+                new Date(
+                  dayjs(
+                    a.data.updated_date || a.data.posted_date,
+                    'DD-MM-YYYY'
+                  ).toISOString()
+                )
             )
             .map((item, index) => (
               <BlogPost
@@ -66,7 +54,7 @@ export default function Blog({ posts, locale, seo }) {
                 slug={item.filePath.replace(/\.mdx?$/, '')}
                 title={item.data.title}
                 summary={item.data.summary}
-                date={item.data.date}
+                date={item.data.updated_date || item.data.posted_date}
               />
             ))
         ) : (
@@ -79,7 +67,7 @@ export default function Blog({ posts, locale, seo }) {
   )
 }
 
-export function getStaticProps({ locale }) {
+export function getStaticProps() {
   const posts = postFilePaths.map((filePath) => {
     const source = fs.readFileSync(path.join(POSTS_PATH, filePath))
     const { content, data } = matter(source)
@@ -131,5 +119,5 @@ export function getStaticProps({ locale }) {
     },
   }
 
-  return { props: { posts, locale, seo } }
+  return { props: { posts, seo } }
 }

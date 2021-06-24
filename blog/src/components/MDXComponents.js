@@ -12,25 +12,24 @@ const CustomLink = (props) => {
 
   if (isInternalLink) {
     return (
-      <Link href={href} locale={locale}>
-        {/* eslint-disable-next-line jsx-a11y/anchor-has-content */}
-        <a
-          {...props}
-          className={props.type !== 'image' ? 'bouncy-anchor' : ''}
-        />
+      <Link href={href} locale={props.locale || locale}>
+        <a {...props} className={props.type !== 'image' ? 'bouncy-anchor' : ''}>
+          {props.children}
+        </a>
       </Link>
     )
   }
 
   return (
     <>
-      {/* eslint-disable-next-line jsx-a11y/anchor-has-content */}
       <a
         target="_blank"
         rel="noopener noreferrer"
         {...props}
         className={props.type !== 'image' ? 'bouncy-anchor' : ''}
-      />
+      >
+        {props.children}
+      </a>
     </>
   )
 }

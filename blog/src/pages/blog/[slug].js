@@ -2,6 +2,7 @@ import fs from 'fs'
 import path from 'path'
 import Head from 'next/head'
 import Image from 'next/image'
+import Link from 'next/link'
 import { NextSeo } from 'next-seo'
 import matter from 'gray-matter'
 import readingTime from 'reading-time'
@@ -13,23 +14,33 @@ import rSlug from 'rehype-slug'
 import autolinkHeadings from 'rehype-autolink-headings'
 
 import MDXComponents from '@/components/MDXComponents'
+import TranslateIcon from '@/components/icons/TranslateIcon'
 
 import aboutLocale from '@/locales/about'
 
 import dayjs from '@/utils/dayjs'
 import { postFilePaths, POSTS_PATH } from '@/utils/mdx'
 
-const BlogPost = ({ source, frontMatter, locale }) => {
+const BlogPost = ({ source, frontMatter, slug }) => {
+  const isIndonesian = slug.includes('id')
+  const locale = slug.includes('id') ? 'id' : 'en'
+
   const getReadingTime = () => {
     const {
       readingTime: { text },
     } = frontMatter
+    const minute = text.split(' ')[0]
 
-    if (locale === 'id') {
-      return `${text.split(' ')[0]} menit membaca`
+    if (isIndonesian) {
+      return `${minute} menit membaca`
     } else {
-      return text
+      return `${minute} ${Number(minute) > 1 ? 'mins' : 'min'} read`
     }
+  }
+
+  const formatHref = () => {
+    const enSlug = slug.replace('id-', '')
+    return `/blog/${isIndonesian ? '' : 'id-'}${isIndonesian ? enSlug : slug}`
   }
 
   return (
@@ -44,10 +55,10 @@ const BlogPost = ({ source, frontMatter, locale }) => {
           url: aboutLocale.seo[locale].openGraph.url,
           title: frontMatter.title,
           description: frontMatter.summary,
-          site_name: aboutLocale.seo[locale].openGraph.site_name,
+          site_name: aboutLocale.seo.en.openGraph.site_name,
           images: aboutLocale.seo[locale].openGraph.images,
         }}
-        twitter={aboutLocale.seo[locale].twitter}
+        twitter={aboutLocale.seo.en.twitter}
       />
 
       <div className="flex flex-col pt-32">
@@ -60,18 +71,29 @@ const BlogPost = ({ source, frontMatter, locale }) => {
             <Image
               src="/images/avatar.webp"
               alt="Agallio Samai"
-              width={24}
-              height={24}
+              width={40}
+              height={40}
               className="rounded-full"
             />
-            <p className="ml-2 text-sm text-gray-800 dark:text-gray-300">
-              {frontMatter.author} /{' '}
-              {frontMatter.date
-                ? dayjs(frontMatter.date, 'DD-MM-YYYY')
-                    .locale(locale === 'id' ? 'id' : 'en')
-                    .format('dddd, DD MMMM YYYY')
-                : '-'}
-            </p>
+            <div className="flex flex-col ml-3">
+              <p className="text-sm text-gray-800 dark:text-gray-300">
+                {frontMatter.author} -{' '}
+                {frontMatter.posted_date
+                  ? dayjs(frontMatter.posted_date, 'DD-MM-YYYY')
+                      .locale(isIndonesian ? 'id' : 'en')
+                      .format('dddd, DD MMMM YYYY')
+                  : '-'}
+              </p>
+              <p className="text-sm text-gray-500 dark:text-gray-400">
+                {frontMatter.updated_date
+                  ? ` (${
+                      isIndonesian ? 'Diperbarui pada' : 'Updated at'
+                    } ${dayjs(frontMatter.updated_date, 'DD-MM-YYYY')
+                      .locale(isIndonesian ? 'id' : 'en')
+                      .format('dddd, DD MMMM YYYY')})`
+                  : ''}
+              </p>
+            </div>
           </div>
           <p className="hidden text-sm text-gray-500 dark:text-gray-400 sm:block">
             {getReadingTime()}
@@ -80,7 +102,20 @@ const BlogPost = ({ source, frontMatter, locale }) => {
         <p className="block mt-2 text-sm text-gray-500 dark:text-gray-400 sm:hidden">
           {getReadingTime()}
         </p>
-        <article className="max-w-2xl mt-14 prose dark:prose-dark">
+
+        <div className="flex items-center justify-between w-full py-2 px-4 mt-8 mb-6 border-l-[6px] leading-snug bg-gray-100 dark:bg-gray-900 border-green-600 dark:border-green-400 text-gray-700 dark:text-gray-200">
+          <span>
+            {isIndonesian ? 'Tersedia dalam' : 'Available in'}{' '}
+            <Link href={formatHref()}>
+              <a className="bouncy-anchor">{`Bahasa ${
+                isIndonesian ? 'Inggris' : 'Indonesia'
+              }`}</a>
+            </Link>
+            .
+          </span>
+          <TranslateIcon className="w-6 h-6 text-green-600 dark:text-green-400" />
+        </div>
+        <article className="max-w-2xl prose dark:prose-dark">
           <MDXRemote {...source} components={MDXComponents} />
         </article>
       </div>
@@ -88,7 +123,7 @@ const BlogPost = ({ source, frontMatter, locale }) => {
   )
 }
 
-export const getStaticProps = async ({ params, locale }) => {
+export const getStaticProps = async ({ params }) => {
   const postFilePath = path.join(POSTS_PATH, `${params.slug}.mdx`)
   const source = fs.readFileSync(postFilePath)
 
@@ -107,21 +142,18 @@ export const getStaticProps = async ({ params, locale }) => {
     props: {
       source: mdxSource,
       frontMatter: { readingTime: readingTime(content), ...data },
-      locale,
+      slug: params.slug,
     },
   }
 }
 
 export const getStaticPaths = async () => {
-  const idPaths = postFilePaths
+  const paths = postFilePaths
     .map((path) => path.replace(/\.mdx?$/, ''))
-    .map((slug) => ({ params: { slug }, locale: 'id' }))
-  const enPaths = postFilePaths
-    .map((path) => path.replace(/\.mdx?$/, ''))
-    .map((slug) => ({ params: { slug }, locale: 'en' }))
+    .map((slug) => ({ params: { slug } }))
 
   return {
-    paths: [...idPaths, ...enPaths],
+    paths,
     fallback: false,
   }
 }

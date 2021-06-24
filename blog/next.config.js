@@ -49,11 +49,6 @@ const securityHeaders = [
 ]
 
 module.exports = {
-  i18n: {
-    locales: ['id', 'en'],
-    defaultLocale: 'id',
-    localeDetection: false,
-  },
   async headers() {
     return [
       {
@@ -63,6 +58,15 @@ module.exports = {
       {
         source: '/:path*',
         headers: securityHeaders,
+      },
+    ]
+  },
+  async redirects() {
+    return [
+      {
+        source: '/youtube',
+        destination: 'https://www.youtube.com/channel/UCyX8oVNaFtOi0PI98t7EO6g',
+        permanent: true,
       },
     ]
   },

@@ -45,13 +45,15 @@ const aboutLocale = {
       Hai, perkenalkan nama saya Agallio Samai, atau biasa dipanggil Aga. Saya adalah seorang software engineer yang saat ini sedang bekerja di 
       <a href="https://traveloka.com" target="_blank" rel="noreferrer" className="bouncy-anchor">Traveloka</a>, 
       dan juga membangun project open-source saya, 
-      <a href="https://freedomlife.id" target="_blank" rel="noreferrer" className="bouncy-anchor">FreedomLife</a>,
+      <a href="https://freedomlife.id" target="_blank" rel="noreferrer" className="bouncy-anchor">FreedomLife</a>.
     `,
     en: `
-      Hey, my name is Agallio Samai, also known as Aga. I am a software engineer working on everything related to the web at 
+      Hey, my name is Agallio Samai, also known as Aga. I am a 
+      <a href="https://github.com/agallio" target="_blank" rel="noreferrer" className="bouncy-anchor">software engineer</a> 
+      working on everything related to the web at 
       <a href="https://traveloka.com" target="_blank" rel="noreferrer" className="bouncy-anchor">Traveloka</a>, 
       and also building my open-source project,
-      <a href="https://freedomlife.id" target="_blank" rel="noreferrer" className="bouncy-anchor">FreedomLife</a>,
+      <a href="https://freedomlife.id" target="_blank" rel="noreferrer" className="bouncy-anchor">FreedomLife</a>.
     `,
   },
   long_description: {
@@ -66,7 +68,7 @@ const aboutLocale = {
       Most of my experiences are in frontend engineering & tooling. I have made some 
       <a href="https://github.com/privy-open-source" target="_blank" rel="noreferrer" className="bouncy-anchor">internal tools</a> and 
       <a href="https://github.com/privy-open-source/nuxt-boilerplate" target="_blank" rel="noreferrer" className="bouncy-anchor">boilerplates</a>
-      for Vue ecosystem. I also contributed to React by translating their documentation into 
+      in Vue ecosystem. I also contributed to React by translating their documentation into 
       <a href="https://github.com/reactjs/id.reactjs.org" target="_blank" rel="noreferrer" className="bouncy-anchor">Bahasa Indonesia</a>.
     `,
   },

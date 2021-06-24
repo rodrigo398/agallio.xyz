@@ -7,7 +7,7 @@ const SeoConfig = {
   description: '🇮🇩 Musician who code.',
   openGraph: {
     type: 'website',
-    locale: 'id_ID',
+    locale: 'en',
     url: 'https://agallio.xyz',
     site_name: 'Agallio Samai',
     images: [

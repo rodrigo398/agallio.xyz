@@ -41,7 +41,7 @@ const blogLocale = {
   },
   description: {
     id: 'Isi dari halaman ini mayoritas tulisan saya di dunia software engineering dan karir saya dalam teknologi. Tulisan-tulisan ini berisi pendapat saya pribadi.',
-    en: 'The content of this page is my writing in the world of software engineering and my career in technology. These writings contain my personal opinion.',
+    en: 'My notes and writings about career and software engineering. All of these posts are my personal opinion.',
   },
 }
 

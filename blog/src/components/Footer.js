@@ -1,5 +1,5 @@
-import { useRouter } from 'next/router'
 import Link from 'next/link'
+// import { useRouter } from 'next/router'
 // import useSWR from 'swr'
 
 // import footerLocale from '@/locales/footer'
@@ -19,8 +19,8 @@ const ExternalLink = ({ href, children }) => (
 )
 
 const Footer = () => {
-  const router = useRouter()
-  const { locale } = router
+  // const router = useRouter()
+  // const { locale } = router
   // const { data } = useSWR('/api/now-playing', fetcher)
 
   return (
@@ -84,17 +84,17 @@ const Footer = () => {
         <div className="flex flex-col space-y-3">
           <Link href="/">
             <a className="text-gray-500 hover:text-gray-600 dark:text-gray-300 dark:hover:text-gray-400 transition">
-              {headerLocale.home[locale]}
+              {headerLocale.home.en}
             </a>
           </Link>
           <Link href="/about">
             <a className="text-gray-500 hover:text-gray-600 dark:text-gray-300 dark:hover:text-gray-400 transition">
-              {headerLocale.about[locale]}
+              {headerLocale.about.en}
             </a>
           </Link>
           <Link href="/blog">
             <a className="text-gray-500 hover:text-gray-600 dark:text-gray-300 dark:hover:text-gray-400 transition">
-              {headerLocale.blog[locale]}
+              {headerLocale.blog.en}
             </a>
           </Link>
         </div>

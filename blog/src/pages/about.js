@@ -1,24 +1,19 @@
 import Head from 'next/head'
 import Image from 'next/image'
-import { useRouter } from 'next/router'
 import { NextSeo } from 'next-seo'
 import htmr from 'htmr'
 
 import aboutLocale from '@/locales/about'
 
 import Timeline from '@/components/Timeline'
-import EnTimeline from '@/components/en/Timeline'
 
 export default function About() {
-  const router = useRouter()
-  const { locale } = router
-
   return (
     <>
       <Head>
-        <title>{aboutLocale.seo[locale].title}</title>
+        <title>{aboutLocale.seo.en.title}</title>
       </Head>
-      <NextSeo {...aboutLocale.seo[locale]} />
+      <NextSeo {...aboutLocale.seo.en} />
 
       <div className="flex flex-col pt-28">
         <div className="flex flex-col items-center">
@@ -34,28 +29,28 @@ export default function About() {
 
         <div className="mt-16">
           <h1 className="font-black tracking-wide text-3xl mb-4 sm:text-4xl dark:text-white">
-            {aboutLocale.about_me[locale]}{' '}
+            {aboutLocale.about_me.en}{' '}
             <span role="img" aria-label="man working with macbook">
               🧑🏻‍💻
             </span>
           </h1>
           <p className="md:text-lg leading-relaxed text-gray-700 my-2 dark:text-gray-200">
-            {htmr(aboutLocale.description[locale])}
+            {htmr(aboutLocale.description.en)}
           </p>
 
           <p className="mt-4 mb-2 leading-relaxed md:text-lg text-gray-700 dark:text-gray-200">
-            {htmr(aboutLocale.long_description[locale])}
+            {htmr(aboutLocale.long_description.en)}
           </p>
 
           <p className="mt-4 mb-2 leading-relaxed md:text-lg text-gray-700 dark:text-gray-200">
-            {htmr(aboutLocale.music_description[locale])}
+            {htmr(aboutLocale.music_description.en)}
           </p>
 
           <h1 className="font-black tracking-wide text-3xl mb-4 mt-12 sm:text-4xl dark:text-white">
-            {aboutLocale.timeline[locale]}
+            {aboutLocale.timeline.en}
           </h1>
 
-          {locale === 'en' ? <EnTimeline /> : <Timeline />}
+          <Timeline />
         </div>
       </div>
     </>
