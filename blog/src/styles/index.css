@@ -60,6 +60,13 @@ body {
   height: 100%;
 }
 
+.bouncy-anchor:focus::after {
+  left: 0;
+  bottom: -2px;
+  width: 100%;
+  height: 100%;
+}
+
 .prose code {
   @apply bg-gray-200 p-1 rounded;
 }
