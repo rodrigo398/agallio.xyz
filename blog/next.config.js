@@ -68,6 +68,11 @@ module.exports = {
         destination: 'https://www.youtube.com/channel/UCyX8oVNaFtOi0PI98t7EO6g',
         permanent: true,
       },
+      {
+        source: '/vaksin-jakarta',
+        destination: 'https://jakarta-vax-availability.vercel.app',
+        permanent: true,
+      },
     ]
   },
   webpack: (config, { dev, isServer }) => {
