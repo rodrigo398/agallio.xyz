@@ -73,6 +73,11 @@ module.exports = {
         destination: 'https://jakarta-vax-availability.vercel.app',
         permanent: true,
       },
+      {
+        source: '/ina-covid-bed',
+        destination: 'https://ina-covid-bed.vercel.app',
+        permanent: true,
+      },
     ]
   },
   webpack: (config, { dev, isServer }) => {
