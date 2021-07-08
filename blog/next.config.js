@@ -75,7 +75,7 @@ module.exports = {
       },
       {
         source: '/ina-covid-bed',
-        destination: 'https://ina-covid-bed.vercel.app',
+        destination: 'https://bed.ina-covid.com',
         permanent: true,
       },
     ]
