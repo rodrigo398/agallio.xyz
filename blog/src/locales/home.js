@@ -8,7 +8,7 @@ const homeLocale = {
       <a href="https://freedomlife.id" target="_blank" rel="noreferrer" className="bouncy-anchor">FreedomLife</a>.
     `,
     en: `
-      I am <span role="img" aria-label="Indonesia flag">🇮🇩</span> musician who code 
+      A musician who codes 
       <span role="img" aria-label="man working with macbook">🧑🏻‍💻</span> . 
       Currently working on everything related to the web at 
       <a href="https://traveloka.com" target="_blank" rel="noreferrer" className="bouncy-anchor">Traveloka</a>, 
