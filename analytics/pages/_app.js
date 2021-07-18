@@ -6,6 +6,7 @@ import { Provider } from 'react-redux';
 import { useStore } from 'redux/store';
 import useLocale from 'hooks/useLocale';
 import useForceSSL from 'hooks/useForceSSL';
+import { messages } from 'lib/lang';
 import 'styles/variables.css';
 import 'styles/bootstrap-grid.css';
 import 'styles/index.css';
@@ -13,7 +14,7 @@ import '@fontsource/inter/400.css';
 import '@fontsource/inter/600.css';
 
 const Intl = ({ children }) => {
-  const { locale, messages } = useLocale();
+  const [locale] = useLocale();
 
   const Wrapper = ({ children }) => <span className={locale}>{children}</span>;
 
