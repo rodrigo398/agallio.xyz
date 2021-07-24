@@ -1,25 +1,28 @@
-const { spacing, fontFamily } = require('tailwindcss/defaultTheme')
+const { fontFamily, spacing } = require('tailwindcss/defaultTheme')
 
 module.exports = {
   mode: 'jit',
   purge: [
-    './src/components/**/*.{js,ts,jsx,tsx}',
     './src/pages/**/*.{js,ts,jsx,tsx}',
+    './src/components/**/*.{js,ts,jsx,tsx}',
   ],
-  darkMode: 'class', // 'media' or 'class'
+  darkMode: 'class',
   theme: {
     extend: {
       fontFamily: {
         sans: ['Inter', ...fontFamily.sans],
-        logo: ['Lato', 'sans-serif'],
       },
       typography: (theme) => ({
         DEFAULT: {
           css: {
             color: theme('colors.gray.700'),
             a: {
-              color: theme('colors.green.800'),
-              textDecoration: 'none',
+              color: theme('colors.green.600'),
+              code: { color: theme('colors.green.600') },
+            },
+            'a:hover': {
+              color: theme('colors.green.700'),
+              transition: 'var(--transition-default)',
             },
             'h2,h3,h4': {
               'scroll-margin-top': spacing[32],
@@ -33,8 +36,11 @@ module.exports = {
             color: theme('colors.gray.300'),
             a: {
               color: theme('colors.green.400'),
-              textDecoration: 'none',
               code: { color: theme('colors.green.400') },
+            },
+            'a:hover': {
+              color: theme('colors.green.500'),
+              transition: 'var(--transition-default)',
             },
             blockquote: {
               borderLeftColor: theme('colors.gray.700'),

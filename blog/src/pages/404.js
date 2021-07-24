@@ -1,16 +1,32 @@
+import { useEffect, useState } from 'react'
 import Link from 'next/link'
 
-import notFoundLocale from '../locales/404'
+const textArray = [
+  'Nothing',
+  'What are you doing?',
+  'Searching for what?',
+  'There is nothing here',
+  'Why do you search for nothing?',
+  'This page does not exists',
+]
 
-export default function NotFound() {
+export default function NotFoundPage() {
+  const [text, setText] = useState(textArray[0])
+
+  useEffect(() => {
+    setText(textArray[Math.floor(Math.random() * (6 - 0) + 0)])
+  }, [])
+
   return (
-    <div className="flex flex-col pt-32 items-center justify-center">
-      <h1 className="mb-4 text-3xl tracking-wide font-black md:text-3xl dark:text-white">
-        {notFoundLocale.text.en}
+    <div>
+      <h1 className="text-black dark:text-white mb-2 text-3xl font-bold">
+        {text}
       </h1>
-      <Link href="/" locale="en">
-        <a className="bouncy-anchor text-xl">{notFoundLocale.button.en}</a>
-      </Link>
+      <h4 className="leading-relaxed font-medium text-lg text-black dark:text-white">
+        <Link href="/" passHref>
+          <button className="hover:underline">← Go back</button>
+        </Link>
+      </h4>
     </div>
   )
 }

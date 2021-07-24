@@ -48,7 +48,9 @@ const securityHeaders = [
   },
 ]
 
-module.exports = {
+const withTM = require('next-transpile-modules')(['@georgedoescode/spline'])
+
+module.exports = withTM({
   async headers() {
     return [
       {
@@ -81,10 +83,6 @@ module.exports = {
     ]
   },
   webpack: (config, { dev, isServer }) => {
-    if (isServer) {
-      require('./scripts/generate-sitemap')
-    }
-
     if (!dev && !isServer) {
       Object.assign(config.resolve.alias, {
         react: 'preact/compat',
@@ -95,4 +93,4 @@ module.exports = {
 
     return config
   },
-}
+})
