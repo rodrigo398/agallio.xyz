@@ -80,6 +80,11 @@ module.exports = withTM({
         destination: 'https://bed.ina-covid.com',
         permanent: true,
       },
+      {
+        source: '/blog/:slug',
+        destination: '/post/:slug',
+        permanent: true,
+      },
     ]
   },
   webpack: (config, { dev, isServer }) => {
