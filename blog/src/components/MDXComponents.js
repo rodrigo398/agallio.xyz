@@ -1,8 +1,8 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import { useRouter } from 'next/router'
-
-import InfoIcon from './icons/InfoIcon'
+import { useTheme } from 'next-themes'
+import Zoom from 'react-medium-image-zoom'
 
 const CustomLink = (props) => {
   const router = useRouter()
@@ -13,46 +13,41 @@ const CustomLink = (props) => {
   if (isInternalLink) {
     return (
       <Link href={href} locale={props.locale || locale}>
-        <a {...props} className={props.type !== 'image' ? 'bouncy-anchor' : ''}>
-          {props.children}
-        </a>
+        <a {...props}>{props.children}</a>
       </Link>
     )
   }
 
   return (
     <>
-      <a
-        target="_blank"
-        rel="noopener noreferrer"
-        {...props}
-        className={props.type !== 'image' ? 'bouncy-anchor' : ''}
-      >
+      <a target="_blank" rel="noopener noreferrer" {...props}>
         {props.children}
       </a>
     </>
   )
 }
 
-const InfoCard = (props) => {
+const ImageComponent = (props) => {
+  const { theme } = useTheme()
+
   return (
-    <div className="flex items-center">
-      <div className="mr-2">
-        <InfoIcon className="w-6 h-6 text-green-600 dark:text-green-400" />
-      </div>
-      <div className="w-full py-3 px-4 rounded border-l-[6px] leading-snug bg-gray-100 dark:bg-gray-900 border-green-600 dark:border-green-400 text-gray-700 dark:text-white">
-        {props.children}
-      </div>
-    </div>
+    <Zoom
+      overlayBgColorEnd={
+        theme === 'light' ? 'rgba(255, 255, 255, 0.75)' : 'rgba(0, 0, 0, 0.75)'
+      }
+      overlayBgColorStart={
+        theme === 'light' ? 'rgba(255, 255, 255, 0.75)' : 'rgba(0, 0, 0, 0.75)'
+      }
+    >
+      <Image {...props} alt={props.alt} />
+    </Zoom>
   )
 }
 
 const MDXComponents = {
-  Image,
+  Image: ImageComponent,
   a: CustomLink,
-  ImageLink: (props) => <CustomLink type="image" {...props} />,
   CustomLink,
-  InfoCard,
 }
 
 export default MDXComponents

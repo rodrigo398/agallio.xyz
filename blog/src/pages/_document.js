@@ -12,19 +12,6 @@ export default class Document extends NextDocument {
             type="font/woff2"
             crossOrigin="anonymous"
           />
-          <link
-            rel="preload"
-            href="/fonts/lato-black.woff2"
-            as="font"
-            type="font/woff2"
-            crossOrigin="anonymous"
-          />
-          <script
-            async
-            defer
-            data-website-id="006c150d-d681-4d8a-b8c0-5b1342fa4e96"
-            src="https://analytics.agallio.xyz/umami.js"
-          ></script>
         </Head>
         <body>
           <Main />

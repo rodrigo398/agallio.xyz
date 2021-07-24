@@ -1,92 +1,211 @@
 import Link from 'next/link'
-import htmr from 'htmr'
+import fs from 'fs'
+import path from 'path'
+import matter from 'gray-matter'
 
-import homeLocale from '@/locales/home'
+import dayjs from '@/utils/dayjs'
+import { postFilePaths, POSTS_PATH } from '@/utils/mdx'
 
-import BlogPost from '@/components/BlogPost'
+export default function IndexPage({ posts }) {
+  const filteredPosts = posts.filter((post) => !post.filePath.startsWith('id'))
 
-const RecentBlogPost = () => {
   return (
-    <>
-      <BlogPost
-        slug="fe-engineering-lead"
-        date="24-06-2021"
-        title="Becoming a Frontend Engineering Lead In My Early 20s"
-        summary="The story of my experience as a frontend engineering lead in my early 20s."
-      />
-      <BlogPost
-        slug="switch-to-tailwind"
-        date="17-06-2021"
-        title="Switch To Tailwind CSS"
-        summary="Why did I end up switching to Tailwind CSS? How does it affect the performance of this blog?"
-      />
-      <BlogPost
-        slug="hello-world"
-        date="21-01-2021"
-        title="Hello World!"
-        summary="This is my first english post!"
-      />
-    </>
+    <div>
+      <div className="tracking-wide">
+        <h1 className="text-3xl font-bold">Agallio Samai</h1>
+        <p className="mt-2 text-lg text-gray-700 dark:text-gray-300">
+          <span role="img" aria-label="Indonesia flag">
+            🇮🇩
+          </span>{' '}
+          A musician who codes
+        </p>
+
+        <div className="mt-4 flex">
+          <h4 className="mr-6 leading-relaxed font-medium text-lg text-black dark:text-white">
+            <a
+              className="hover:underline"
+              href="https://poly.work/agallio"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Timeline →
+            </a>
+          </h4>
+          <h4 className="leading-relaxed font-medium text-lg text-black dark:text-white">
+            <a
+              className="hover:underline"
+              href="https://twitter.com/agalliosamai"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Twitter →
+            </a>
+          </h4>
+        </div>
+      </div>
+
+      <div
+        className="mt-10 pt-10 border-t border-gray-300 dark:border-gray-800"
+        style={{ transition: 'var(--transition-default)' }}
+      >
+        <h2 className="tracking-widest font-bold text-gray-700 dark:text-gray-400">
+          PROJECTS
+        </h2>
+        <div className="my-6">
+          <h3 className="leading-relaxed font-bold text-xl text-black dark:text-white">
+            <a
+              className="hover:underline"
+              href="https://bed.ina-covid.com"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              ina-covid-bed →
+            </a>
+          </h3>
+          <p className="text-gray-600 dark:text-gray-400">
+            Covid bed availability for all provinces in Indonesia
+          </p>
+        </div>
+        <div className="my-6">
+          <h3 className="leading-relaxed font-bold text-xl text-black dark:text-white">
+            <a
+              className="hover:underline"
+              href="https://freedomlife.id"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              freedomlife →
+            </a>
+          </h3>
+          <p className="text-gray-600 dark:text-gray-400">
+            An annual bible reading guide app
+          </p>
+        </div>
+      </div>
+
+      <div
+        className="mt-10 pt-10 border-t border-gray-300 dark:border-gray-800"
+        style={{ transition: 'var(--transition-default)' }}
+      >
+        <h2 className="tracking-widest font-bold text-gray-700 dark:text-gray-400">
+          EXPERIENCES
+        </h2>
+        <div className="my-6">
+          <h3 className="leading-relaxed font-bold text-xl text-black dark:text-white">
+            Software Engineer - Web
+          </h3>
+          <p className="text-gray-600 dark:text-gray-400">Traveloka</p>
+        </div>
+        <div className="my-6">
+          <h3 className="leading-relaxed font-bold text-xl text-black dark:text-white">
+            Lead Frontend Engineer
+          </h3>
+          <p className="text-gray-600 dark:text-gray-400">
+            <span className="mr-2">PrivyID</span>•
+            <span className="ml-2">Jul 2020 - May 2021</span>
+          </p>
+        </div>
+        <div className="my-6">
+          <h3 className="leading-relaxed font-bold text-xl text-black dark:text-white">
+            Senior Frontend Engineer
+          </h3>
+          <p className="text-gray-600 dark:text-gray-400">
+            <span className="mr-2">PrivyID</span>•
+            <span className="ml-2">Dec 2019 - Jun 2020</span>
+          </p>
+        </div>
+        <div className="my-6">
+          <h3 className="leading-relaxed font-bold text-xl text-black dark:text-white">
+            Frontend Engineer
+          </h3>
+          <p className="text-gray-600 dark:text-gray-400">
+            <span className="mr-2">Skyshi</span>•
+            <span className="ml-2">Jun 2019 - Dec 2019</span>
+          </p>
+        </div>
+        <div className="my-6">
+          <h3 className="leading-relaxed font-bold text-xl text-black dark:text-white">
+            Frontend Engineer
+          </h3>
+          <p className="text-gray-600 dark:text-gray-400">
+            <span className="mr-2">Docotel Group</span>•
+            <span className="ml-2">Jun 2018 - May 2019</span>
+          </p>
+        </div>
+      </div>
+
+      <div
+        className="mt-10 pt-10 border-t border-gray-300 dark:border-gray-800"
+        style={{ transition: 'var(--transition-default)' }}
+      >
+        <h2 className="tracking-widest font-bold text-gray-700 dark:text-gray-400">
+          WRITINGS
+        </h2>
+        {filteredPosts.length > 0
+          ? filteredPosts
+              .sort(
+                (a, b) =>
+                  new Date(
+                    dayjs(
+                      b.data.updated_date || b.data.posted_date,
+                      'DD-MM-YYYY'
+                    ).toISOString()
+                  ) -
+                  new Date(
+                    dayjs(
+                      a.data.updated_date || a.data.posted_date,
+                      'DD-MM-YYYY'
+                    ).toISOString()
+                  )
+              )
+              .map((item, index) => (
+                <div
+                  key={index}
+                  className={
+                    index === 0 || index === filteredPosts.length - 1
+                      ? 'my-6'
+                      : 'my-8'
+                  }
+                >
+                  <span className="text-sm text-gray-500 dark:text-gray-400">
+                    {dayjs(
+                      item.data.updated_date || item.data.posted_date,
+                      'DD-MM-YYYY'
+                    )
+                      .locale('en')
+                      .format('DD MMMM YYYY')}
+                  </span>
+                  <h3 className="leading-snug my-1 font-bold text-xl text-black dark:text-white">
+                    <Link
+                      href={`/post/${item.filePath.replace(/\.mdx?$/, '')}`}
+                      passHref
+                    >
+                      <span className="cursor-pointer hover:underline">
+                        {item.data.title} →
+                      </span>
+                    </Link>
+                  </h3>
+                  <p className="text-gray-600 dark:text-gray-400">
+                    {item.data.summary}
+                  </p>
+                </div>
+              ))
+          : 'test'}
+      </div>
+    </div>
   )
 }
 
-export default function IndexPage() {
-  return (
-    <div className="flex flex-col pt-28">
-      <h1 className="mb-6 text-3xl tracking-wide font-black md:text-4xl dark:text-white">
-        {homeLocale.greetings.en}{' '}
-        <span role="img" aria-label="handwaves">
-          👋🏻
-        </span>
-      </h1>
-      <p className="text-gray-700 dark:text-gray-100 leading-relaxed sm:text-xl">
-        {htmr(homeLocale.description.en)}
-      </p>
+export function getStaticProps() {
+  const posts = postFilePaths.map((filePath) => {
+    const source = fs.readFileSync(path.join(POSTS_PATH, filePath))
+    const { content, data } = matter(source)
+    return {
+      content,
+      data,
+      filePath,
+    }
+  })
 
-      <p className="sm:text-xl mt-6">
-        <Link href="/about">
-          <a className="bouncy-anchor">{homeLocale.cta_about.en} →</a>
-        </Link>
-      </p>
-
-      {/* <h2 className="mt-12 font-bold text-2xl dark:text-white">Projects</h2>
-      <a
-        href="https://freedomlife.id"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        <div className="border mt-4 rounded-t-xl border-gray-200 cursor-pointer transition transform hover:bg-gray-50 dark:border-gray-700 dark:hover:bg-gray-900">
-          <div className="p-4">
-            <h1 className="font-medium text-lg dark:text-white sm:text-xl">
-              FreedomLife
-            </h1>
-            <p className="text-sm text-gray-800 dark:text-gray-300 sm:text-base">
-              {locale === 'id'
-                ? 'Panduan Baca Alkitab Setahun'
-                : 'A 1-Year Bible Reading Guide'}
-            </p>
-          </div>
-        </div>
-        <div className="rounded-b-xl cursor-pointer border border-t-0 bg-white dark:bg-black dark:border-gray-700">
-          <div className="flex items-center justify-center py-16 sm:py-6">
-            <Image
-              src="/images/projects/freedomlife.png"
-              width={45}
-              height={45}
-              alt="FreedomLife Logo"
-              className="rounded-b-xl cursor-pointer"
-            />
-            <h1 className="ml-[5px] text-4xl font-logo text-gray-800 dark:text-white">
-              freedomlife
-            </h1>
-          </div>
-        </div>
-      </a> */}
-
-      <h2 className="mt-12 font-bold text-2xl dark:text-white">
-        {homeLocale.recent_post.en}
-      </h2>
-      <RecentBlogPost />
-    </div>
-  )
+  return { props: { posts } }
 }

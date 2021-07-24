@@ -1,34 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>https://agallio.xyz/about</loc>
-  </url>
-
-  <url>
-    <loc>https://agallio.xyz</loc>
-  </url>
-
-  <url>
-    <loc>https://agallio.xyz/blog/fe-engineering-lead</loc>
-  </url>
-
-  <url>
-    <loc>https://agallio.xyz/blog/hello-world</loc>
-  </url>
-
-  <url>
-    <loc>https://agallio.xyz/blog/id-fe-engineering-lead</loc>
-  </url>
-
-  <url>
-    <loc>https://agallio.xyz/blog/id-hello-world</loc>
-  </url>
-
-  <url>
-    <loc>https://agallio.xyz/blog/id-switch-to-tailwind</loc>
-  </url>
-
-  <url>
-    <loc>https://agallio.xyz/blog/switch-to-tailwind</loc>
-  </url>
+<urlset
+	xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+	<url>
+		<loc>https://agallio.xyz</loc>
+	</url>
+	<url>
+		<loc>https://agallio.xyz/post/fe-engineering-lead</loc>
+	</url>
+	<url>
+		<loc>https://agallio.xyz/post/hello-world</loc>
+	</url>
+	<url>
+		<loc>https://agallio.xyz/post/id-fe-engineering-lead</loc>
+	</url>
+	<url>
+		<loc>https://agallio.xyz/post/id-hello-world</loc>
+	</url>
+	<url>
+		<loc>https://agallio.xyz/post/id-switch-to-tailwind</loc>
+	</url>
+	<url>
+		<loc>https://agallio.xyz/post/switch-to-tailwind</loc>
+	</url>
 </urlset>
