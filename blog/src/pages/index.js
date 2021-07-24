@@ -21,7 +21,7 @@ export default function IndexPage({ posts }) {
         </p>
 
         <div className="mt-4 flex">
-          <h4 className="mr-6 leading-relaxed font-medium text-lg text-black dark:text-white">
+          <h2 className="mr-6 leading-relaxed font-medium text-lg text-black dark:text-white">
             <a
               className="hover:underline"
               href="https://poly.work/agallio"
@@ -30,8 +30,8 @@ export default function IndexPage({ posts }) {
             >
               Timeline →
             </a>
-          </h4>
-          <h4 className="leading-relaxed font-medium text-lg text-black dark:text-white">
+          </h2>
+          <h2 className="leading-relaxed font-medium text-lg text-black dark:text-white">
             <a
               className="hover:underline"
               href="https://twitter.com/agalliosamai"
@@ -40,7 +40,7 @@ export default function IndexPage({ posts }) {
             >
               Twitter →
             </a>
-          </h4>
+          </h2>
         </div>
       </div>
 

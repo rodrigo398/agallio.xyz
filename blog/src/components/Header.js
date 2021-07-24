@@ -33,7 +33,7 @@ export default function Header({ isMounted }) {
           <path id="ulala" d="" fill="url('#gradient')"></path>
         </svg>
         <Link href="/" passHref>
-          <button className="absolute">
+          <button aria-label="Home" className="absolute">
             <AIcon />
           </button>
         </Link>
