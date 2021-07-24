@@ -11,7 +11,7 @@ const SeoConfig = {
     site_name: 'Agallio Samai',
     images: [
       {
-        url: 'http://agallio.xyz/images/og-main.png',
+        url: 'http://agallio.xyz/images/og-image.png',
         alt: 'Agallio Samai',
       },
     ],
