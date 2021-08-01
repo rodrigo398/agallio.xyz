@@ -1,3 +1,5 @@
+import ExternalLink from './ExternalLink'
+
 export default function Footer() {
   return (
     <div
@@ -5,84 +7,38 @@ export default function Footer() {
       style={{ transition: 'var(--transition-default)' }}
     >
       <h4 className="my-2 leading-relaxed font-medium text-lg text-black dark:text-white">
-        <a
-          className="hover:underline"
-          href="mailto:me@agallio.xyz"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Email →
-        </a>
+        <ExternalLink href="mailto:me@agallio.xyz">Email →</ExternalLink>
       </h4>
       <h4 className="my-2 leading-relaxed font-medium text-lg text-black dark:text-white">
-        <a
-          className="hover:underline"
-          href="https://poly.work/agallio"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Timeline →
-        </a>
+        <ExternalLink href="https://poly.work/agallio">Timeline →</ExternalLink>
       </h4>
       <h4 className="my-2 leading-relaxed font-medium text-lg text-black dark:text-white">
-        <a
-          className="hover:underline"
-          href="https://twitter.com/agalliosamai"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
+        <ExternalLink href="https://twitter.com/agalliosamai">
           Twitter →
-        </a>
+        </ExternalLink>
       </h4>
       <h4 className="my-2 leading-relaxed font-medium text-lg text-black dark:text-white">
-        <a
-          className="hover:underline"
-          href="https://github.com/agallio"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          GitHub →
-        </a>
+        <ExternalLink href="https://github.com/agallio">GitHub →</ExternalLink>
       </h4>
       <h4 className="my-2 leading-relaxed font-medium text-lg text-black dark:text-white">
-        <a
-          className="hover:underline"
-          href="https://www.linkedin.com/in/agalliosamai/"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
+        <ExternalLink href="https://www.linkedin.com/in/agalliosamai/">
           LinkedIn →
-        </a>
+        </ExternalLink>
       </h4>
       <h4 className="my-2 leading-relaxed font-medium text-lg text-black dark:text-white">
-        <a
-          className="hover:underline"
-          href="https://instagram.com/agallio"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
+        <ExternalLink href="https://instagram.com/agallio">
           Instagram →
-        </a>
+        </ExternalLink>
       </h4>
       <h4 className="my-2 leading-relaxed font-medium text-lg text-black dark:text-white">
-        <a
-          className="hover:underline"
-          href="https://www.youtube.com/channel/UCyX8oVNaFtOi0PI98t7EO6g"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
+        <ExternalLink href="https://www.youtube.com/channel/UCyX8oVNaFtOi0PI98t7EO6g">
           YouTube →
-        </a>
+        </ExternalLink>
       </h4>
       <h4 className="my-2 leading-relaxed font-medium text-lg text-black dark:text-white">
-        <a
-          className="hover:underline"
-          href="https://soundcloud.com/agalliosamai"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
+        <ExternalLink href="https://soundcloud.com/agalliosamai">
           Soundcloud →
-        </a>
+        </ExternalLink>
       </h4>
     </div>
   )
