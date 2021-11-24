@@ -7,9 +7,6 @@ module.exports = {
     FORCE_SSL: !!process.env.FORCE_SSL,
   },
   basePath: process.env.BASE_PATH,
-  eslint: {
-    ignoreDuringBuilds: true,
-  },
   webpack(config) {
     config.module.rules.push({
       test: /\.svg$/,

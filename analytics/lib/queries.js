@@ -427,7 +427,7 @@ export function getSessionMetrics(website_id, start_at, end_at, field, filters =
 
 export function getPageviewMetrics(website_id, start_at, end_at, field, table, filters = {}) {
   const params = [website_id, start_at, end_at];
-  const { domain, url } = filters;
+  const { domain, url, ref } = filters;
 
   let domainFilter = '';
   let urlFilter = '';
