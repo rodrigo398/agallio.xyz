@@ -1,12 +1,9 @@
 {
   "compilerOptions": {
+    "jsx": "react-jsx",
     "baseUrl": ".",
     "paths": {
-      "@/components/*": ["src/components/*"],
-      "@/styles/*": ["src/styles/*"],
-      "@/utils/*": ["src/utils/*"]
+      "~/*": ["./app/*"]
     }
-  },
-  "exclude": ["node_modules", ".next", "out"],
-  "include": ["**/*.js"]
+  }
 }

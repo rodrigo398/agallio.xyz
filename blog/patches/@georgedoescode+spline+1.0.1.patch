@@ -1,0 +1,10 @@
+diff --git a/node_modules/@georgedoescode/spline/spline.js b/node_modules/@georgedoescode/spline/spline.js
+index 6f198ec..172adfb 100644
+--- a/node_modules/@georgedoescode/spline/spline.js
++++ b/node_modules/@georgedoescode/spline/spline.js
+@@ -66,4 +66,4 @@ function spline(points = [], tension = 1, close = false, cb) {
+   return path;
+ }
+ 
+-export { spline };
++module.exports = { spline }
