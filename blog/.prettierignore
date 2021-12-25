@@ -1,5 +1,12 @@
 node_modules
-.next
-yarn.lock
-package-lock.json
-public
+
+.cache
+.vercel
+.output
+
+public/build
+api/_build
+
+.env
+
+app/tailwind.css
