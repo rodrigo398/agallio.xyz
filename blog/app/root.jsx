@@ -19,6 +19,8 @@ export function meta() {
   return {
     title: 'Agallio Samai',
     description: '🇮🇩 A musician who codes',
+    'og:title': 'Agallio Samai',
+    'og:description': '🇮🇩 A musician who codes',
     'og:url': 'https://agallio.xyz',
     'og:type': 'website',
     'og:locale': 'en',
