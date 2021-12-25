@@ -49,7 +49,9 @@ export const loader = async ({ params }) => {
     return json(
       { page, blocks: blocksWithChildren },
       {
-        headers: { 'Cache-Control': 'max-age=60, stale-while-revalidate=60' },
+        headers: {
+          'Cache-Control': 'max-age=3600, stale-while-revalidate=3600',
+        },
       }
     )
   } catch {

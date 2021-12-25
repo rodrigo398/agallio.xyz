@@ -13,7 +13,7 @@ export const loader = async () => {
   )
 
   return json(filteredDatabase, {
-    headers: { 'Cache-Control': 'max-age=60, stale-while-revalidate=60' },
+    headers: { 'Cache-Control': 'max-age=3600, stale-while-revalidate=3600' },
   })
 }
 
