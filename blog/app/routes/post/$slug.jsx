@@ -46,15 +46,14 @@ export const loader = async ({ params }) => {
       return block
     })
 
-    // return json(
-    //   { page, blocks: blocksWithChildren },
-    //   {
-    //     headers: {
-    //       'Cache-Control': 'max-age=3600, stale-while-revalidate=3600',
-    //     },
-    //   }
-    // )
-    return { page, blocks: blocksWithChildren }
+    return json(
+      { page, blocks: blocksWithChildren },
+      {
+        headers: {
+          'Cache-Control': 'max-age=3600, stale-while-revalidate=3600',
+        },
+      }
+    )
   } catch {
     throw redirect('/')
   }

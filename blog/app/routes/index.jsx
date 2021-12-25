@@ -12,10 +12,9 @@ export const loader = async () => {
       !post.properties.Slug.rich_text[0].plain_text.includes('id')
   )
 
-  // return json(filteredDatabase, {
-  //   headers: { 'Cache-Control': 'max-age=3600, stale-while-revalidate=3600' },
-  // })
-  return filteredDatabase
+  return json(filteredDatabase, {
+    headers: { 'Cache-Control': 'max-age=3600, stale-while-revalidate=3600' },
+  })
 }
 
 export default function Index() {
