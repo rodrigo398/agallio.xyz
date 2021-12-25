@@ -47,7 +47,7 @@ export default function Header() {
           </defs>
           <path id="ulala" d="" fill="url('#gradient')"></path>
         </svg>
-        <Link to="/">
+        <Link to="/" prefetch="intent">
           <button
             aria-label="Home"
             className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"

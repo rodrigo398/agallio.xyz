@@ -1,5 +1,5 @@
 import { Fragment, useEffect, useMemo, useState } from 'react'
-import { Link, redirect, useLoaderData, useParams } from 'remix'
+import { json, Link, redirect, useLoaderData, useParams } from 'remix'
 import { highlight, languages } from 'prismjs'
 
 import BlurImage from '~/components/blur-image'
@@ -46,15 +46,14 @@ export const loader = async ({ params }) => {
       return block
     })
 
-    return { page, blocks: blocksWithChildren }
+    return json(
+      { page, blocks: blocksWithChildren },
+      {
+        headers: { 'Cache-Control': 'max-age=60, stale-while-revalidate=60' },
+      }
+    )
   } catch {
     throw redirect('/')
-  }
-}
-
-export function headers() {
-  return {
-    'Cache-Control': 'private, max-age=3600',
   }
 }
 
