@@ -57,12 +57,16 @@ export function meta({ data }) {
     return {
       title: 'Agallio Samai',
       description: '🇮🇩 A musician who codes',
+      'og:title': 'Agallio Samai',
+      'og:description': '🇮🇩 A musician who codes',
     }
   }
 
   return {
     title: `${data.page.properties.Name.title[0].plain_text} — Agallio Samai`,
     description: data.page.properties.Description.rich_text[0].plain_text,
+    'og:title': data.page.properties.Name.title[0].plain_text,
+    'og:description': data.page.properties.Description.rich_text[0].plain_text,
   }
 }
 
