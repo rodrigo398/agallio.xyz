@@ -52,6 +52,12 @@ export const loader = async ({ params }) => {
   }
 }
 
+export function headers() {
+  return {
+    'Cache-Control': 'private, max-age=3600',
+  }
+}
+
 export function meta({ data }) {
   if (!data) {
     return {

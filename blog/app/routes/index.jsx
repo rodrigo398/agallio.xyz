@@ -143,7 +143,7 @@ export default function Index() {
                 {date}
               </span>
               <h3 className="leading-snug my-1 font-bold text-xl text-black dark:text-white">
-                <Link to={`/post/${slug}`}>
+                <Link to={`/post/${slug}`} prefetch="intent">
                   <span className="cursor-pointer hover:underline">
                     {title} →
                   </span>
