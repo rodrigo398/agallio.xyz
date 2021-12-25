@@ -3,5 +3,53 @@
     "env": {
       "ENABLE_FILE_SYSTEM_API": "1"
     }
-  }
+  },
+  "headers": [
+    {
+      "source": "/fonts/inter-var-latin.woff2",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    }
+  ],
+  "redirects": [
+    {
+      "source": "/timeline",
+      "destination": "https://poly.work/agallio",
+      "permanent": true
+    },
+    {
+      "source": "/twitter",
+      "destination": "https://twitter.com/agalliosamai",
+      "permanent": true
+    },
+    {
+      "source": "/github",
+      "destination": "https://github.com/agallio",
+      "permanent": true
+    },
+    {
+      "source": "/linkedin",
+      "destination": "https://linkedin.com/in/agalliosamai",
+      "permanent": true
+    },
+    {
+      "source": "/instagram",
+      "destination": "https://instagram.com/agallio",
+      "permanent": true
+    },
+    {
+      "source": "/youtube",
+      "destination": "https://www.youtube.com/channel/UCyX8oVNaFtOi0PI98t7EO6g",
+      "permanent": true
+    },
+    {
+      "source": "/soundcloud",
+      "destination": "https://soundcloud.com/agalliosamai",
+      "permanent": true
+    }
+  ]
 }
