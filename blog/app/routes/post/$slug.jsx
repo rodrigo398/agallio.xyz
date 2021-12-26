@@ -50,12 +50,18 @@ export const loader = async ({ params }) => {
       { page, blocks: blocksWithChildren },
       {
         headers: {
-          'Cache-Control': 'max-age=3600, stale-while-revalidate=3600',
+          'Cache-Control': 's-maxage=3600, stale-while-revalidate=60',
         },
       }
     )
   } catch {
     throw redirect('/')
+  }
+}
+
+export function headers() {
+  return {
+    'Cache-Control': 's-maxage=3600, stale-while-revalidate=60',
   }
 }
 

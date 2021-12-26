@@ -4,7 +4,7 @@ import ExternalLink from '~/components/external-link'
 
 import { dayjs, getDatabase } from '~/utils'
 
-export const loader = async () => {
+export async function loader() {
   const database = await getDatabase(process.env.NOTION_DATABASE_ID)
   const filteredDatabase = database.filter(
     (post) =>
@@ -13,8 +13,14 @@ export const loader = async () => {
   )
 
   return json(filteredDatabase, {
-    headers: { 'Cache-Control': 'max-age=3600, stale-while-revalidate=3600' },
+    headers: { 'Cache-Control': 's-maxage=3600, stale-while-revalidate=60' },
   })
+}
+
+export function headers() {
+  return {
+    'Cache-Control': 's-maxage=3600, stale-while-revalidate=60',
+  }
 }
 
 export default function Index() {
