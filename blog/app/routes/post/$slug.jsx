@@ -50,7 +50,7 @@ export const loader = async ({ params }) => {
       { page, blocks: blocksWithChildren },
       {
         headers: {
-          'Cache-Control': 's-maxage=31536000, stale-while-revalidate=3600',
+          'Cache-Control': 's-maxage=31536000, stale-while-revalidate=600',
         },
       }
     )
@@ -61,7 +61,7 @@ export const loader = async ({ params }) => {
 
 export function headers() {
   return {
-    'Cache-Control': 's-maxage=31536000, stale-while-revalidate=3600',
+    'Cache-Control': 's-maxage=31536000, stale-while-revalidate=600',
   }
 }
 
