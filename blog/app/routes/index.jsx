@@ -13,13 +13,15 @@ export async function loader() {
   )
 
   return json(filteredDatabase, {
-    headers: { 'Cache-Control': 's-maxage=3600, stale-while-revalidate=60' },
+    headers: {
+      'Cache-Control': 's-maxage=31536000, stale-while-revalidate=3600',
+    },
   })
 }
 
 export function headers() {
   return {
-    'Cache-Control': 's-maxage=3600, stale-while-revalidate=60',
+    'Cache-Control': 's-maxage=31536000, stale-while-revalidate=3600',
   }
 }
 
