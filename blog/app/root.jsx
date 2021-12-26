@@ -87,6 +87,12 @@ export default function App() {
             `,
           }}
         />
+        <script
+          async
+          defer
+          data-website-id="006c150d-d681-4d8a-b8c0-5b1342fa4e96"
+          src="https://analytics.agallio.xyz/umami.js"
+        ></script>
       </head>
       <body>
         <div className="max-w-lg mx-auto px-6 py-10 md:max-w-2xl">
