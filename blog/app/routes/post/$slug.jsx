@@ -2,7 +2,6 @@ import { Fragment, useEffect, useMemo, useState } from 'react'
 import { json, Link, redirect, useLoaderData, useParams } from 'remix'
 import { highlight, languages } from 'prismjs'
 
-import BlurImage from '~/components/blur-image'
 import TranslateIcon from '~/components/icons/translate-icon'
 
 import { dayjs, getDatabase, getPage, getBlocks, getReadingTime } from '~/utils'
@@ -237,16 +236,21 @@ function renderBlock(block) {
         value.type === 'external' ? value.external.url : value.file.url
       const rawCaption = value.caption ? value.caption[0].plain_text : ''
       const caption = rawCaption.replace(/\((.*)\)/g, '')
-      const [width, height] = rawCaption
+      const [_, height] = rawCaption
         .match(/\((.*)\)/)
         .pop()
         .split('x')
 
       return (
         <figure className="my-6">
-          <BlurImage src={src} alt={caption} width={width} height={height} />
+          <img
+            src={src}
+            height={height}
+            alt={caption}
+            className="rounded shadow-lg"
+          />
           {caption && (
-            <figcaption className="mt-2 text-xs text-center text-zinc-500 dark:text-zinc-400">
+            <figcaption className="mt-4 text-xs text-center text-zinc-500 dark:text-zinc-400">
               {caption}
             </figcaption>
           )}
